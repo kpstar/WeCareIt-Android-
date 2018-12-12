@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="32dp"
+    android:orientation="horizontal"
+    android:layout_marginRight="@dimen/padding_6dp">
+    <TextView
+        android:id="@+id/menu_item_document_filter_filename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:text="Filnamn"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"/>
+    <Switch
+        android:id="@+id/menu_item_document_filter_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/menu_item_document_filter_filename"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:text="Datum"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/menu_item_document_filter_switch"/>
+</RelativeLayout>

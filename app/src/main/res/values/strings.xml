@@ -1,0 +1,108 @@
+<resources>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+
+    <string name="app_name">wecareit</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="all">Alla</string>
+    <string name="relevant">Relevanta</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="submitted">inskickad</string>
+    <string name="not_submitted">ej inskickad</string>
+    <string name="save">SPARA</string>
+    <string name="respond">Svara</string>
+    <string name="response">svar</string>
+    <string name="write">Skriv något</string>
+    <string name="accommodation">Boende</string>
+    <string name="area">Område</string>
+    <string name="keyword">Nyckelord</string>
+    <string name="category">Kategori</string>
+    <string name="timeinterval">Tidsintervall</string>
+    <string name="clear">RENSA</string>
+    <string name="used">ANVÄND</string>
+    <string name="edit">Redigera</string>
+    <string name="news">Flöde</string>
+    <string name="tasks">Uppgifter</string>
+    <string name="events">Veckoschema</string>
+    <string name="updates">Senaste uppdateringar på sidan</string>
+    <string name="lasteditedby">Senast redigerat av</string>
+    <string name="housing">BOENDET</string>
+    <string name="dailyactivities">DAGLIG</string>
+    <string name="cancel">AVBRYT</string>
+    <string name="vehicle">Fordon</string>
+    <string name="activities">Aktiviteter</string>
+    <string name="employees">Anställda</string>
+    <string name="status">Status</string>
+    <string name="created_date">Skapad, datum</string>
+    <string name="mine">Mina</string>
+    <string name="company_car">Företagsbil</string>
+    <string name="travel_bill">Reseräkning</string>
+    <string name="measurement_satrt">Mätarställning,start</string>
+    <string name="measurement_destination">Mätarställning,destination</string>
+    <string name="addressjourneystart">Adress resans början</string>
+    <string name="addresstraveldestination">Adress resans mål</string>
+    <string name="users">Brukare</string>
+    <string name="submit">SKICKA IN</string>
+    <string name="registration">Registreringsnummer</string>
+    <string name="dateoftravel">Datum för resa</string>
+    <string name="drivingkilometers">Körda kilometer</string>
+    <string name="beach">BEACH</string>
+    <string name="library">LIBRARY</string>
+    <string name="shopping">SHOPPING</string>
+    <string name="length">Längd</string>
+    <string name="starttime">Start-tid</string>
+    <string name="startdate">Start-datum</string>
+    <string name="description">Beskrivning</string>
+    <string name="heading">Rubrik</string>
+    <string name="timestart">09:00:00</string>
+    <string name="latestpost">Senaste inlägg</string>
+    <string name="summarizetheevent">Sammanfatta händelsen</string>
+    <string name="details">Detaljer</string>
+    <string name="generalkeyword">Generellt nyckelord</string>
+    <string name="specifickeywords">Specifikt nyckelord</string>
+    <string name="firstselectageneralkeyword">Välj först ett generellt nyckelord.</string>
+    <string name="backdated">Bakdatera</string>
+    <string name="greaterthan">Värdet måste vara större än vid resans början.</string>
+    <string name="activity">Aktivitet</string>
+    <string name="responsible">Ansvarig</string>
+    <string name="deadline">Deadline</string>
+
+    <!-- TODO: spinner text -->
+    <string name="spinner_prompt"> </string>
+
+    <string name="timeintervalspinner_prompt">Idag / valt datum</string>
+
+    <string-array name="timeinterval_arrays">
+        <item>Idag / valt datum</item>
+        <item>15 dagar</item>
+        <item>30 dagar</item>
+        <item>90 dagar</item>
+        <item>1 år</item>
+    </string-array>
+    <string-array name="activities_arrays">
+        <item> </item>
+        <item>Endast boende</item>
+        <item>Anställda Aktiviteter</item>
+    </string-array>
+</resources>

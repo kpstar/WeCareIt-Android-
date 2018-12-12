@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_news"
+            android:title="Flöde"
+            android:icon="@drawable/ic_news" />
+        <item
+            android:id="@+id/nav_notes"
+            android:icon="@drawable/ic_notes"
+            android:title="Anteckningar" />
+        <item
+            android:id="@+id/nav_info"
+            android:icon="@drawable/ic_information"
+            android:title="Information" />
+        <item
+            android:id="@+id/nav_weekly_schedule"
+            android:icon="@drawable/ic_weekly_schedule"
+            android:title="Veckoschema" />
+        <item
+            android:id="@+id/nav_attendance"
+            android:icon="@drawable/ic_attendance"
+            android:title="Närvarolista" />
+        <item
+            android:id="@+id/nav_driving_journal"
+            android:icon="@drawable/ic_driving_journal"
+            android:title="Körjournal (BETA)" />
+        <item
+            android:id="@+id/nav_meeting_protocol"
+            android:icon="@drawable/ic_meeting_protocol"
+            android:title="Mötesprotokoll" />
+        <item
+            android:id="@+id/nav_task"
+            android:icon="@drawable/ic_task"
+            android:title="Uppgifter" />
+        <item
+            android:id="@+id/nav_route_schedule"
+            android:icon="@drawable/ic_route_schedule"
+            android:title="Rutinschema (BETA)" />
+        <item
+            android:id="@+id/nav_document"
+            android:icon="@drawable/ic_document"
+            android:title="Dokument" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logga ut" />
+    </group>
+
+</menu>

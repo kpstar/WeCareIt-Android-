@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_12dp">
+    <Spinner
+        android:id="@+id/fragment_document_add_category"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_32dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/padding_12dp">
+    </Spinner>
+    <ImageView
+        android:id="@+id/fragment_document_add_file_icon"
+        android:layout_width="@dimen/width_32dp"
+        android:layout_height="@dimen/height_32dp"
+        android:src="@drawable/ic_file"
+        android:padding="@dimen/padding_6dp"
+        android:layout_below="@id/fragment_document_add_category"
+        android:layout_alignParentLeft="true"/>
+    <TextView
+        android:id="@+id/fragment_document_add_filename"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_32dp"
+        android:background="@color/colorLightGray"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@id/fragment_document_add_file_icon"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/fragment_document_add_category"/>
+</RelativeLayout>

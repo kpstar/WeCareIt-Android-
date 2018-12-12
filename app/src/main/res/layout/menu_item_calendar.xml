@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="32dp"
+    android:orientation="horizontal"
+    android:layout_marginRight="@dimen/padding_6dp">
+    <ImageView
+        android:id="@+id/calendar_menu_item_prev"
+        android:layout_width="@dimen/width_32dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_left_arrow"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"/>
+    <ImageView
+        android:id="@+id/calendar_menu_item_calendar"
+        android:layout_width="@dimen/width_32dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_calendar"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/calendar_menu_item_prev"/>
+    <ImageView
+        android:id="@+id/calendar_menu_item_next"
+        android:layout_width="@dimen/width_32dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_right_arrow"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/calendar_menu_item_calendar"/>
+</RelativeLayout>

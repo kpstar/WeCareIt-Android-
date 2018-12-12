@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/padding_6dp"
+    android:layout_marginBottom="@dimen/padding_6dp"
+    android:id="@+id/lnCommentlistrow"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivUserimage_commentslist"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp" />
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle_commentslist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medium Text"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_16sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                android:textColor="@color/colorText" />
+            <TextView
+                android:id="@+id/tvTime_commentslist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_14sp"
+                android:textStyle="italic"
+                android:text="TextView"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvDeac_commentslist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/timestart"
+        android:paddingLeft="@dimen/padding_6dp"
+        android:layout_margin="@dimen/padding_6dp"
+        android:textColor="@color/colorText"/>
+</LinearLayout>

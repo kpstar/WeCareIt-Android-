@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_12dp">
+    <TextView
+        android:id="@+id/attendance_row_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/width_200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+    <RelativeLayout
+        android:layout_width="@dimen/width_120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+        <RelativeLayout
+            android:id="@+id/attendance_row_controls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+            <ImageView
+                android:id="@+id/attendance_row_decrease"
+                android:layout_width="@dimen/width_40dp"
+                android:layout_height="@dimen/height_40dp"
+                android:background="@drawable/ic_decrease"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/attendance_row_hours"/>
+            <TextView
+                android:id="@+id/attendance_row_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/width_40dp"
+                android:textAlignment="center"
+                android:layout_centerInParent="true" />
+            <ImageView
+                android:id="@+id/attendance_row_increase"
+                android:layout_width="@dimen/width_40dp"
+                android:layout_height="@dimen/height_40dp"
+                android:background="@drawable/ic_increase"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/attendance_row_hours"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/attendance_row_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="first name, last name, title"
+            android:textAlignment="center"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/attendance_row_controls"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>
