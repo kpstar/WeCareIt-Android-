@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.wecareit.common.Global;
@@ -257,7 +258,8 @@ public class NavigationActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
+        Menu menu = navigationView.getMenu();
         if (id == R.id.nav_news) {
             Global.newsFragment = NewsFragment.createInstance();
             Global.fragmentManager.beginTransaction()
@@ -301,6 +303,16 @@ public class NavigationActivity extends AppCompatActivity
                     .addToBackStack(null)
                     .commit();
             Global.floatingButton.setVisibility(View.GONE);
+        } else if (id == R.id.nav_meeting_protocol) {
+            boolean b=!menu.findItem(R.id.nav_meeting_agenda).isVisible();
+            //setting submenus visible state
+            menu.findItem(R.id.nav_meeting_agenda).setVisible(b);
+            menu.findItem(R.id.nav_meeting_meetings).setVisible(b);
+            return true;
+        } else if (id == R.id.nav_meeting_agenda) {
+            Toast.makeText(this, "Agenda",  Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_meeting_agenda) {
+            Toast.makeText(this, "Metttings",  Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_task) {
             Global.tasksFragment = TasksFragment.createInstance();
             Global.fragmentManager.beginTransaction()

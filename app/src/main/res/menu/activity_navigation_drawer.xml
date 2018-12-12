@@ -33,6 +33,16 @@
             android:icon="@drawable/ic_meeting_protocol"
             android:title="Mötesprotokoll" />
         <item
+            android:id="@+id/nav_meeting_agenda"
+            android:icon="@null"
+            android:visible="false"
+            android:title="Dagordningar" />
+        <item
+            android:id="@+id/nav_meeting_meetings"
+            android:icon="@null"
+            android:visible="false"
+            android:title="Möten" />
+        <item
             android:id="@+id/nav_task"
             android:icon="@drawable/ic_task"
             android:title="Uppgifter" />
