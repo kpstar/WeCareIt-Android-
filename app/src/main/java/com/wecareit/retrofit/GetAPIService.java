@@ -13,6 +13,7 @@ import com.wecareit.model.EventspostBody;
 import com.wecareit.model.InfoRes;
 import com.wecareit.model.LoginResponse;
 import com.wecareit.model.Login;
+import com.wecareit.model.LogoutResponse;
 import com.wecareit.model.MainModel;
 import com.wecareit.model.Major_Keyword;
 import com.wecareit.model.News;
@@ -53,6 +54,9 @@ import retrofit2.http.Query;
 public interface GetAPIService {
     @POST("/api/users/login/")
     Call<LoginResponse> doLogin(@Body Login login);
+
+    @POST("/api/users/logout/")
+    Call<LogoutResponse> doLogout();
 
     //Clients//////////////////////////////
     @Headers({"Accept: application/json"})

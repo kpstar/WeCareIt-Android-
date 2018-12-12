@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/editLinear_newsfragment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_60dp"
+        android:layout_margin="@dimen/padding_10dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <ImageView
+            android:id="@+id/btnEdit_newsfragment"
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:layout_width="@dimen/width_60dp"
+            android:layout_height="@dimen/height_40dp"
+            android:background="@drawable/upload"
+            android:layout_alignParentRight="true"/>
+        <EditText
+            android:id="@+id/edit_newsfragment"
+            android:layout_marginLeft="@dimen/padding_10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/write"
+            android:layout_toLeftOf="@id/btnEdit_newsfragment"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editLinear_newsfragment">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/framgment_news_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/padding_10dp"
+            >
+        </android.support.v7.widget.RecyclerView>
+    </ScrollView>
+</RelativeLayout>

@@ -3,6 +3,7 @@ package com.wecareit;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,7 @@ import android.support.design.widget.Snackbar;
 import android.support.transition.Slide;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -34,6 +36,8 @@ import com.wecareit.fragments.document.DocumentFragment;
 import com.wecareit.fragments.drivinglog.DrivingLogFragment;
 import com.wecareit.fragments.events.EventsFragment;
 import com.wecareit.fragments.information.InformationFragment;
+import com.wecareit.fragments.meeting.AgendaFragment;
+import com.wecareit.fragments.meeting.MeetingsFragment;
 import com.wecareit.fragments.news.NewsFragment;
 import com.wecareit.fragments.notes.NotesFragment;
 import com.wecareit.fragments.start.StartFragment;
@@ -41,6 +45,7 @@ import com.wecareit.fragments.tasks.TasksFragment;
 import com.wecareit.model.Area;
 import com.wecareit.model.AuthorRes;
 import com.wecareit.model.Client;
+import com.wecareit.model.LogoutResponse;
 import com.wecareit.model.Major_Keyword;
 import com.wecareit.model.Spinners;
 import com.wecareit.model.Vehicle;
@@ -56,6 +61,7 @@ public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String KEY_LAST_FRAGMENT = "last_fragment";
+    public static String TAG = "NavigationActivity";
 
     private Fragment mContentFragment = null;
 
@@ -73,6 +79,7 @@ public class NavigationActivity extends AppCompatActivity
     /*private ArrayList<Major_Keyword> major_keywords;
     private ArrayList<Major_Keyword> major_keywords;*/
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,6 +159,7 @@ public class NavigationActivity extends AppCompatActivity
 
         ImageView ivLogo = (ImageView) headerView.findViewById(R.id.nav_header_logo_image);
         ivLogo.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onClick(View v) {
                 //Global.fragmentManager = this.getSupportFragmentManager();
@@ -310,9 +318,19 @@ public class NavigationActivity extends AppCompatActivity
             menu.findItem(R.id.nav_meeting_meetings).setVisible(b);
             return true;
         } else if (id == R.id.nav_meeting_agenda) {
-            Toast.makeText(this, "Agenda",  Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_meeting_agenda) {
-            Toast.makeText(this, "Metttings",  Toast.LENGTH_SHORT).show();
+            Global.agendaFragment = AgendaFragment.createInstance();
+            Global.fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, Global.agendaFragment)
+                    .addToBackStack(null)
+                    .commit();
+            Global.floatingButton.setVisibility(View.VISIBLE);
+        } else if (id == R.id.nav_meeting_meetings) {
+            Global.meetingsFragment = MeetingsFragment.createInstance();
+            Global.fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, Global.meetingsFragment)
+                    .addToBackStack(null)
+                    .commit();
+            Global.floatingButton.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_task) {
             Global.tasksFragment = TasksFragment.createInstance();
             Global.fragmentManager.beginTransaction()
@@ -330,7 +348,25 @@ public class NavigationActivity extends AppCompatActivity
                     .commit();
             Global.floatingButton.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_logout) {
+            Call<LogoutResponse> apiCall = Global.getAPIService.doLogout();
+            apiCall.enqueue(new Callback<LogoutResponse>() {
 
+                @Override
+                public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
+                    if (response.isSuccessful()) {
+                        String detail = response.body().getDetail();
+                        Log.d(TAG, detail);
+                        Intent intent = new Intent(NavigationActivity.this, LoginActivity.class);
+                        NavigationActivity.this.startActivity(intent);
+                        NavigationActivity.this.finish();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<LogoutResponse> call, Throwable t) {
+                    Toast.makeText(NavigationActivity.this, "Ange ett korrekt användarnamn och lösenord. Observera att båda fälten är skiftlägeskänsliga.", Toast.LENGTH_LONG).show();
+                }
+            });
         }
 
         InputMethodManager inputMethodManager = (InputMethodManager)  this.getSystemService(Activity.INPUT_METHOD_SERVICE);

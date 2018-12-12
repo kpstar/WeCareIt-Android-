@@ -1,2 +1,14 @@
 
+.idea/*
+.gradle/*
 .idea/workspace.xml
+.idea/workspace.xml
+.gradle/buildOutputCleanup/outputFiles.bin
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/4.6/taskHistory/taskHistory.lock
+.gradle/4.6/taskHistory/taskHistory.bin
+.gradle/4.6/javaCompile/taskHistory.bin
+.gradle/4.6/javaCompile/javaCompile.lock
+.gradle/4.6/javaCompile/classAnalysis.bin
+.gradle/4.6/fileHashes/fileHashes.lock
+.gradle/4.6/fileHashes/fileHashes.bin

@@ -12,6 +12,8 @@ import com.wecareit.fragments.drivinglog.DrivingLogFragment;
 import com.wecareit.fragments.events.EventsFragment;
 import com.wecareit.fragments.events.EventsUpdateFragment;
 import com.wecareit.fragments.information.InformationFragment;
+import com.wecareit.fragments.meeting.AgendaFragment;
+import com.wecareit.fragments.meeting.MeetingsFragment;
 import com.wecareit.fragments.news.NewsFragment;
 import com.wecareit.fragments.notes.NotesAddFragment;
 import com.wecareit.fragments.notes.NotesFragment;
@@ -53,6 +55,8 @@ public class Global {
     public static TasksAddFragment tasksAddFragment;
     public static DrivingLogFragment drivingLogFragment;
     public static EventsUpdateFragment eventsUpdateFragment;
+    public static AgendaFragment agendaFragment;
+    public static MeetingsFragment meetingsFragment;
 
     public static String token;
     public static User user;

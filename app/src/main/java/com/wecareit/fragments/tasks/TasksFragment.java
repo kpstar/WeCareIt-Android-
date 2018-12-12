@@ -379,9 +379,9 @@ public class TasksFragment extends TemplateFragment {
                             default:
                                 break;
                         }
-                                /*TasksAdapter adapter = new TasksAdapter(TasksFragment.this.getContext(), tasks);
+                                TasksAdapter adapter = new TasksAdapter(TasksFragment.this.getContext(), tasks);
                                 mRecyclerView.setAdapter(adapter);
-                                adapter.notifyDataSetChanged();*/
+                                adapter.notifyDataSetChanged();
 
                     }
                 }
