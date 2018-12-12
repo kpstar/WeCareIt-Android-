@@ -9,19 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42df7c93-1593-4cc2-be7e-4de4a7a118c7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/NavigationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/NavigationActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_navigation_drawer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_navigation_drawer.xml" />
-    </list>
+    <list default="true" id="42df7c93-1593-4cc2-be7e-4de4a7a118c7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,8 +35,8 @@
       <file leaf-file-name="NavigationActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/NavigationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="308" column="65" lean-forward="true" selection-start-line="308" selection-start-column="65" selection-end-line="308" selection-end-column="65" />
+            <state relative-caret-position="255">
+              <caret line="301" column="48" lean-forward="false" selection-start-line="301" selection-start-column="48" selection-end-line="301" selection-end-column="48" />
               <folding>
                 <element signature="e#3993#4024#0" expanded="true" />
                 <element signature="e#4026#4058#0" expanded="true" />
@@ -3131,8 +3119,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/NavigationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="308" column="65" lean-forward="true" selection-start-line="308" selection-start-column="65" selection-end-line="308" selection-end-column="65" />
+        <state relative-caret-position="255">
+          <caret line="301" column="48" lean-forward="false" selection-start-line="301" selection-start-column="48" selection-end-line="301" selection-end-column="48" />
           <folding>
             <element signature="e#3993#4024#0" expanded="true" />
             <element signature="e#4026#4058#0" expanded="true" />
