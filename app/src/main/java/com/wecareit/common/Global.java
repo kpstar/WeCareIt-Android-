@@ -17,6 +17,8 @@ import com.wecareit.fragments.meeting.MeetingsFragment;
 import com.wecareit.fragments.news.NewsFragment;
 import com.wecareit.fragments.notes.NotesAddFragment;
 import com.wecareit.fragments.notes.NotesFragment;
+import com.wecareit.fragments.routine.RoutineAddFragment;
+import com.wecareit.fragments.routine.RoutineFragment;
 import com.wecareit.fragments.start.StartFragment;
 import com.wecareit.fragments.tasks.TasksAddFragment;
 import com.wecareit.fragments.tasks.TasksFragment;
@@ -57,6 +59,8 @@ public class Global {
     public static EventsUpdateFragment eventsUpdateFragment;
     public static AgendaFragment agendaFragment;
     public static MeetingsFragment meetingsFragment;
+    public static RoutineFragment routineFragment;
+    public static RoutineAddFragment routineAddFragment;
 
     public static String token;
     public static User user;

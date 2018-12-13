@@ -42,6 +42,7 @@ import com.wecareit.fragments.meeting.AgendaFragment;
 import com.wecareit.fragments.meeting.MeetingsFragment;
 import com.wecareit.fragments.news.NewsFragment;
 import com.wecareit.fragments.notes.NotesFragment;
+import com.wecareit.fragments.routine.RoutineFragment;
 import com.wecareit.fragments.start.StartFragment;
 import com.wecareit.fragments.tasks.TasksFragment;
 import com.wecareit.model.Area;
@@ -346,7 +347,12 @@ public class NavigationActivity extends AppCompatActivity
                     .commit();
             Global.floatingButton.setVisibility(View.GONE);
         } else if (id == R.id.nav_route_schedule) {
-
+            Global.routineFragment = RoutineFragment.createInstance();
+            Global.fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, Global.routineFragment)
+                    .addToBackStack(null)
+                    .commit();
+            Global.floatingButton.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_document) {
             Global.documentFragment = DocumentFragment.createInstance();
             Global.fragmentManager.beginTransaction()

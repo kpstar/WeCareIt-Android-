@@ -77,6 +77,13 @@
     <string name="heading">Rubrik</string>
     <string name="timestart">09:00:00</string>
     <string name="latestpost">Senaste inlägg</string>
+    <string name="rountinename">Namn</string>
+    <string name="rountineweekdays">Veckodagar</string>
+    <string name="rountineusers">Brukare</string>
+    <string name="rountineareas">områden</string>
+    <string name="rountinetime">Tid</string>
+    <string name="rountinestep">Steg</string>
+    <string name="rountineaddstep">+ Lägg till ytterligare steg</string>
     <string name="summarizetheevent">Sammanfatta händelsen</string>
     <string name="details">Detaljer</string>
     <string name="generalkeyword">Generellt nyckelord</string>
