@@ -123,7 +123,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
             tvArea2.setVisibility(View.VISIBLE);
         }
 */
-
+        fbRow.removeAllViews();
         for (Client client: clients) {
             GradientDrawable gd_client = new GradientDrawable();
             gd_client.setShape(GradientDrawable.RECTANGLE);
@@ -160,48 +160,57 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         gd_category.setColor(Color.argb(255,158,158,158));
         gd_category.setCornerRadius(20.0f);
         TextView tvCategory = new TextView(context);
-        tvCategory.setText(notes.getMain_category().getTitle());
-        tvCategory.setBackground(gd_category);
-        tvCategory.setTextColor(Color.parseColor("#ffffff"));
-        tvCategory.setPadding(10,6,10,6);
         FlexboxLayout.LayoutParams params_category = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
         params_category.setMargins(10,6,10,6);
-        tvCategory.setLayoutParams(params_category);
-        fbRow.addView(tvCategory);
+        if (notes.getMain_category() != null) {
+            tvCategory.setText(notes.getMain_category().getTitle());
+            tvCategory.setBackground(gd_category);
+            tvCategory.setTextColor(Color.parseColor("#ffffff"));
+            tvCategory.setPadding(10,6,10,6);
+            tvCategory.setLayoutParams(params_category);
+            fbRow.addView(tvCategory);
+        }
 
         TextView tvMainkey = new TextView(context);
-        tvMainkey.setText(notes.getMajor_keyword().getTitle());
-        tvMainkey.setBackground(gd_category);
-        tvMainkey.setTextColor(Color.parseColor("#ffffff"));
-        tvMainkey.setPadding(10,6,10,6);
-        //FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
-        //params.setMargins(10,6,10,6);
-        tvMainkey.setLayoutParams(params_category);
-        fbRow.addView(tvMainkey);
+        if (notes.getMajor_keyword() != null) {
+            tvMainkey.setText(notes.getMajor_keyword().getTitle());
+            tvMainkey.setBackground(gd_category);
+            tvMainkey.setTextColor(Color.parseColor("#ffffff"));
+            tvMainkey.setPadding(10,6,10,6);
+            //FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
+            //params.setMargins(10,6,10,6);
+            tvMainkey.setLayoutParams(params_category);
+            fbRow.addView(tvMainkey);
+        }
 
         TextView tvMinorkey = new TextView(context);
-        tvMinorkey.setText(notes.getMinor_keyword().getTitle());
-        tvMinorkey.setBackground(gd_category);
-        tvMinorkey.setTextColor(Color.parseColor("#ffffff"));
-        tvMinorkey.setPadding(10,6,10,6);
-        //FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
-        //params.setMargins(10,6,10,6);
-        tvMinorkey.setLayoutParams(params_category);
-        fbRow.addView(tvMinorkey);
+        if (notes.getMinor_keyword() != null) {
+            tvMinorkey.setText(notes.getMinor_keyword().getTitle());
+            tvMinorkey.setBackground(gd_category);
+            tvMinorkey.setTextColor(Color.parseColor("#ffffff"));
+            tvMinorkey.setPadding(10,6,10,6);
+            //FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
+            //params.setMargins(10,6,10,6);
+            tvMinorkey.setLayoutParams(params_category);
+            fbRow.addView(tvMinorkey);
+        }
 
         GradientDrawable gd_area = new GradientDrawable();
         gd_area.setShape(GradientDrawable.RECTANGLE);
         gd_area.setColor(Color.argb(255,233,30,99));
         gd_area.setCornerRadius(20.0f);
+
         TextView tvArea = new TextView(context);
-        tvArea.setText(notes.getArea().getTitle());
-        tvArea.setBackground(gd_area);
-        tvArea.setTextColor(Color.parseColor("#ffffff"));
-        tvArea.setPadding(10,6,10,6);
         FlexboxLayout.LayoutParams params_area = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
         params_area.setMargins(10,6,10,6);
-        tvArea.setLayoutParams(params_area);
-        fbRow.addView(tvArea);
+        if (notes.getArea() != null) {
+            tvArea.setText(notes.getArea().getTitle());
+            tvArea.setBackground(gd_area);
+            tvArea.setTextColor(Color.parseColor("#ffffff"));
+            tvArea.setPadding(10,6,10,6);
+            tvArea.setLayoutParams(params_area);
+            fbRow.addView(tvArea);
+        }
 
         /*switch (main_category.getId()){
             case 1:

@@ -68,7 +68,7 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
     private String nowdate;
     private TextView tvEmpty;
     private Button btnClear, btnSubmit;
-    private String id_note, id_area , id_keyword , id_timerange, id_client ,id_category ;
+    private int id_note, id_area , id_keyword , id_timerange, id_client ,id_category ;
     private static String date_filter;
 
     public static NotesFragment createInstance() {
@@ -367,94 +367,97 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
 
         switch (spTimeinterval.getSelectedItem().toString()){
             case "15 dagar":
-                id_timerange = "1";
+                id_timerange = 1;
                 break;
             case "30 dagar":
-                id_timerange = "2";
+                id_timerange = 2;
                 break;
             case "90 dagar":
-                id_timerange = "3";
+                id_timerange = 3;
                 break;
             case "1 år":
-                id_timerange = "4";
+                id_timerange = 4;
                 break;
             default:
-                id_timerange = "";
+                id_timerange = 0;
                 break;
         }
 
         switch (spArea.getSelectedItem().toString()){
             case "Boendet":
-                id_area = "1";
+                id_area = 1;
                 break;
             case "Daglig Verksamhet":
-                id_area = "2";
+                id_area = 2;
                 break;
             default:
-                id_area = "";
+                id_area = 0;
                 break;
         }
 
         switch (spArea.getSelectedItem().toString()){
             case "Boendet":
-                id_area = "1";
+                id_area = 1;
                 break;
             case "Daglig Verksamhet":
-                id_area = "2";
+                id_area = 2;
                 break;
             default:
-                id_area = "";
+                id_area = 0;
                 break;
         }
 
         switch (spCategory.getSelectedItem().toString()){
             case "Social dokumentation":
-                id_category = "1";
+                id_category = 1;
                 break;
             case "HSL":
-                id_category = "2";
+                id_category = 2;
                 break;
             case "Daglig Arbetsmaterial":
-                id_category = "3";
+                id_category = 3;
                 break;
             default:
-                id_category = "";
+                id_category = 0;
                 break;
         }
 
         switch (spKeyword.getSelectedItem().toString()){
             case "Mat":
-                id_keyword = "1";
+                id_keyword = 1;
                 break;
             case "Sociala relationer":
-                id_keyword = "2";
+                id_keyword = 2;
                 break;
             default:
-                id_keyword = "";
+                id_keyword = 0;
                 break;
         }
-
+        Log.e("String =", spAccommodation.getSelectedItem().toString());
         switch (spAccommodation.getSelectedItem().toString()){
             case "Maria Martinsson":
-                id_client = "1";
+                id_client = 1;
                 break;
             case "Anders Andersson":
-                id_client = "2";
+                id_client = 2;
                 break;
             case "Johan Jonansson":
-                id_client = "3";
+                id_client = 3;
                 break;
             case "Gun Gunsson":
-                id_client = "4";
+                id_client = 4;
                 break;
             default:
-                id_client = "";
+                id_client = 0;
                 break;
         }
 
         Log.d("#########id_timerange", nowdate);
+        Log.e("##data ", String.format("%d / %d / %d /%d", id_area, id_category, id_client, id_keyword));
 
-        Call<ArrayList<NotesRes>> call = Global.getAPIService.filterNotes("Token " + Global.token, 1,1,2,1,4, nowdate);
+//        Call<ArrayList<NotesRes>> call = Global.getAPIService.filterNotes("Token " + Global.token, Integer.getInteger(id_area),Integer.getInteger(id_category),Integer.getInteger(id_client),Integer.getInteger(id_keyword),Integer.getInteger(id_timerange), nowdate);
+//        Call<ArrayList<NotesRes>> call = Global.getAPIService.filterNotes("Token " + Global.token, 1,0,0,0,4, nowdate);
+        Call<ArrayList<NotesRes>> call = Global.getAPIService.filterNotes("Token " + Global.token, id_area, id_category, id_client, id_keyword,id_timerange, nowdate);
 
         //Call<ArrayList<NotesRes>> call = Global.getAPIService.filterNotes("Token " + Global.token, id_area,id_category,id_client,id_client,id_timerange, nowdate);
 
