@@ -75,8 +75,6 @@ public class Global {
             "4 timme 30 minuter", "5 timme", "5 timme 30 minuter", "6 timme", "6 timme 30 minuter", "7 timme", "7 timme 30 minuter", "8 timme",
             "9 timme", "10 timme", "11 timme", "12 timme"};
     public static String[] notestimeintervals_array = {"Idag / valt datum","15 dagar", "30 dagar", "90 dagar", "1 år"};
-    public static String[] notescategories_array = {"","Arbetsmaterial", "HSL", "Social dokumentation" };
-    public static String[] noteskeywords_array = {"","Mat", "Sociala relationer" };
     public static String[] status_array = {"","Alla", "Ej klar", "Klar", "Inställd"};
     public static String[] weekDays = {"Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"};
     public static String[] categories = {"Generella", "Dagverksamheten", "Boende", "Personal", "Kvalitetssystem", "APT / Personalmöte"};
@@ -89,6 +87,7 @@ public class Global {
     public static ArrayList<String> areaslist = new ArrayList<String>();
     public static ArrayList<String> main_categorieslist = new ArrayList<String>();
     public static ArrayList<String> major_keywordslist = new ArrayList<String>();
+    public static ArrayList<String> minor_keywordslist = new ArrayList<String>();
     public static ArrayList<String> drivingcategories = new ArrayList<String>();
     public static ArrayList<Integer> drivingcategoriesID = new ArrayList<Integer>();
     public static ArrayList<Spinners> testSpinArray = new ArrayList<Spinners>();

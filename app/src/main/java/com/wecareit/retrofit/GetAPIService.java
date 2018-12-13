@@ -15,7 +15,9 @@ import com.wecareit.model.LoginResponse;
 import com.wecareit.model.Login;
 import com.wecareit.model.LogoutResponse;
 import com.wecareit.model.MainModel;
+import com.wecareit.model.Main_Category;
 import com.wecareit.model.Major_Keyword;
+import com.wecareit.model.Minor_Keywords;
 import com.wecareit.model.News;
 import com.wecareit.model.NewsPost;
 import com.wecareit.model.NewsPostResponse;
@@ -155,12 +157,15 @@ public interface GetAPIService {
 
     @Headers({"Accept: application/json"})
     @GET("/api/main-categories/")
-    Call<ArrayList<Area>> readMainCategories(@Header("authorization") String token);
+    Call<ArrayList<Main_Category>> readMainCategories(@Header("authorization") String token);
 
     @Headers({"Accept: application/json"})
     @GET("/api/major-keywords/")
     Call<ArrayList<Major_Keyword>> readMajorKeywords(@Header("authorization") String token);
 
+    @Headers({"Accept: application/json"})
+    @GET("/api/minor-keywords/")
+    Call<ArrayList<Minor_Keywords>> readMinorKeywords(@Header("authorization") String token, @Query("cat1") int cat1);
 
     //Information
     @Headers({"Accept: application/json"})

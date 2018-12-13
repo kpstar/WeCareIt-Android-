@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                             Global.user = response.body().getUser();
                             Global.token = response.body().getKey();
                             Global.user_ID = response.body().getUser().getId();
-                            Log.e(Global.TAG, response.body().getKey());
+                            Log.e("mToken =", response.body().getKey());
                             Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
                             LoginActivity.this.startActivity(intent);
                             LoginActivity.this.finish();

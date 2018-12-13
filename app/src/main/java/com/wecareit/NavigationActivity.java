@@ -49,12 +49,19 @@ import com.wecareit.model.Area;
 import com.wecareit.model.AuthorRes;
 import com.wecareit.model.Client;
 import com.wecareit.model.LogoutResponse;
+import com.wecareit.model.Main_Category;
 import com.wecareit.model.Major_Keyword;
+import com.wecareit.model.NewsResponse;
 import com.wecareit.model.Spinners;
+import com.wecareit.model.User;
 import com.wecareit.model.Vehicle;
 import com.wecareit.model.Vehicles;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -74,7 +81,7 @@ public class NavigationActivity extends AppCompatActivity
     private ArrayList<AuthorRes> users;
     private ArrayList<Vehicle> vehicles;
     private ArrayList<Area> areas;
-    private ArrayList<Area> main_categories;
+    private ArrayList<Main_Category> main_categories;
     private ArrayList<Major_Keyword> major_keywords;
     private DrawerLayout lnMain;
     //private ArrayList<Spinners> spiners_array;
@@ -400,7 +407,12 @@ public class NavigationActivity extends AppCompatActivity
             public void onResponse(Call<ArrayList<Client>> call, Response<ArrayList<Client>> response) {
                 if (response.isSuccessful()) {
                     client = response.body();
-
+                    Collections.sort(client, new Comparator<Client>() {
+                        @Override
+                        public int compare(Client a, Client b) {
+                            return (a.getId() >  b.getId() ? 1: -1);
+                        }
+                    });
                     for (Client client : client) {
 
                         Global.clientslist.add(client.getName());
@@ -447,12 +459,17 @@ public class NavigationActivity extends AppCompatActivity
             public void onResponse(Call<ArrayList<Vehicle>> call, Response<ArrayList<Vehicle>> response) {
                 if (response.isSuccessful()) {
                     vehicles = response.body();
+                    Collections.sort(vehicles, new Comparator<Vehicle>() {
+                        @Override
+                        public int compare(Vehicle a, Vehicle b) {
+                            return (a.getId() >  b.getId() ? 1: -1);
+                        }
+                    });
                     for (Vehicle vehicle : vehicles) {
 
                         Global.vehicleslist.add(vehicle.getName());
                         Global.vehiclesIDlist.add(vehicle.getId());
                         Global.vehicles.add(vehicle);
-
                     }
                 }
             }
@@ -468,6 +485,7 @@ public class NavigationActivity extends AppCompatActivity
             public void onResponse(Call<ArrayList<Client>> call, Response<ArrayList<Client>> response) {
                 if (response.isSuccessful()) {
                     client = response.body();
+
                     for (Client client : client) {
 
                         Global.drivingcategories.add(client.getName());
@@ -487,6 +505,12 @@ public class NavigationActivity extends AppCompatActivity
             public void onResponse(Call<ArrayList<Area>> call, Response<ArrayList<Area>> response) {
                 if (response.isSuccessful()) {
                     areas = response.body();
+                    Collections.sort(areas, new Comparator<Area>() {
+                        @Override
+                        public int compare(Area a, Area b) {
+                            return (a.getId() >  b.getId() ? 1: -1);
+                        }
+                    });
                     for (Area area : areas) {
                         Global.areaslist.add(area.getTitle());
 
@@ -499,13 +523,19 @@ public class NavigationActivity extends AppCompatActivity
             }
         });
 
-        Call<ArrayList<Area>> call_maincategory = Global.getAPIService.readMainCategories("Token " + Global.token);
-        call_maincategory.enqueue(new Callback<ArrayList<Area>>() {
+        Call<ArrayList<Main_Category>> call_maincategory = Global.getAPIService.readMainCategories("Token " + Global.token);
+        call_maincategory.enqueue(new Callback<ArrayList<Main_Category>>() {
             @Override
-            public void onResponse(Call<ArrayList<Area>> call, Response<ArrayList<Area>> response) {
+            public void onResponse(Call<ArrayList<Main_Category>> call, Response<ArrayList<Main_Category>> response) {
                 if (response.isSuccessful()) {
                     main_categories = response.body();
-                    for (Area area : main_categories) {
+                    Collections.sort(main_categories, new Comparator<Main_Category>() {
+                        @Override
+                        public int compare(Main_Category a, Main_Category b) {
+                            return (a.getId() >  b.getId() ? 1: -1);
+                        }
+                    });
+                    for (Main_Category area : main_categories) {
 
                         Global.main_categorieslist.add(area.getTitle());
 
@@ -514,7 +544,7 @@ public class NavigationActivity extends AppCompatActivity
                 }
             }
             @Override
-            public void onFailure(Call<ArrayList<Area>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Main_Category>> call, Throwable t) {
             }
         });
 
@@ -524,9 +554,14 @@ public class NavigationActivity extends AppCompatActivity
             public void onResponse(Call<ArrayList<Major_Keyword>> call, Response<ArrayList<Major_Keyword>> response) {
                 if (response.isSuccessful()) {
                     major_keywords = response.body();
+                    Collections.sort(major_keywords, new Comparator<Major_Keyword>() {
+                        @Override
+                        public int compare(Major_Keyword a, Major_Keyword b) {
+                            return (a.getId() >  b.getId() ? 1: -1);
+                        }
+                    });
                     for (Major_Keyword major_keyword : major_keywords) {
                         Global.major_keywordslist.add(major_keyword.getTitle());
-
                     }
                 } else {
                 }
@@ -536,5 +571,4 @@ public class NavigationActivity extends AppCompatActivity
             }
         });
     }
-
 }
