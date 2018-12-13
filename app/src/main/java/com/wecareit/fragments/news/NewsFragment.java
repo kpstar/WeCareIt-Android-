@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wecareit.LoginActivity;
 import com.wecareit.R;
@@ -38,8 +39,12 @@ import com.wecareit.model.User;
 import com.wecareit.model.Userlist;
 import com.wecareit.retrofit.GetAPIService;
 
+import org.json.JSONArray;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -145,10 +150,10 @@ public class NewsFragment extends TemplateFragment {
 
     public void loadData() {
 
-        news_me = new ArrayList<NewsResponse>();
+        news_me = null;
+        news_other = null;
         Call<ArrayList<NewsResponse>> call_me = Global.getAPIService.readNews("Token " + Global.token, "true");
-        Call<ArrayList<NewsResponse>> call_all = Global.getAPIService.readNews("Token " + Global.token, "all");
-       // Call<LoginResponse> apiCall = Global.getAPIService.doLogin(new Login("tester", "", "mobiledev", ""));
+        Call<ArrayList<NewsResponse>> call_other = Global.getAPIService.readNews("Token " + Global.token, "false");
 
         if (flag_relevant == 1) {
             call_me.enqueue(new Callback<ArrayList<NewsResponse>>() {
@@ -161,11 +166,10 @@ public class NewsFragment extends TemplateFragment {
                     }
                     if (response.isSuccessful()) {
                         news_me = response.body();
-                        for (NewsResponse newsres : news_me) {
-                            NewsAdapter adapter = new NewsAdapter(NewsFragment.this.getContext(), news_me);
-                            mRecyclerView.setAdapter(adapter);
-                            adapter.notifyDataSetChanged();
-                        }
+                        NewsAdapter adapter = null;
+                        adapter = new NewsAdapter(NewsFragment.this.getContext(), news_me);
+                        mRecyclerView.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
                     }
                 }
 
@@ -174,7 +178,7 @@ public class NewsFragment extends TemplateFragment {
                 }
             });
         } else {
-            call_all.enqueue(new Callback<ArrayList<NewsResponse>>() {
+            call_other.enqueue(new Callback<ArrayList<NewsResponse>>() {
                 @Override
                 public void onResponse(Call<ArrayList<NewsResponse>> call, Response<ArrayList<NewsResponse>> response) {
                     if(response.code() == 401){
@@ -183,12 +187,38 @@ public class NewsFragment extends TemplateFragment {
                         getActivity().finish();
                     }
                     if (response.isSuccessful()) {
-                        news_me  = response.body();
-                        for (NewsResponse newsres : news_me) {
-                            NewsAdapter adapter = new NewsAdapter(NewsFragment.this.getContext(), news_me);
-                            mRecyclerView.setAdapter(adapter);
-                            adapter.notifyDataSetChanged();
-                        }
+                        news_other  = response.body();
+                        call_me.enqueue(new Callback<ArrayList<NewsResponse>>() {
+
+                            @Override
+                            public void onResponse(Call<ArrayList<NewsResponse>> callone, Response<ArrayList<NewsResponse>> responseone) {
+
+                                if(responseone.code() == 401){
+                                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                    startActivity(intent);
+                                    getActivity().finish();
+                                }
+                                if (responseone.isSuccessful()) {
+                                    news_me = responseone.body();
+                                    news_other.addAll(news_me);
+                                    Collections.sort(news_other, new Comparator<NewsResponse>() {
+                                        @Override
+                                        public int compare(NewsResponse newsResponse, NewsResponse t1) {
+                                            return (newsResponse.getCreation_date().compareTo(t1.getCreation_date()) > 0 ? -1 : 1);
+                                        }
+                                    });
+                                    NewsAdapter adapter = null;
+                                    adapter = new NewsAdapter(NewsFragment.this.getContext(), news_other);
+                                    mRecyclerView.setAdapter(adapter);
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ArrayList<NewsResponse>> call, Throwable t) {
+
+                            }
+                        });
                     }
                 }
 
@@ -196,31 +226,6 @@ public class NewsFragment extends TemplateFragment {
                 public void onFailure(Call<ArrayList<NewsResponse>> call, Throwable t) {
                 }
             });
-            /*call_other.enqueue(new Callback<ArrayList<NewsResponse>>() {
-                @Override
-                public void onResponse(Call<ArrayList<NewsResponse>> call, Response<ArrayList<NewsResponse>> response) {
-                    if (response.isSuccessful()) {
-                        news_other = response.body();
-                        for (NewsResponse newsres : news_other) {
-                            if(!newsres.toJSON().isEmpty()) {
-                                news_me.add(newsres);
-                            }
-
-                        }
-                        //Log.d("$$$$$$$$$$$$$$$",""+news_me.toArray().toString());
-                        for (NewsResponse newsres : news_me) {
-                            Log.d("$$$$$$$$$$$$$$$",newsres.toJSON());
-                            NewsAdapter adapter = new NewsAdapter(NewsFragment.this.getContext(), news_other);
-                            mRecyclerView.setAdapter(adapter);
-                            adapter.notifyDataSetChanged();
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ArrayList<NewsResponse>> call, Throwable t) {
-                }*/
-           // });
         }
     }
 

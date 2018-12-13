@@ -231,7 +231,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         this.replies = news.getReplies();
 
         if(news.getReply_count()!=0) {
-
+            lnList.removeAllViews();
             for (RepliesRes repliesRes : replies) {
 
                 GradientDrawable gd_list = new GradientDrawable();
@@ -275,6 +275,8 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
 
             }
 
+        } else {
+            lnList.removeAllViews();
         }
 
         if(news.getReply_count()>0){

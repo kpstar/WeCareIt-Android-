@@ -139,6 +139,7 @@ public interface GetAPIService {
     @Headers({"Accept: application/json"})
     @GET("/api/notes/")
     Call<ArrayList<NotesRes>> readNotes(@Header("authorization") String token, @Query("date") String date);
+//    Call<ArrayList<NotesRes>> readNotes(@Header("authorization") String token, @Query("date") String date, @Query("area") int area, @Query("category") int category, @Query("clients") int clients);
 
     @Headers({"Accept: application/json"})
     @POST("/api/notes/")

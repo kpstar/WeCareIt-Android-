@@ -326,6 +326,7 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
 
     public void loadData(String now_date) {
 
+        Log.e("Now Date = ", now_date);
         Call<ArrayList<NotesRes>> call = Global.getAPIService.readNotes("Token " + Global.token, now_date);
 
         call.enqueue(new Callback<ArrayList<NotesRes>>() {

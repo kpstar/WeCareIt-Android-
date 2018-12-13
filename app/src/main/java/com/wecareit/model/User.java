@@ -35,10 +35,10 @@ public class User extends BaseModel {
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.username = username;
         this.phonenumber = phonenumber;
         this.role = role;
         this.title = title;
-        this.username = username;
         this.id = id;
     }
 
@@ -99,7 +99,11 @@ public class User extends BaseModel {
     }
 
     public String getUsername() {
-        return username;
+        String mUsername = username.substring(0,1).toUpperCase() + username.substring(1).toLowerCase();
+        if (!firstname.isEmpty() && !lastname.isEmpty()) {
+            mUsername = firstname.substring(0,1).toUpperCase() + firstname.substring(1).toLowerCase() + " " + lastname.substring(0,1).toUpperCase() + lastname.substring(1).toLowerCase();
+        }
+        return mUsername;
     }
 
     public void setUsername(String username) {

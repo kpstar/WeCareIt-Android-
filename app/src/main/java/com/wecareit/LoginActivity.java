@@ -43,16 +43,14 @@ public class LoginActivity extends AppCompatActivity {
         mUsernameView = (EditText) findViewById(R.id.activity_login_username);
         mPasswordView = (EditText) findViewById(R.id.activity_login_password);
 
-        // Delete it
-        mUsernameView.setText("tester");
-        mPasswordView.setText("mobiledev");
-
         mSigninButton = (Button) findViewById(R.id.activity_login_signin);
         mSigninButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Call<LoginResponse> apiCall = Global.getAPIService.doLogin(new Login(mUsernameView.getText().toString(), mSubdomainView.getText().toString(), mPasswordView.getText().toString(), ""));
-                Call<LoginResponse> apiCall = Global.getAPIService.doLogin(new Login("tester", "", "mobiledev", ""));
+//                Call<LoginResponse> apiCall = Global.getAPIService.doLogin(new Login("vikarie", "", "mobiledev1", ""));
+//                Call<LoginResponse> apiCall = Global.getAPIService.doLogin(new Login("tester", "", "mobiledev", ""));
+                Call<LoginResponse> apiCall = Global.getAPIService.doLogin(new Login("nurse", "", "mobiledev2", ""));
 
                 apiCall.enqueue(new Callback<LoginResponse>() {
 
@@ -62,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                             Global.user = response.body().getUser();
                             Global.token = response.body().getKey();
                             Global.user_ID = response.body().getUser().getId();
-                            Log.e(Global.TAG, response.body().getKey());
+                            Log.e(Global.TAG, response.body().toJSON());
                             Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
                             LoginActivity.this.startActivity(intent);
                             LoginActivity.this.finish();

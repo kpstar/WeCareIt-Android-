@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.transition.Slide;
@@ -79,6 +81,7 @@ public class NavigationActivity extends AppCompatActivity
     /*private ArrayList<Major_Keyword> major_keywords;
     private ArrayList<Major_Keyword> major_keywords;*/
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,13 +143,17 @@ public class NavigationActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         TextView tvUsername = (TextView) headerView.findViewById(R.id.nav_header_profile_username);
-        tvUsername.setText(Global.user.getFirstname()+ " " + Global.user.getLastname());
+        tvUsername.setText(Global.user.getUsername());
 
         TextView tvTitle = (TextView) headerView.findViewById(R.id.nav_header_profile_title);
         tvTitle.setText(Global.user.getTitle());
 
         ImageView ivUser = (ImageView) headerView.findViewById(R.id.nav_header_profile_image);
-        Picasso.with(this).load(Global.user.getAvatar()).fit().into(ivUser);
+        if (Global.user.getAvatar() != null) {
+            Picasso.with(this).load(Global.user.getAvatar()).fit().into(ivUser);
+        } else {
+            ivUser.setImageDrawable(this.getDrawable(R.drawable.ic_user_template));
+        }
         navigationView.setNavigationItemSelectedListener(this);
 
         /*lnMain = (DrawerLayout) findViewById(R.id.drawer_layout);
