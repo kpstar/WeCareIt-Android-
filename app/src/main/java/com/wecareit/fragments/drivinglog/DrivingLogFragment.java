@@ -409,6 +409,7 @@ public class DrivingLogFragment extends TemplateFragment implements MultiSpinner
                             }
                         }
                     }
+
                     Double start_km = Double.parseDouble(etMeasureStart_companycar.getText().toString());
                     Double end_km = Double.parseDouble(etMeasureDest_companycar.getText().toString());
                     if(start_km>=end_km){

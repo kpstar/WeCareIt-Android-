@@ -55,8 +55,7 @@
                 android:background="@color/colorGreenText"
                 android:layout_alignParentBottom="true"
                 android:orientation="vertical"
-                android:visibility="invisible"
-                />
+                android:visibility="invisible" />
         </RelativeLayout>
     </LinearLayout>
     <ScrollView
