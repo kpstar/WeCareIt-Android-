@@ -11,14 +11,20 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
@@ -33,6 +39,7 @@ import com.wecareit.model.News;
 import com.wecareit.model.NewsResponse;
 import com.wecareit.model.Replies;
 import com.wecareit.model.RepliesRes;
+import com.wecareit.model.Seen_by;
 import com.wecareit.model.UpdateNews;
 import com.wecareit.model.UpdateTitle;
 import com.wecareit.model.Userlist;
@@ -50,25 +57,27 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import us.feras.mdv.MarkdownView;
 
 public class NewsViewHolder extends RecyclerView.ViewHolder {
     private NewsResponse news;
     private String stringTime = "";
     private int flag_comment=0;
     private ArrayList<RepliesRes> replies;
+    private ArrayList<Seen_by> seen_bies;
     private Context context;
 
     private TextView mUsername;
     private TextView mTime;
-    private TextView mMessage;
+    private MarkdownView mMessage, mSeenBy;
     private EditText etUpdateTitle;
     private EditText etPostComment;
     private TextView mReplycounts;
+    private Button mSave, mCancel;
     private ImageView mUserImg;
-    private ImageView ivUpdateTitle;
     private ImageView ivPostComment;
     private ImageView mResImag;
-    private ImageView ivEdit;
+    private CircleImageView ivEdit;
     private ImageView ivDel;
     private LinearLayout layoutComment,newsrow, lnComment, lnList;
 
@@ -79,16 +88,19 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
 
         mUsername = (TextView) itemView.findViewById(R.id.tvUsername_newslist);
         mTime = (TextView) itemView.findViewById(R.id.tvTime_newslist);
-        mMessage = (TextView) itemView.findViewById(R.id.tvMessage_newslist);
+        mMessage = (MarkdownView) itemView.findViewById(R.id.tvMessage_newslist);
+        mSeenBy = (MarkdownView) itemView.findViewById(R.id.tvSeenBy_newslist);
         etUpdateTitle = (EditText) itemView.findViewById(R.id.etMessage_newslist);
         etPostComment = (EditText) itemView.findViewById(R.id.editAddcomment_neslist);
         mReplycounts = (TextView) itemView.findViewById(R.id.tvCommentnumber_newslist);
         mUserImg = (ImageView) itemView.findViewById(R.id.userImg_newslist);
         mResImag = (ImageView) itemView.findViewById(R.id.btnRespond_newslist);
-        ivEdit = (ImageView) itemView.findViewById(R.id.ivEdit_newslist);
+        mSave = (Button) itemView.findViewById(R.id.btnAccept);
+        mCancel = (Button) itemView.findViewById(R.id.btnCancel);
+        ivEdit = (CircleImageView) itemView.findViewById(R.id.ivEdit_newslist);
         //ivDel = (ImageView) itemView.findViewById(R.id.ivDelete_newslist);
         ivPostComment = (ImageView) itemView.findViewById(R.id.btnAddcomment_newslist);
-        ivUpdateTitle = (ImageView) itemView.findViewById(R.id.ivUpdateTitle_newslist);
+//        ivUpdateTitle = (ImageView) itemView.findViewById(R.id.ivUpdateTitle_newslist);
         layoutComment = (LinearLayout) itemView.findViewById(R.id.editComent_newslist);
         lnComment = (LinearLayout) itemView.findViewById(R.id.lnComment_newsfragment);
         newsrow = (LinearLayout) itemView.findViewById(R.id.row_news);
@@ -116,19 +128,33 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         ivEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mMessage.setVisibility(View.GONE);
-                etUpdateTitle.setVisibility(View.VISIBLE);
-                etUpdateTitle.setFocusable(true);
-                etUpdateTitle.setText(news.getMessage());
-                ivUpdateTitle.setVisibility(View.VISIBLE);
+                showPopup(v);
             }
         });
-        ivUpdateTitle.setOnClickListener(new View.OnClickListener() {
+        mCancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                updateTitle();
+            public void onClick(View view) {
+                mMessage.setVisibility(View.VISIBLE);
+                mSeenBy.setVisibility(View.VISIBLE);
+                etUpdateTitle.setVisibility(View.GONE);
+                mSave.setVisibility(View.GONE);
+                mCancel.setVisibility(View.GONE);
             }
         });
+        mSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String message = etUpdateTitle.getText().toString();
+                mMessage.loadMarkdown(message);
+                // Update API
+            }
+        });
+//        ivUpdateTitle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                updateTitle();
+//            }
+//        });
 
         ivPostComment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +168,28 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
             }
         });
     }
+
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(context, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_register, popup.getMenu());
+        popup.show();
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                mMessage.setVisibility(View.GONE);
+                mSeenBy.setVisibility(View.GONE);
+                etUpdateTitle.setVisibility(View.VISIBLE);
+                mSave.setVisibility(View.VISIBLE);
+                mCancel.setVisibility(View.VISIBLE);
+                etUpdateTitle.setFocusable(true);
+                etUpdateTitle.setText(news.getMessage());
+                return false;
+            }
+        });
+    }
+
 
     public void postComment(){
 
@@ -192,9 +240,10 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
                 if (response.isSuccessful()) {
                     Log.d("UpdateMsg",""+news.getId());
                     etUpdateTitle.setVisibility(View.GONE);
-                    ivUpdateTitle.setVisibility(View.GONE);
                     mMessage.setVisibility(View.VISIBLE);
-                    mMessage.setText(etUpdateTitle.getText().toString());
+                    mSeenBy.setVisibility(View.VISIBLE);
+                    mMessage.loadMarkdown(etUpdateTitle.getText().toString());
+                    mSeenBy.loadMarkdown(etUpdateTitle.getText().toString());
                 }
             }
 
@@ -213,14 +262,16 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
             mUsername.setText(news.getAuthor().getName());
             new DownloadImage(mUserImg).execute(news.getAuthor().getAvatar());
             mTime.setText(stringTime);
-            mMessage.setText(news.getMessage());
+            mMessage.loadMarkdown(news.getMessage());
+            mSeenBy.loadMarkdown("<i class=\"material-icons orange600\">face</i><b>\u2714 Läst av: </b>");
             mReplycounts.setText("" + news.getReply_count() + " svar");
         } else{
             if(news.isMe_mentioned()){
                 mUsername.setText(news.getAuthor().getName());
                 new DownloadImage(mUserImg).execute(news.getAuthor().getAvatar());
                 mTime.setText(stringTime);
-                mMessage.setText(news.getMessage());
+                mMessage.loadMarkdown(news.getMessage());
+                mSeenBy.loadMarkdown(news.getMessage());
                 mReplycounts.setText("" + news.getReply_count() + " svar");
             } else{
                 newsrow.setVisibility(View.GONE);
@@ -229,6 +280,13 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
 
         int j = 0;
         this.replies = news.getReplies();
+        this.seen_bies = news.getSeen_by();
+
+        if (seen_bies.size() > 0) {
+            mSeenBy.setVisibility(View.VISIBLE);
+            for (Seen_by seen_by: seen_bies) {
+            }
+        }
 
         if(news.getReply_count()!=0) {
             lnList.removeAllViews();
