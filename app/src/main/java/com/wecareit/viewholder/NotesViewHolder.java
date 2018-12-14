@@ -23,6 +23,8 @@ import com.wecareit.model.NotesRes;
 
 import java.util.ArrayList;
 
+import us.feras.mdv.MarkdownView;
+
 public class NotesViewHolder extends RecyclerView.ViewHolder {
 
     private NotesRes notes;
@@ -32,7 +34,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
     private TextView mUsername;
     private TextView mTime, tvTime, tvDate;
     private TextView mTitle;
-    private TextView mDesc;
+    private MarkdownView mDesc;
     private ImageView mUserImg,ivFlag;
     private FlexboxLayout fbRow;
     //private TextView tvClient1,tvClient2,tvClient3,tvClient4;
@@ -51,7 +53,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         tvTime = (TextView) itemView.findViewById(R.id.tvTime_notesrow);
         tvDate = (TextView) itemView.findViewById(R.id.tvDate_notesrow);
         mTitle = (TextView) itemView.findViewById(R.id.tvTitle_noteslist);
-        mDesc = (TextView) itemView.findViewById(R.id.tvDesc_noteslist);
+        mDesc = (MarkdownView) itemView.findViewById(R.id.tvDesc_noteslist);
         /*tvClient1 = (TextView) itemView.findViewById(R.id.tvaccom1_noteslist);
         tvClient2 = (TextView) itemView.findViewById(R.id.tvaccom2_noteslist);
         tvClient3 = (TextView) itemView.findViewById(R.id.tvaccom3_noteslist);
@@ -67,7 +69,6 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         tvCategory1 = (TextView) itemView.findViewById(R.id.tvcate1_noteslist);
         tvCategory2 = (TextView) itemView.findViewById(R.id.tvcate2_noteslist);
         tvCategory3 = (TextView) itemView.findViewById(R.id.tvcate3_noteslist);*/
-        mDesc = (TextView) itemView.findViewById(R.id.tvDesc_noteslist);
         mUserImg = (ImageView) itemView.findViewById(R.id.userImg_noteslist);
         ivFlag = (ImageView) itemView.findViewById(R.id.ivFlag_notesrow);
         lnMain = (LinearLayout) itemView.findViewById(R.id.lnMain_notesrow);
@@ -137,7 +138,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
             tvClient.setText(client.getName());
             tvClient.setBackground(gd_client);
             tvClient.setTextColor(Color.parseColor("#ffffff"));
-            tvClient.setPadding(10,6,10,6);
+            tvClient.setPadding(20,6,20,6);
             FlexboxLayout.LayoutParams params_client = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
             params_client.setMargins(10,6,10,6);
             tvClient.setLayoutParams(params_client);
@@ -165,7 +166,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         gd_category.setCornerRadius(20.0f);
         TextView tvCategory = new TextView(context);
         FlexboxLayout.LayoutParams params_category = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
-        params_category.setMargins(10,6,10,6);
+        params_category.setMargins(20,6,20,6);
         if (notes.getMain_category() != null) {
             tvCategory.setText(notes.getMain_category().getTitle());
             tvCategory.setBackground(gd_category);
@@ -227,7 +228,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         tvDate.setText(notes.getCreation_date().substring(0,10));
         tvTime.setText(notes.getCreation_date().substring(11,16));
         mTitle.setText(notes.getSummary());
-        mDesc.setText(notes.getText());
+        mDesc.loadMarkdown(notes.getText());
         if (notes.getAuthor().getAvatar() != null) {
             new DownloadImage(mUserImg).execute(notes.getAuthor().getAvatar());
         } else {

@@ -2,11 +2,10 @@ package com.wecareit.fragments.notes;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,30 +15,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.wecareit.LoginActivity;
 import com.wecareit.MultiSpinner;
 import com.wecareit.R;
 import com.wecareit.common.Global;
 import com.wecareit.fragments.TemplateFragment;
-import com.wecareit.model.Major_Keyword;
 import com.wecareit.model.Minor_Keywords;
+import com.wecareit.model.NotePost;
 import com.wecareit.model.NotesRes;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.FieldMap;
 
 
 public class NotesAddFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener, Spinner.OnItemSelectedListener {
@@ -49,13 +49,17 @@ public class NotesAddFragment extends TemplateFragment implements MultiSpinner.M
     private MultiSpinner spAccomo;
     private Context mContext;
     private String mSummary, mDetail;
-    private int area_id, general_id, specific_id, category_id, client_id;
+    private int area_id, general_id, specific_id, category_id;
+    private List<String> client_ids;
     private boolean isBackDated;
     private static int AREA_SPINNER_ID = 1001;
     private static int GENERAL_SPINNER_ID = 1002;
     private static int SPECIFIC_SPINNER_ID = 1003;
+    private CheckBox backDated;
+    private EditText edSummary, edDetail;
     private static int CATEGORY_SPINNER_ID = 1004;
     private ArrayList<Minor_Keywords> minor_keywords;
+    private NotesRes notesRes;
 
     public static NotesAddFragment createInstance() {
         return new NotesAddFragment();
@@ -85,6 +89,12 @@ public class NotesAddFragment extends TemplateFragment implements MultiSpinner.M
         Global.toolbar.setNavigationIcon(R.drawable.ic_side_menu);
         Global.toolbar.setTitle("SKRIV ANTECKNING");
         Global.floatingButton.setVisibility(View.GONE);
+
+        edSummary = (EditText)view.findViewById(R.id.etSummary_notesaddfragment);
+
+        edDetail = (EditText)view.findViewById(R.id.etDetails_notesaddfragment);
+
+        backDated = (CheckBox)view.findViewById(R.id.chxBackdated_noteaddfragment);
 
         lnAccomo = view.findViewById(R.id.lnAccommo_notesaddfragment);
         lnArea = view.findViewById(R.id.lnArea_notesaddfragment);
@@ -153,8 +163,43 @@ public class NotesAddFragment extends TemplateFragment implements MultiSpinner.M
 
     private void saveData() {
         Map<String, String> params = new HashMap<>();
+        client_ids = new ArrayList<String>();
+        for (int i=0; i<spAccomo.getItems().size(); i++) {
+            if (spAccomo.getSelected()[i] == true) {
+                client_ids.add(String.valueOf(i + 1));
+            }
+        }
 
-        Call<ArrayList<NotesRes>> call = Global.getAPIService.writeNotes("Token " + Global.token, params);
+
+        mSummary = edSummary.getText().toString();
+        mDetail = edDetail.getText().toString();
+        isBackDated = backDated.isChecked();
+
+        NotePost post = new NotePost(area_id, client_ids, category_id, general_id, specific_id, mSummary, mDetail, isBackDated);
+
+
+        Call<NotesRes> apiCall = Global.getAPIService.writeNotes("Token " + Global.token, post);
+        apiCall.enqueue(new Callback<NotesRes>() {
+            @Override
+            public void onResponse(Call<NotesRes> call, Response<NotesRes> response) {
+                if(response.code() == 401){
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                    getActivity().finish();
+                }
+                notesRes = response.body();
+
+//                FragmentTransaction tx = getFragmentManager().beginTransaction();
+//                tx.replace(R.id.fragment_)
+                Log.e("******", notesRes.toJSON());
+            }
+
+            @Override
+            public void onFailure(Call<NotesRes> call, Throwable t) {
+                Log.d("$$$$$$#####","Failed");
+
+            }
+        });
     }
 
     @Override

@@ -22,6 +22,7 @@ import com.wecareit.model.News;
 import com.wecareit.model.NewsPost;
 import com.wecareit.model.NewsPostResponse;
 import com.wecareit.model.NewsResponse;
+import com.wecareit.model.NotePost;
 import com.wecareit.model.NotesRes;
 import com.wecareit.model.PostTask;
 import com.wecareit.model.PrivateCarPost;
@@ -148,8 +149,7 @@ public interface GetAPIService {
 
     @Headers({"Accept: application/json"})
     @POST("/api/notes/")
-//    Call<ArrayList<NotesRes>> writeNotes(@Header("authorization") String token, @Query("date") String date);
-    Call<ArrayList<NotesRes>> writeNotes(@Header("authorization") String token, @FieldMap Map<String, String> params);
+    Call<NotesRes> writeNotes(@Header("authorization") String token, @Body NotePost notes);
 
     @Headers({"Accept: application/json"})
     @GET("/api/notes/")

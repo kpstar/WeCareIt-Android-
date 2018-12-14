@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_80dp"
         android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/padding_6dp"
         android:padding="@dimen/padding_6dp"
         >
         <de.hdodenhof.circleimageview.CircleImageView
@@ -110,7 +111,7 @@
         android:orientation="vertical"
         android:paddingTop="@dimen/padding_6dp"
         android:paddingLeft="@dimen/padding_6dp">
-        <TextView
+        <us.feras.mdv.MarkdownView
             android:id="@+id/tvDesc_noteslist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
