@@ -3,9 +3,11 @@ package com.wecareit.fragments.notes;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -180,6 +182,7 @@ public class NotesAddFragment extends TemplateFragment implements MultiSpinner.M
 
         Call<NotesRes> apiCall = Global.getAPIService.writeNotes("Token " + Global.token, post);
         apiCall.enqueue(new Callback<NotesRes>() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onResponse(Call<NotesRes> call, Response<NotesRes> response) {
                 if(response.code() == 401){
@@ -189,15 +192,18 @@ public class NotesAddFragment extends TemplateFragment implements MultiSpinner.M
                 }
                 notesRes = response.body();
 
-//                FragmentTransaction tx = getFragmentManager().beginTransaction();
-//                tx.replace(R.id.fragment_)
-                Log.e("******", notesRes.toJSON());
+                SharedPreferences.Editor editor = getContext().getSharedPreferences("Message", Context.MODE_PRIVATE).edit();
+                editor.putString("noteFragment", "Ny anteckning sparad.");
+                editor.apply();
+
+                FragmentTransaction tx = getFragmentManager().beginTransaction();
+                tx.replace(R.id.fragment_container, Global.notesFragment).addToBackStack(null).commit();
+                Global.floatingButton.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onFailure(Call<NotesRes> call, Throwable t) {
                 Log.d("$$$$$$#####","Failed");
-
             }
         });
     }
@@ -211,7 +217,7 @@ public class NotesAddFragment extends TemplateFragment implements MultiSpinner.M
             general_id = i + 1;
             getSpecificKey();
         } else if (sp_id == SPECIFIC_SPINNER_ID) {
-            specific_id = i + 1;
+            specific_id = 2 * general_id + i + 1;
         } else if (sp_id == CATEGORY_SPINNER_ID) {
             category_id = i + 1;
         } else {

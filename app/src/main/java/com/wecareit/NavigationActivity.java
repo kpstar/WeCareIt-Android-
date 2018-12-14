@@ -76,6 +76,7 @@ public class NavigationActivity extends AppCompatActivity
     private Fragment mContentFragment = null;
 
     private FloatingActionButton mFloatingButton;
+    private FloatingActionButton mMonthButton;
 
     private ArrayList<Client> client;
     private ArrayList<AuthorRes> users;
@@ -108,6 +109,7 @@ public class NavigationActivity extends AppCompatActivity
         setSupportActionBar(Global.toolbar);
 
         Global.floatingButton = (FloatingActionButton) findViewById(R.id.fab);
+        Global.monthlyButton = (FloatingActionButton) findViewById(R.id.month);
         Global.floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -290,6 +292,7 @@ public class NavigationActivity extends AppCompatActivity
                     .addToBackStack(null)
                     .commit();
             Global.floatingButton.setVisibility(View.GONE);
+            Global.monthlyButton.setVisibility(View.GONE);
         } else if (id == R.id.nav_notes) {
             Global.notesFragment = NotesFragment.createInstance();
             Global.fragmentManager.beginTransaction()
@@ -304,13 +307,14 @@ public class NavigationActivity extends AppCompatActivity
                     .addToBackStack(null)
                     .commit();
             Global.floatingButton.setVisibility(View.GONE);
-
+            Global.monthlyButton.setVisibility(View.GONE);
         } else if (id == R.id.nav_weekly_schedule) {
             Global.eventsFragment = EventsFragment.createInstance();
             Global.fragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, Global.eventsFragment)
                     .addToBackStack(null)
                     .commit();
+            Global.monthlyButton.setVisibility(View.GONE);
             Global.floatingButton.setVisibility(View.VISIBLE);
         } else if (id ==  R.id.nav_attendance) {
             Global.attendanceFragment = AttendanceFragment.createInstance();
@@ -318,6 +322,7 @@ public class NavigationActivity extends AppCompatActivity
                     .replace(R.id.fragment_container, Global.attendanceFragment)
                     .addToBackStack(null)
                     .commit();
+            Global.monthlyButton.setVisibility(View.GONE);
             Global.floatingButton.setVisibility(View.GONE);
         } else if (id == R.id.nav_driving_journal) {
             Global.drivingLogFragment = DrivingLogFragment.createInstance();
@@ -325,6 +330,7 @@ public class NavigationActivity extends AppCompatActivity
                     .replace(R.id.fragment_container, Global.drivingLogFragment)
                     .addToBackStack(null)
                     .commit();
+            Global.monthlyButton.setVisibility(View.GONE);
             Global.floatingButton.setVisibility(View.GONE);
         } else if (id == R.id.nav_meeting_protocol) {
             boolean b=!menu.findItem(R.id.nav_meeting_agenda).isVisible();
@@ -338,6 +344,7 @@ public class NavigationActivity extends AppCompatActivity
                     .replace(R.id.fragment_container, Global.agendaFragment)
                     .addToBackStack(null)
                     .commit();
+            Global.monthlyButton.setVisibility(View.GONE);
             Global.floatingButton.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_meeting_meetings) {
             Global.meetingsFragment = MeetingsFragment.createInstance();
@@ -345,6 +352,7 @@ public class NavigationActivity extends AppCompatActivity
                     .replace(R.id.fragment_container, Global.meetingsFragment)
                     .addToBackStack(null)
                     .commit();
+            Global.monthlyButton.setVisibility(View.GONE);
             Global.floatingButton.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_task) {
             Global.tasksFragment = TasksFragment.createInstance();
@@ -352,6 +360,7 @@ public class NavigationActivity extends AppCompatActivity
                     .replace(R.id.fragment_container, Global.tasksFragment)
                     .addToBackStack(null)
                     .commit();
+            Global.monthlyButton.setVisibility(View.GONE);
             Global.floatingButton.setVisibility(View.GONE);
         } else if (id == R.id.nav_route_schedule) {
             Global.routineFragment = RoutineFragment.createInstance();
@@ -359,6 +368,7 @@ public class NavigationActivity extends AppCompatActivity
                     .replace(R.id.fragment_container, Global.routineFragment)
                     .addToBackStack(null)
                     .commit();
+            Global.monthlyButton.setVisibility(View.GONE);
             Global.floatingButton.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_document) {
             Global.documentFragment = DocumentFragment.createInstance();
@@ -366,7 +376,8 @@ public class NavigationActivity extends AppCompatActivity
                     .replace(R.id.fragment_container, Global.documentFragment)
                     .addToBackStack(null)
                     .commit();
-            Global.floatingButton.setVisibility(View.VISIBLE);
+            Global.monthlyButton.setVisibility(View.GONE);
+            Global.floatingButton.setVisibility(View.GONE);
         } else if (id == R.id.nav_logout) {
             Call<LogoutResponse> apiCall = Global.getAPIService.doLogout();
             apiCall.enqueue(new Callback<LogoutResponse>() {

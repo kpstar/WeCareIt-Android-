@@ -59,6 +59,8 @@
     <string name="company_car">Företagsbil</string>
     <string name="travel_bill">Reseräkning</string>
     <string name="measurement_satrt">Mätarställning,start</string>
+    <string name="year">År</string>
+    <string name="month">Månad</string>
     <string name="measurement_destination">Mätarställning,destination</string>
     <string name="addressjourneystart">Adress resans början</string>
     <string name="addresstraveldestination">Adress resans mål</string>
@@ -72,6 +74,7 @@
     <string name="shopping">SHOPPING</string>
     <string name="length">Längd</string>
     <string name="starttime">Start-tid</string>
+    <string name="show">Visa</string>
     <string name="startdate">Start-datum</string>
     <string name="description">Beskrivning</string>
     <string name="heading">Rubrik</string>
@@ -81,6 +84,7 @@
     <string name="rountineweekdays">Veckodagar</string>
     <string name="rountineusers">Brukare</string>
     <string name="rountineareas">områden</string>
+    <string name="writesummary">Skriv sammanfattning</string>
     <string name="rountinetime">Tid</string>
     <string name="rountinestep">Steg</string>
     <string name="rountineaddstep">+ Lägg till ytterligare steg</string>

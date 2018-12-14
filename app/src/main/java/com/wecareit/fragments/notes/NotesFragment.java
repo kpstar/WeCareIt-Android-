@@ -4,10 +4,12 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -74,6 +77,9 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
     private NotesAdapter adapter;
     private HashMap<String, String> params;
     private ArrayList<String> clients, area, category, keyword;
+    private ConstraintLayout clMessage;
+    private TextView txtMsg;
+    private Button btnMsgClose;
 
     public static NotesFragment createInstance() {
         return new NotesFragment();
@@ -102,6 +108,39 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
 
         Global.toolbar.setNavigationIcon(R.drawable.ic_side_menu);
         Global.toolbar.setTitle("ANTECKNINGAR");
+
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Message", Context.MODE_PRIVATE);
+        String messageStr = sharedPreferences.getString("noteFragment", "");
+
+        clMessage = view.findViewById(R.id.clMessage);
+        btnMsgClose = (Button) view.findViewById(R.id.closeMessageBtn);
+        btnMsgClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clMessage.setVisibility(View.GONE);
+            }
+        });
+        txtMsg = (TextView) view.findViewById(R.id.addMessage);
+        if (!messageStr.isEmpty()) {
+            txtMsg.setText(messageStr);
+            clMessage.setVisibility(View.VISIBLE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("noteFragment", "");
+            editor.apply();
+        }
+
+        Global.monthlyButton.setVisibility(View.VISIBLE);
+        Global.monthlyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Global.monthlySummeryFragment = MonthlySummeryFragment.createInstance();
+                Global.fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, Global.monthlySummeryFragment)
+                        .addToBackStack(null)
+                        .commit();
+                Global.monthlyButton.setVisibility(View.GONE);
+            }
+        });
 
         Global.floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override

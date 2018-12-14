@@ -49,6 +49,7 @@ dependencies {
     implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
     implementation 'com.google.android:flexbox:1.0.0'
     implementation 'us.feras.mdv:markdownview:1.1.0'
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
     //implementation 'com.google.android.material:material:1.0.0-beta01'
     //implementation 'com.thomashaertel:multispinner:0.1.0@aar'
 

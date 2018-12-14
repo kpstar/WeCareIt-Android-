@@ -28,5 +28,15 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@drawable/ic_floating_add" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="80dp"
+        android:visibility="gone"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorRedFlag"
+        app:srcCompat="@drawable/ic_date_range" />
 
 </android.support.design.widget.CoordinatorLayout>

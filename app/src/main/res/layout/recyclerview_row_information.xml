@@ -51,9 +51,9 @@
             >
             <ImageView
                 android:id="@+id/btnEdit_informationlist"
-                android:layout_width="@dimen/width_60dp"
-                android:layout_height="@dimen/width_60dp"
-                android:background="@drawable/ic_circle_edit"
+                android:layout_width="@dimen/width_24dp"
+                android:layout_height="@dimen/width_24dp"
+                android:background="@drawable/ic_more"
                 />
         </LinearLayout>
 

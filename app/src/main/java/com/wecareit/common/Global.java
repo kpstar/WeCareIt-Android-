@@ -15,6 +15,7 @@ import com.wecareit.fragments.information.InformationFragment;
 import com.wecareit.fragments.meeting.AgendaFragment;
 import com.wecareit.fragments.meeting.MeetingsFragment;
 import com.wecareit.fragments.news.NewsFragment;
+import com.wecareit.fragments.notes.MonthlySummeryFragment;
 import com.wecareit.fragments.notes.NotesAddFragment;
 import com.wecareit.fragments.notes.NotesFragment;
 import com.wecareit.fragments.routine.RoutineAddFragment;
@@ -40,6 +41,7 @@ public class Global {
 
     public static Toolbar toolbar;
     public static FloatingActionButton floatingButton;
+    public static FloatingActionButton monthlyButton;
     public static GetAPIService getAPIService;
 
     public static FragmentManager fragmentManager;
@@ -58,6 +60,7 @@ public class Global {
     public static DrivingLogFragment drivingLogFragment;
     public static EventsUpdateFragment eventsUpdateFragment;
     public static AgendaFragment agendaFragment;
+    public static MonthlySummeryFragment monthlySummeryFragment;
     public static MeetingsFragment meetingsFragment;
     public static RoutineFragment routineFragment;
     public static RoutineAddFragment routineAddFragment;
