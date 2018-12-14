@@ -28,14 +28,18 @@ import com.wecareit.common.Global;
 import com.wecareit.fragments.TemplateFragment;
 import com.wecareit.model.Major_Keyword;
 import com.wecareit.model.Minor_Keywords;
+import com.wecareit.model.NotesRes;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.FieldMap;
 
 
 public class NotesAddFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener, Spinner.OnItemSelectedListener {
@@ -148,7 +152,9 @@ public class NotesAddFragment extends TemplateFragment implements MultiSpinner.M
     }
 
     private void saveData() {
+        Map<String, String> params = new HashMap<>();
 
+        Call<ArrayList<NotesRes>> call = Global.getAPIService.writeNotes("Token " + Global.token, params);
     }
 
     @Override
@@ -180,6 +186,7 @@ public class NotesAddFragment extends TemplateFragment implements MultiSpinner.M
             public void onResponse(Call<ArrayList<Minor_Keywords>> call, Response<ArrayList<Minor_Keywords>> response) {
                 if (response.isSuccessful()) {
                     minor_keywords = response.body();
+                    Global.minor_keywordslist = new ArrayList<String>();
                     Collections.sort(minor_keywords, new Comparator<Minor_Keywords>() {
                         @Override
                         public int compare(Minor_Keywords a, Minor_Keywords b) {

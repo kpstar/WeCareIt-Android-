@@ -187,14 +187,14 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
 
-                Log.d("$$$$$$#####",""+response.body().toJSON());
+//                Log.d("$$$$$$#####",""+response.body().toJSON());
 
                 if (response.isSuccessful()) {
-                Log.d("UpdateMsg",""+news.getId());
-                etUpdateTitle.setVisibility(View.GONE);
-                ivUpdateTitle.setVisibility(View.GONE);
-                mMessage.setVisibility(View.VISIBLE);
-                mMessage.setText(etUpdateTitle.getText().toString());
+                    Log.d("UpdateMsg",""+news.getId());
+                    etUpdateTitle.setVisibility(View.GONE);
+                    ivUpdateTitle.setVisibility(View.GONE);
+                    mMessage.setVisibility(View.VISIBLE);
+                    mMessage.setText(etUpdateTitle.getText().toString());
                 }
             }
 

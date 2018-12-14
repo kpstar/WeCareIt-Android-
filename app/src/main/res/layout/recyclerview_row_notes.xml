@@ -20,7 +20,8 @@
             android:layout_height="60dp"
             android:contentDescription="@string/nav_header_desc"
             android:gravity="center"
-            app:srcCompat="@mipmap/ic_launcher_round" />
+            android:src="@drawable/ic_user_template"
+            app:srcCompat="@drawable/ic_user_template" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

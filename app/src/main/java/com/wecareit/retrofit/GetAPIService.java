@@ -34,6 +34,7 @@ import com.wecareit.model.Vehicles;
 import com.wecareit.model.WeeklySchedule;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -54,6 +55,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 public interface GetAPIService {
     @POST("/api/users/login/")
@@ -143,17 +145,15 @@ public interface GetAPIService {
     @Headers({"Accept: application/json"})
     @GET("/api/notes/")
     Call<ArrayList<NotesRes>> readNotes(@Header("authorization") String token, @Query("date") String date);
-//    Call<ArrayList<NotesRes>> readNotes(@Header("authorization") String token, @Query("date") String date, @Query("area") int area, @Query("category") int category, @Query("clients") int clients);
 
     @Headers({"Accept: application/json"})
     @POST("/api/notes/")
-    Call<ArrayList<NotesRes>> writeNotes(@Header("authorization") String token, @Query("date") String date);
+//    Call<ArrayList<NotesRes>> writeNotes(@Header("authorization") String token, @Query("date") String date);
+    Call<ArrayList<NotesRes>> writeNotes(@Header("authorization") String token, @FieldMap Map<String, String> params);
 
     @Headers({"Accept: application/json"})
     @GET("/api/notes/")
-    //Call<ArrayList<NotesRes>> filterNotes(@Header("authorization") String token, @Query("area") String area_id, @Query("category") String category, @Query("clients") String clients, @Query("keyword") String keyword, @Query("time_range") String time_range, @Query("date") String date );
-    Call<ArrayList<NotesRes>> filterNotes(@Header("authorization") String token, @Query("area") int area_id, @Query("category") int category, @Query("clients") int clients, @Query("keyword") int keyword, @Query("time_range") int time_range, @Query("date") String date );
-//    Call<ArrayList<NotesRes>> filterNotes(@FieldMap Map<String, String> params);
+    Call<ArrayList<NotesRes>> filterNotes(@Header("authorization") String token, @Query("clients") List<String> clients, @Query("area") List<String> area, @Query("category") List<String> category, @Query("keyword") List<String> keyword, @QueryMap HashMap<String, String> params);
 
     @Headers({"Accept: application/json"})
     @GET("/api/main-categories/")

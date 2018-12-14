@@ -400,6 +400,7 @@ public class NavigationActivity extends AppCompatActivity
     public void getLists(){
 
         Global.clients = new ArrayList<Client>();
+        Global.clientslist = new ArrayList<String>();
         Call<ArrayList<Client>> call = Global.getAPIService.readClients("Token " + Global.token);
 
         call.enqueue(new Callback<ArrayList<Client>>() {

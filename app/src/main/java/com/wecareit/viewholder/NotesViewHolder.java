@@ -3,7 +3,9 @@ package com.wecareit.viewholder;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -110,6 +112,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void setContent(NotesRes notes) {
         this.notes = notes;
         this.clients = notes.getClients();
@@ -212,58 +215,6 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
             fbRow.addView(tvArea);
         }
 
-        /*switch (main_category.getId()){
-            case 1:
-                tvCategory1.setVisibility(View.VISIBLE);
-            case 2:
-                tvCategory2.setVisibility(View.VISIBLE);
-            case 3:
-                tvCategory3.setVisibility(View.VISIBLE);
-
-        }*/
-
-        /*if (main_category.getId() == 1){
-            tvCategory1.setVisibility(View.VISIBLE);
-        } else if (main_category.getId() == 2){
-            tvCategory2.setVisibility(View.VISIBLE);
-        } else if (main_category.getId() == 3){
-            tvCategory3.setVisibility(View.VISIBLE);
-        }
-
-        *//*switch (notes.getMinor_keyword().getId()){
-            case 3:
-                tvKeyword1.setVisibility(View.VISIBLE);
-            case 4:
-                tvKeyword2.setVisibility(View.VISIBLE);
-
-        }*//*
-
-        if (notes.getMajor_keyword().getId() == 1) {
-            tvKeyword1.setVisibility(View.VISIBLE);
-        } else if (notes.getMinor_keyword().getId() == 2) {
-            tvKeyword2.setVisibility(View.VISIBLE);
-        }
-
-        if (notes.getMinor_keyword().getId() == 1) {
-            tvKeyword3.setVisibility(View.VISIBLE);
-        } else if (notes.getMinor_keyword().getId() == 2) {
-            tvKeyword4.setVisibility(View.VISIBLE);
-        } else if (notes.getMinor_keyword().getId() == 3) {
-            tvKeyword5.setVisibility(View.VISIBLE);
-        } else if (notes.getMinor_keyword().getId() == 4) {
-            tvKeyword6.setVisibility(View.VISIBLE);
-        }
-
-        //tvArea1.setVisibility(View.VISIBLE);
-        Log.d("#####areaID",""+notes.getArea().getId());
-        switch (notes.getArea().getId()){
-            case 1:
-                tvArea1.setVisibility(View.VISIBLE);
-                //break;
-            case 2:
-                tvArea2.setVisibility(View.VISIBLE);
-        }*/
-
         if (notes.isBackdated()){
             ivFlag.setVisibility(View.VISIBLE);
         } else {
@@ -276,7 +227,10 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         tvTime.setText(notes.getCreation_date().substring(11,16));
         mTitle.setText(notes.getSummary());
         mDesc.setText(notes.getText());
-        new DownloadImage(mUserImg).execute(notes.getAuthor().getAvatar());
-
+        if (notes.getAuthor().getAvatar() != null) {
+            new DownloadImage(mUserImg).execute(notes.getAuthor().getAvatar());
+        } else {
+            mUserImg.setImageDrawable(context.getDrawable(R.drawable.ic_user_template));
+        }
     }
 }

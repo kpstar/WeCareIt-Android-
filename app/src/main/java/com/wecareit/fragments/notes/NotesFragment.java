@@ -47,7 +47,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 import retrofit2.Call;
@@ -68,8 +71,9 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
     private String nowdate;
     private TextView tvEmpty;
     private Button btnClear, btnSubmit;
-    private int id_note, id_area , id_keyword , id_timerange, id_client ,id_category ;
-    private static String date_filter;
+    private NotesAdapter adapter;
+    private HashMap<String, String> params;
+    private ArrayList<String> clients, area, category, keyword;
 
     public static NotesFragment createInstance() {
         return new NotesFragment();
@@ -89,6 +93,7 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
     }
 
     public void onItemsSelected(boolean[] selected){
+        Log.e("Selected", String.valueOf(selected.length));
     };
 
     @Override
@@ -349,8 +354,10 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
                     } else {
                         lnEmpty.setVisibility(View.GONE);
                         main_scrollview.setVisibility(View.VISIBLE);
+                        mRecyclerView.invalidate();
                         for (NotesRes notes : notesRes) {
-                            NotesAdapter adapter = new NotesAdapter(NotesFragment.this.getContext(), notesRes);
+                            NotesAdapter adapter = null;
+                            adapter = new NotesAdapter(NotesFragment.this.getContext(), notesRes);
                             mRecyclerView.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
                         }
@@ -365,101 +372,42 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
 
     public void filterNote() {
 
-        switch (spTimeinterval.getSelectedItem().toString()){
-            case "15 dagar":
-                id_timerange = 1;
-                break;
-            case "30 dagar":
-                id_timerange = 2;
-                break;
-            case "90 dagar":
-                id_timerange = 3;
-                break;
-            case "1 år":
-                id_timerange = 4;
-                break;
-            default:
-                id_timerange = 0;
-                break;
+        params = new HashMap<String, String>();
+        params.put("date", nowdate);
+
+        if (spTimeinterval.getSelectedItemPosition() > 0) {
+            params.put("time_range", String.valueOf(spTimeinterval.getSelectedItemPosition()));
         }
 
-        switch (spArea.getSelectedItem().toString()){
-            case "Boendet":
-                id_area = 1;
-                break;
-            case "Daglig Verksamhet":
-                id_area = 2;
-                break;
-            default:
-                id_area = 0;
-                break;
+        clients = new ArrayList<String>();
+        for (int i=0; i<spAccommodation.getItems().size(); i++) {
+            if (spAccommodation.getSelected()[i] == true) {
+                clients.add(String.valueOf(i + 1));
+            }
         }
 
-        switch (spArea.getSelectedItem().toString()){
-            case "Boendet":
-                id_area = 1;
-                break;
-            case "Daglig Verksamhet":
-                id_area = 2;
-                break;
-            default:
-                id_area = 0;
-                break;
+        category = new ArrayList<String>();
+        for (int i=0; i<spCategory.getItems().size(); i++) {
+            if (spCategory.getSelected()[i] == true) {
+                category.add(String.valueOf(i + 1));
+            }
         }
 
-        switch (spCategory.getSelectedItem().toString()){
-            case "Social dokumentation":
-                id_category = 1;
-                break;
-            case "HSL":
-                id_category = 2;
-                break;
-            case "Daglig Arbetsmaterial":
-                id_category = 3;
-                break;
-            default:
-                id_category = 0;
-                break;
+        keyword = new ArrayList<String>();
+        for (int i=0; i<spKeyword.getItems().size(); i++) {
+            if (spKeyword.getSelected()[i] == true) {
+                keyword.add(String.valueOf(i + 1));
+            }
         }
 
-        switch (spKeyword.getSelectedItem().toString()){
-            case "Mat":
-                id_keyword = 1;
-                break;
-            case "Sociala relationer":
-                id_keyword = 2;
-                break;
-            default:
-                id_keyword = 0;
-                break;
-        }
-        Log.e("String =", spAccommodation.getSelectedItem().toString());
-        switch (spAccommodation.getSelectedItem().toString()){
-            case "Maria Martinsson":
-                id_client = 1;
-                break;
-            case "Anders Andersson":
-                id_client = 2;
-                break;
-            case "Johan Jonansson":
-                id_client = 3;
-                break;
-            case "Gun Gunsson":
-                id_client = 4;
-                break;
-            default:
-                id_client = 0;
-                break;
+        area = new ArrayList<String>();
+        for (int i=0; i<spArea.getItems().size(); i++) {
+            if (spArea.getSelected()[i] == true) {
+                area.add(String.valueOf(i + 1));
+            }
         }
 
-        Log.d("#########id_timerange", nowdate);
-        Log.e("##data ", String.format("%d / %d / %d /%d", id_area, id_category, id_client, id_keyword));
-
-//        Call<ArrayList<NotesRes>> call = Global.getAPIService.filterNotes("Token " + Global.token, Integer.getInteger(id_area),Integer.getInteger(id_category),Integer.getInteger(id_client),Integer.getInteger(id_keyword),Integer.getInteger(id_timerange), nowdate);
-//        Call<ArrayList<NotesRes>> call = Global.getAPIService.filterNotes("Token " + Global.token, 1,0,0,0,4, nowdate);
-        Call<ArrayList<NotesRes>> call = Global.getAPIService.filterNotes("Token " + Global.token, id_area, id_category, id_client, id_keyword,id_timerange, nowdate);
-
-        //Call<ArrayList<NotesRes>> call = Global.getAPIService.filterNotes("Token " + Global.token, id_area,id_category,id_client,id_client,id_timerange, nowdate);
+        Call<ArrayList<NotesRes>> call = Global.getAPIService.filterNotes("Token " + Global.token, clients, area, category, keyword, params);
 
         call.enqueue(new Callback<ArrayList<NotesRes>>() {
             @Override
@@ -476,14 +424,14 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
                     notesRes = response.body();
 
                     if(notesRes.isEmpty()){
-                        Log.d("empty",notesRes.toString());
                         lnEmpty.setVisibility(View.VISIBLE);
                         main_scrollview.setVisibility(View.GONE);
                     } else {
                         lnEmpty.setVisibility(View.GONE);
                         main_scrollview.setVisibility(View.VISIBLE);
                         for (NotesRes notes : notesRes) {
-                            NotesAdapter adapter = new NotesAdapter(NotesFragment.this.getContext(), notesRes);
+                            adapter = null;
+                            adapter = new NotesAdapter(NotesFragment.this.getContext(), notesRes);
                             mRecyclerView.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
                         }
