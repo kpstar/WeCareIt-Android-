@@ -80,6 +80,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     private CircleImageView ivEdit;
     private ImageView ivDel;
     private LinearLayout layoutComment,newsrow, lnComment, lnList;
+    private String sRead_by;
 
     public NewsViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -105,6 +106,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         lnComment = (LinearLayout) itemView.findViewById(R.id.lnComment_newsfragment);
         newsrow = (LinearLayout) itemView.findViewById(R.id.row_news);
         lnList = (LinearLayout) itemView.findViewById(R.id.lnList_newsrow);
+        sRead_by = "<b>\u2714 Läst av: </b>";
 
         GradientDrawable gd = new GradientDrawable();
         gd.setShape(GradientDrawable.RECTANGLE);
@@ -144,17 +146,9 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         mSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = etUpdateTitle.getText().toString();
-                mMessage.loadMarkdown(message);
-                // Update API
+                updateTitle();
             }
         });
-//        ivUpdateTitle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                updateTitle();
-//            }
-//        });
 
         ivPostComment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -222,28 +216,28 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void updateTitle(){
-
         UpdateNews updateNews;
         ArrayList<Userlist> userlist = new ArrayList<Userlist>();
         Userlist user = new Userlist(Global.user.getId(),Global.user.getFirstname(),Global.user.getLastname(),Global.user.getTitle());
         userlist.add(user);
         updateNews = new UpdateNews(etUpdateTitle.getText().toString(),userlist);
         Log.d("updateNews",updateNews.toJSON()+ news.getId());
-        Call<NewsResponse> apiCall = Global.getAPIService.updateTitle("Token "+ Global.token, news.getId(), updateNews, "true");
+        Call<NewsResponse> apiCall = Global.getAPIService.updateTitle("Token "+ Global.token, news.getId(), updateNews, news.isMe_mentioned() == true ? "true": "false");
         Log.d("UpdateMsg",apiCall.toString());
         apiCall.enqueue(new Callback<NewsResponse>() {
             @Override
             public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
 
-//                Log.d("$$$$$$#####",""+response.body().toJSON());
-
                 if (response.isSuccessful()) {
                     Log.d("UpdateMsg",""+news.getId());
                     etUpdateTitle.setVisibility(View.GONE);
+                    mSave.setVisibility(View.GONE);
+                    mCancel.setVisibility(View.GONE);
                     mMessage.setVisibility(View.VISIBLE);
-                    mSeenBy.setVisibility(View.VISIBLE);
+                    if (news.getSeen_by().size() > 0) {
+                        mSeenBy.setVisibility(View.VISIBLE);
+                    }
                     mMessage.loadMarkdown(etUpdateTitle.getText().toString());
-                    mSeenBy.loadMarkdown(etUpdateTitle.getText().toString());
                 }
             }
 
@@ -258,21 +252,34 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     public void setContent(NewsResponse news) {
         this.news = news;
         gettimetext();
+        this.seen_bies = null;
+        this.seen_bies = new ArrayList<Seen_by>();
+        this.seen_bies = news.getSeen_by();
+        sRead_by = "<b>\u2714 Läst av: </b>";
+        if (seen_bies.size() > 0) {
+            mSeenBy.setVisibility(View.VISIBLE);
+            for (Seen_by seen_by: seen_bies) {
+                sRead_by += seen_by.getName() + ", ";
+            }
+            sRead_by = sRead_by.substring(0, sRead_by.length()-2);
+        } else {
+            mSeenBy.setVisibility(View.GONE);
+        }
         if(NewsFragment.flag_relevant==0) {
             mUsername.setText(news.getAuthor().getName());
             new DownloadImage(mUserImg).execute(news.getAuthor().getAvatar());
             mTime.setText(stringTime);
             mMessage.loadMarkdown(news.getMessage());
-            mSeenBy.loadMarkdown("<i class=\"material-icons orange600\">face</i><b>\u2714 Läst av: </b>");
-            mReplycounts.setText("" + news.getReply_count() + " svar");
+            mSeenBy.loadMarkdown(sRead_by);
+            mReplycounts.setText("" + news.getReply_count());
         } else{
             if(news.isMe_mentioned()){
                 mUsername.setText(news.getAuthor().getName());
                 new DownloadImage(mUserImg).execute(news.getAuthor().getAvatar());
                 mTime.setText(stringTime);
                 mMessage.loadMarkdown(news.getMessage());
-                mSeenBy.loadMarkdown(news.getMessage());
-                mReplycounts.setText("" + news.getReply_count() + " svar");
+                mSeenBy.loadMarkdown(sRead_by);
+                mReplycounts.setText("" + news.getReply_count());
             } else{
                 newsrow.setVisibility(View.GONE);
             }
@@ -280,13 +287,6 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
 
         int j = 0;
         this.replies = news.getReplies();
-        this.seen_bies = news.getSeen_by();
-
-        if (seen_bies.size() > 0) {
-            mSeenBy.setVisibility(View.VISIBLE);
-            for (Seen_by seen_by: seen_bies) {
-            }
-        }
 
         if(news.getReply_count()!=0) {
             lnList.removeAllViews();

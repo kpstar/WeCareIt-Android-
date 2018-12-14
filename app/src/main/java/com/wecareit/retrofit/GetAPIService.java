@@ -201,7 +201,7 @@ public interface GetAPIService {
     Call<NewsResponse> postComment(@Header("authorization") String token, @Path("parent_entry_id") int id, @Body UpdateNews body);
 
     @Headers({"Accept: application/json"})
-    @PATCH("/api/news/{id}")
+    @PATCH("/api/news/{id}/")
     Call<NewsResponse> updateTitle(@Header("authorization") String token, @Path("id") int id, @Body UpdateNews body, @Query("me_mentioned") String me_mentioned );
 
 
