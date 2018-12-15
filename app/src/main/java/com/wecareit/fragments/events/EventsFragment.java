@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -67,7 +68,8 @@ public class EventsFragment extends TemplateFragment implements MultiSpinner.Mul
     private Spinner spActivities;
     //private MultiSpinner spEmployees, spAccomm;
     private MultiSelectSpinner spVehicle, spEmployees, spAccomm;
-    private LinearLayout lnExpand, lnEmpty, lnVehicles, lnAccom, lnActivity, lnEmployee;
+    private LinearLayout lnEmpty, lnVehicles, lnAccom, lnActivity, lnEmployee;
+    private CardView lnExpand;
     private Button btnClear, btnUsed;
     private int flag_expand = 0;
     private String day1, day2, day_start, stringofyear;
@@ -224,12 +226,12 @@ public class EventsFragment extends TemplateFragment implements MultiSpinner.Mul
         View view = item.getActionView();
         day1Calendar = Calendar.getInstance();
         day2Calendar = Calendar.getInstance();
-        TextView tvtime_menu = (TextView) view.findViewById(R.id.menu_item_events_filter_date);
+        ImageView tvtime_menu = (ImageView) view.findViewById(R.id.menu_item_events_filter_date);
         day1Calendar.add(Calendar.DAY_OF_MONTH,  Calendar.MONDAY-day1Calendar.get(Calendar.DAY_OF_WEEK));
         day2Calendar.add(Calendar.DAY_OF_MONTH,  Calendar.SUNDAY-day2Calendar.get(Calendar.DAY_OF_WEEK)+7);
         day2 = day2Calendar.getTime().toString().substring(4,10);
         getDayofStart();
-        tvtime_menu.setText("Vecka " + day1 + "-" + day2);
+//        tvtime_menu.setText("Vecka " + day1 + "-" + day2);
         ImageView mPrevDate = (ImageView) view.findViewById(R.id.menu_item_events_filter_prev);
         mPrevDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -238,7 +240,7 @@ public class EventsFragment extends TemplateFragment implements MultiSpinner.Mul
                 day1 = day1Calendar.getTime().toString().substring(4,10);
                 day2Calendar.add(Calendar.DAY_OF_MONTH,  Calendar.SUNDAY-day2Calendar.get(Calendar.DAY_OF_WEEK) - 7);
                 day2 = day2Calendar.getTime().toString().substring(4,10);
-                tvtime_menu.setText("Vecka " + day1 + "-" + day2);
+//                tvtime_menu.setText("Vecka " + day1 + "-" + day2);
                 stringofyear = day1Calendar.getTime().toString().substring(30,34);
                 tvEmpty.setText("Inga aktiviteter än för " + day1 + " - " + day2);
                 getDayofStart();
@@ -255,7 +257,7 @@ public class EventsFragment extends TemplateFragment implements MultiSpinner.Mul
                 day2Calendar.add(Calendar.DAY_OF_MONTH,  Calendar.SUNDAY-day2Calendar.get(Calendar.DAY_OF_WEEK) + 7);
                 day2 = day2Calendar.getTime().toString().substring(4,10);
                 stringofyear = day1Calendar.getTime().toString().substring(30,34);
-                tvtime_menu.setText("Vecka " + day1 + "-" + day2);
+//                tvtime_menu.setText("Vecka " + day1 + "-" + day2);
                 tvEmpty.setText("Inga aktiviteter än för " + day1 + " - " + day2);
                 getDayofStart();
                 filterData();

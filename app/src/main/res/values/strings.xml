@@ -87,6 +87,7 @@
     <string name="writesummary">Skriv sammanfattning</string>
     <string name="rountinetime">Tid</string>
     <string name="rountinestep">Steg</string>
+    <string name="remove">Ta bort</string>
     <string name="rountineaddstep">+ Lägg till ytterligare steg</string>
     <string name="summarizetheevent">Sammanfatta händelsen</string>
     <string name="details">Detaljer</string>

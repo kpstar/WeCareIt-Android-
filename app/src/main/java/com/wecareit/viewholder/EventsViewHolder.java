@@ -9,10 +9,13 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.Space;
 import android.widget.TextView;
@@ -50,8 +53,7 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
     private TextView mTime;
     private TextView mTitle;
     private TextView mDesc;
-    private ImageView mEditImg;
-    private ImageView mDelImag;
+    private ImageView mMore;
     private ImageView mExpImag;
     private LinearLayout lnDesc;
     private RelativeLayout lnRow;
@@ -67,8 +69,7 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
         mTime = (TextView) itemView.findViewById(R.id.tvTime_eventslist);
         mTitle = (TextView) itemView.findViewById(R.id.tvTitle_eventslist);
         mDesc = (TextView) itemView.findViewById(R.id.tvDesc_eventslist);
-        mEditImg = (ImageView) itemView.findViewById(R.id.ivEdit_eventslist);
-        mDelImag = (ImageView) itemView.findViewById(R.id.ivDelete_eventsist);
+        mMore= (ImageView) itemView.findViewById(R.id.ivMore_event);
         mExpImag = (ImageView) itemView.findViewById(R.id.ivExpand_eventslist);
         lnDesc = (LinearLayout) itemView.findViewById(R.id.lnDesc_eventslist);
         lnRow = (RelativeLayout) itemView.findViewById(R.id.lnRow_eventsfragment);
@@ -100,57 +101,120 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
-        mEditImg.setOnClickListener(new View.OnClickListener() {
+        mMore.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                EventsFragment.flag_update = 1;
-                EventsFragment.id_update = news.getId();
-                EventsFragment.name_update = news.getName();
-                EventsFragment.description_update = news.getDescription();
-                EventsFragment.startdate_update = news.getTime().getLower();
-                EventsFragment.enddate_update = news.getTime().getUpper();
-                EventsFragment.users.add(1);
-                EventsFragment.users.add(2);
-
-
-                Global.eventsUpdateFragment = EventsUpdateFragment.createInstance();
-                Global.fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, Global.eventsUpdateFragment)
-                        .addToBackStack(null)
-                        .commit();
+            public void onClick(View view) {
+                showPopup(view);
             }
         });
 
-        mDelImag.setOnClickListener(new View.OnClickListener() {
+//        mEditImg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                EventsFragment.flag_update = 1;
+//                EventsFragment.id_update = news.getId();
+//                EventsFragment.name_update = news.getName();
+//                EventsFragment.description_update = news.getDescription();
+//                EventsFragment.startdate_update = news.getTime().getLower();
+//                EventsFragment.enddate_update = news.getTime().getUpper();
+//                EventsFragment.users.add(1);
+//                EventsFragment.users.add(2);
+//
+//
+//                Global.eventsUpdateFragment = EventsUpdateFragment.createInstance();
+//                Global.fragmentManager.beginTransaction()
+//                        .replace(R.id.fragment_container, Global.eventsUpdateFragment)
+//                        .addToBackStack(null)
+//                        .commit();
+//            }
+//        });
+//
+//        mDelImag.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                /*if(flag_expand ==0) {
+//                    lnDesc.setVisibility(View.VISIBLE);
+//                    flag_expand =1;
+//                } else {
+//                    lnDesc.setVisibility(View.GONE);
+//                    flag_expand =0;
+//                }*/
+//                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+//                alertDialog.setMessage("Är du säker på att du vill ta bort \"" + news.getName()+", "+news.getTime().getLower()+" - "+news.getTime().getUpper()+"\"?");
+//                alertDialog.setPositiveButton("Avbryt", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.cancel();
+//                    }
+//                });
+//                alertDialog.setNegativeButton("Ta bort", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                        deleteData();
+//
+//                    }
+//                });
+//
+//                AlertDialog dialog = alertDialog.create();
+//                dialog.show();
+//
+//            }
+//        });
+    }
+
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(context, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_events, popup.getMenu());
+        popup.show();
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
-            public void onClick(View v) {
-                /*if(flag_expand ==0) {
-                    lnDesc.setVisibility(View.VISIBLE);
-                    flag_expand =1;
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.menu_edit) {
+                    weeklyEdit();
                 } else {
-                    lnDesc.setVisibility(View.GONE);
-                    flag_expand =0;
-                }*/
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                alertDialog.setMessage("Är du säker på att du vill ta bort \"" + news.getName()+", "+news.getTime().getLower()+" - "+news.getTime().getUpper()+"\"?");
-                alertDialog.setPositiveButton("Avbryt", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                alertDialog.setNegativeButton("Ta bort", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    weeklyRemove();
+                }
+                return false;
+            }
+        });
+    }
 
-                        deleteData();
+    public void weeklyEdit() {
+        EventsFragment.flag_update = 1;
+        EventsFragment.id_update = news.getId();
+        EventsFragment.name_update = news.getName();
+        EventsFragment.description_update = news.getDescription();
+        EventsFragment.startdate_update = news.getTime().getLower();
+        EventsFragment.enddate_update = news.getTime().getUpper();
+//        EventsFragment.users.add(1);
+//        EventsFragment.users.add(2);
 
-                    }
-                });
 
-                AlertDialog dialog = alertDialog.create();
-                dialog.show();
+        Global.eventsUpdateFragment = EventsUpdateFragment.createInstance();
+        Global.fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, Global.eventsUpdateFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void weeklyRemove() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+        alertDialog.setMessage("Är du säker på att du vill ta bort \"" + news.getName()+", "+news.getTime().getLower()+" - "+news.getTime().getUpper()+"\"?");
+        alertDialog.setPositiveButton("Avbryt", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        alertDialog.setNegativeButton("Ta bort", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                deleteData();
 
             }
         });
@@ -189,7 +253,7 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
             textView.setText(vehicles.getName());
             textView.setBackground(gd_vehicle);
             textView.setTextColor(Color.parseColor("#ffffff"));
-            textView.setPadding(10,6,10,6);
+            textView.setPadding(20,6,20,6);
             FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
             params.setMargins(3,6,3,6);
             textView.setLayoutParams(params);
@@ -210,7 +274,7 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
             textView.setBackground(gd_user);
             textView.setGravity(Gravity.CENTER);
             textView.setTextColor(Color.parseColor("#000000"));
-            textView.setPadding(10,6,10,6);
+            textView.setPadding(20,6,20,6);
             FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
             params.setMargins(3,6,3,6);
             textView.setLayoutParams(params);
@@ -230,7 +294,7 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
             textView.setText(client.getName());
             textView.setBackground(gd_client);
             textView.setTextColor(Color.parseColor("#ffffff"));
-            textView.setPadding(10,6,10,6);
+            textView.setPadding(20,6,20,6);
             FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
             params.setMargins(3,6,3,6);
             textView.setLayoutParams(params);
