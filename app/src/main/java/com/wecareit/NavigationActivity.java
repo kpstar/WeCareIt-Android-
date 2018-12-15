@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -73,7 +74,7 @@ public class NavigationActivity extends AppCompatActivity
     public static final String KEY_LAST_FRAGMENT = "last_fragment";
     public static String TAG = "NavigationActivity";
 
-    private Fragment mContentFragment = null;
+    public Fragment mContentFragment = null;
 
     private FloatingActionButton mFloatingButton;
     private FloatingActionButton mMonthButton;
@@ -216,6 +217,14 @@ public class NavigationActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
 
+        SharedPreferences sharedPreferences = this.getSharedPreferences("Fragment", Context.MODE_PRIVATE);
+        String mFragment = sharedPreferences.getString("Current", "");
+        if (mFragment.equals("Information")) {
+            mContentFragment = InformationFragment.createInstance();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("Current", "");
+            editor.apply();
+        }
         if (mContentFragment == null) {
             mContentFragment = StartFragment.createInstance();
         }

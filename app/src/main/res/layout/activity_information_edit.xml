@@ -6,4 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".InformationEditActivity">
 
+    <LinearLayout
+        android:id="@+id/framgment_information_editview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/heading"
+            android:layout_marginLeft="@dimen/height_20dp"
+            android:layout_marginTop="@dimen/padding_6dp"/>
+        <EditText
+            android:id="@+id/etTitle_informationfragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border_background"
+            android:layout_margin="@dimen/padding_10dp"
+            android:padding="@dimen/padding_10dp"
+            android:hint="Rubik"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="information"
+            android:layout_marginLeft="@dimen/height_20dp"
+            android:layout_marginTop="@dimen/padding_6dp"/>
+        <EditText
+            android:id="@+id/etDesc_informationfragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_10dp"
+            android:padding="@dimen/padding_10dp"
+            android:background="@drawable/rounded_border_background"
+            android:hint="@string/write"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_10dp">
+            <TextView
+                android:id="@+id/letterNumberTxt"
+                android:layout_width="wrap_content"
+                android:maxLines="4"
+                android:text="0/500"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

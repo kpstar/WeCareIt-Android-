@@ -87,17 +87,11 @@ public class InformationViewHolder extends RecyclerView.ViewHolder {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 Intent mIntent = new Intent((NavigationActivity)context, InformationEditActivity.class);
+                mIntent.putExtra("Title", info.getName());
+                mIntent.putExtra("Desc", info.getText());
+                mIntent.putExtra("InfoId", info.getId());
+                mIntent.putExtra("EditFlag", 1);
                 context.startActivity(mIntent);
-//                InformationFragment.stTitle = info.getName();
-//                InformationFragment.stDesc = info.getText();
-//                InformationFragment.id_information = info.getId();
-//                InformationFragment.flagEdit_informationfragment = 1;
-//                Global.informationFragment = InformationFragment.createInstance();
-//                Global.fragmentManager.beginTransaction()
-//                        .replace(R.id.fragment_container, Global.informationFragment)
-//                        .addToBackStack(null)
-//                        .commit();
-//                Global.floatingButton.setVisibility(View.GONE);
                 return true;
             }
         });
