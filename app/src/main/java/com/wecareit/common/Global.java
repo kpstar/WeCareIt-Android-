@@ -82,6 +82,7 @@ public class Global {
     public static String[] weekDays = {"Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"};
     public static String[] categories = {"Generella", "Dagverksamheten", "Boende", "Personal", "Kvalitetssystem", "APT / Personalmöte"};
     public static String[] months = {"januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"};
+    public static String[] years = {"2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009"};
     public static ArrayList<String> categorylist = new ArrayList<String>();
     public static ArrayList<String> clientslist = new ArrayList<String>();
     public static ArrayList<String> userslist = new ArrayList<String>();

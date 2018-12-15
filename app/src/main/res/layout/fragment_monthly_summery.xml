@@ -8,211 +8,211 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:id="@+id/mainLinear_notesaddfragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="@dimen/padding_10dp"
-            android:gravity="center_vertical"
-            >
-
-            <!--</LinearLayout>-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/year"
-                android:layout_marginTop="@dimen/padding_6dp"
-                android:layout_marginLeft="@dimen/height_20dp"
-                />
+            android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/lnYear_month"
+                android:id="@+id/mainLinear_notesaddfragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="@dimen/padding_10dp"
-                android:layout_marginRight="@dimen/padding_10dp"
-                android:padding="@dimen/padding_10dp">
-                <Spinner
-                    android:id="@+id/yearSpinnerMonth"
-                    android:layout_width="fill_parent"
+                android:layout_margin="@dimen/padding_10dp"
+                android:gravity="center_vertical"
+                >
+
+                <!--</LinearLayout>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/year"
+                    android:layout_marginTop="@dimen/padding_6dp"
+                    android:layout_marginLeft="@dimen/height_20dp"
+                    />
+                <LinearLayout
+                    android:id="@+id/lnYear_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_marginRight="@dimen/padding_10dp"
+                    android:padding="@dimen/padding_10dp">
+                    <Spinner
+                        android:id="@+id/yearSpinnerMonth"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:prompt="@string/spinner_prompt"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/month"
+                    android:layout_marginTop="@dimen/padding_6dp"
+                    android:layout_marginLeft="@dimen/height_20dp"
+                    />
+                <LinearLayout
+                    android:id="@+id/lnMonth_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_marginRight="@dimen/padding_10dp"
+                    android:padding="@dimen/padding_10dp">
+
+                    <Spinner
+                        android:id="@+id/monthSpinner_month"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:prompt="@string/spinner_prompt"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/users"
+                    android:layout_marginTop="@dimen/padding_6dp"
+                    android:layout_marginLeft="@dimen/height_20dp"
+                    />
+                <LinearLayout
+                    android:id="@+id/lnUsers_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_marginRight="@dimen/padding_10dp"
+                    android:padding="@dimen/padding_10dp"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/userSpinner_month"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:prompt="@string/spinner_prompt"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:prompt="@string/spinner_prompt"/>
+                    android:text="@string/category"
+                    android:layout_marginTop="@dimen/padding_6dp"
+                    android:layout_marginLeft="@dimen/height_20dp"
+                    />
+                <LinearLayout
+                    android:id="@+id/lnCategory_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10dp"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_marginRight="@dimen/padding_10dp"
+                    android:orientation="horizontal">
+
+                    <com.wecareit.MultiSpinner
+                        android:id="@+id/categorySpinner_month"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:prompt="@string/spinner_prompt"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/area"
+                    android:layout_marginTop="@dimen/padding_6dp"
+                    android:layout_marginLeft="@dimen/height_20dp"/>
+                <LinearLayout
+                    android:id="@+id/lnArea_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10dp"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_marginRight="@dimen/padding_10dp"
+                    android:orientation="horizontal">
+
+                    <com.wecareit.MultiSpinner
+                        android:id="@+id/areaSpinner_month"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:prompt="@string/timeintervalspinner_prompt"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/keyword"
+                    android:layout_marginTop="@dimen/padding_6dp"
+                    android:layout_marginLeft="@dimen/height_20dp"/>
+                <LinearLayout
+                    android:id="@+id/lnKeyword_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10dp"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_marginRight="@dimen/padding_10dp"
+                    android:orientation="horizontal">
+
+                    <com.wecareit.MultiSpinner
+                        android:id="@+id/keywordSpinner_month"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:prompt="@string/timeintervalspinner_prompt"/>
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/padding_10dp"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btnShow_month"
+                        android:layout_width="wrap_content"
+                        android:padding="@dimen/padding_6dp"
+                        android:textSize="@dimen/font_20sp"
+                        android:textColor="@color/colorWhite"
+                        android:textAllCaps="true"
+                        android:text="@string/show"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/colorGreenText"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
             </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/month"
-                android:layout_marginTop="@dimen/padding_6dp"
-                android:layout_marginLeft="@dimen/height_20dp"
-                />
-            <LinearLayout
-                android:id="@+id/lnMonth_month"
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/monthnotes_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="@dimen/padding_10dp"
-                android:layout_marginRight="@dimen/padding_10dp"
-                android:padding="@dimen/padding_10dp">
-
-                <Spinner
-                    android:id="@+id/monthSpinner_month"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:prompt="@string/spinner_prompt"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/users"
-                android:layout_marginTop="@dimen/padding_6dp"
-                android:layout_marginLeft="@dimen/height_20dp"
-                />
-            <LinearLayout
-                android:id="@+id/lnSpecificKey_notesaddfragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/padding_10dp"
-                android:layout_marginRight="@dimen/padding_10dp"
-                android:padding="@dimen/padding_10dp"
-                android:orientation="horizontal">
-
-                <Spinner
-                    android:id="@+id/userSpinner_month"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:prompt="@string/spinner_prompt"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/category"
-                android:layout_marginTop="@dimen/padding_6dp"
-                android:layout_marginLeft="@dimen/height_20dp"
-                />
-            <LinearLayout
-                android:id="@+id/lnCategory_notesaddfragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
-                android:layout_marginLeft="@dimen/padding_10dp"
-                android:layout_marginRight="@dimen/padding_10dp"
-                android:orientation="horizontal">
-
-                <com.wecareit.MultiSpinner
-                    android:id="@+id/categorySpinner_month"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:prompt="@string/spinner_prompt"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/area"
-                android:layout_marginTop="@dimen/padding_6dp"
-                android:layout_marginLeft="@dimen/height_20dp"/>
-            <LinearLayout
-                android:id="@+id/lnAccommo_notesaddfragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
-                android:layout_marginLeft="@dimen/padding_10dp"
-                android:layout_marginRight="@dimen/padding_10dp"
-                android:orientation="horizontal">
-
-                <com.wecareit.MultiSpinner
-                    android:id="@+id/areaSpinner_month"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:prompt="@string/timeintervalspinner_prompt"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/keyword"
-                android:layout_marginTop="@dimen/padding_6dp"
-                android:layout_marginLeft="@dimen/height_20dp"/>
-            <LinearLayout
-                android:id="@+id/lnKeyword_month"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
-                android:layout_marginLeft="@dimen/padding_10dp"
-                android:layout_marginRight="@dimen/padding_10dp"
-                android:orientation="horizontal">
-
-                <com.wecareit.MultiSpinner
-                    android:id="@+id/keywordSpinner_month"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:prompt="@string/timeintervalspinner_prompt"/>
-            </LinearLayout>
+                android:layout_margin="@dimen/padding_10dp"
+            >
+            </android.support.v7.widget.RecyclerView>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:padding="@dimen/padding_10dp"
+                android:layout_marginTop="@dimen/height_24dp"
+                android:padding="@dimen/padding_18dp"
                 android:layout_height="wrap_content">
-                <Button
-                    android:id="@+id/btnShow_month"
+                <TextView
+                    android:id="@+id/txtSummary"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/writesummary"
+                    android:layout_marginLeft="@dimen/padding_10dp"/>
+                <EditText
+                    android:id="@+id/etSummary_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/writesummary"
+                    android:layout_below="@id/txtSummary"
                     android:padding="@dimen/padding_10dp"
-                    android:textSize="@dimen/font_20sp"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold"
-                    android:layout_marginRight="@dimen/padding_10dp"
-                    android:textAllCaps="true"
-                    android:text="@string/show"
-                    android:layout_alignParentRight="true"
-                    android:background="@color/colorGreenText"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-        </LinearLayout>
-        <!--<LinearLayout-->
-            <!--android:id="@+id/lnRecycler_month"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--&gt;-->
-            <!--<android.support.v7.widget.RecyclerView-->
-                <!--android:id="@+id/monthnotes_recyclerview"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_margin="@dimen/padding_10dp"-->
-                <!--&gt;-->
-            <!--</android.support.v7.widget.RecyclerView>-->
-        <!--</LinearLayout>-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/height_24dp"
-            android:padding="@dimen/padding_18dp"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/txtSummary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/writesummary"
-                android:layout_marginLeft="@dimen/padding_10dp"/>
-            <EditText
-                android:id="@+id/etSummary_month"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/writesummary"
-                android:layout_below="@id/txtSummary"
-                android:padding="@dimen/padding_10dp"
-                android:background="@drawable/rounded_border_background"/>
-            <!--<TextView-->
+                    android:background="@drawable/rounded_border_background"/>
+                <!--<TextView-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_below="@id/etSummary_month"-->
                 <!--android:layout_alignParentRight="true"-->
                 <!--android:text="0/1500"-->
                 <!--/>-->
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_10dp"
-                android:text="@string/save"
-                android:textAllCaps="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/etSummary_month"
-                android:textStyle="bold" />
-        </RelativeLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_10dp"
+                    android:padding="@dimen/padding_6dp"
+                    android:textSize="@dimen/font_20sp"
+                    android:text="@string/save"
+                    android:textAllCaps="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/etSummary_month"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

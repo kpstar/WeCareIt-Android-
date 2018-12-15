@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -69,7 +70,8 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
     private ScrollView main_scrollview;
     private Spinner spTimeinterval;
     private MultiSpinner spAccommodation, spKeyword, spCategory, spArea;
-    private LinearLayout lnExpand, lnEmpty, lnAccom, lnArea, lnTime, lnKeyword, lnCategory;
+    private LinearLayout lnEmpty, lnAccom, lnArea, lnTime, lnKeyword, lnCategory;
+    private CardView lnExpand;
     private static int flag_expand = 0;
     private String nowdate;
     private TextView tvEmpty;

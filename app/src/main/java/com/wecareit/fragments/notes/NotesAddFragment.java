@@ -91,6 +91,7 @@ public class NotesAddFragment extends TemplateFragment implements MultiSpinner.M
         Global.toolbar.setNavigationIcon(R.drawable.ic_side_menu);
         Global.toolbar.setTitle("SKRIV ANTECKNING");
         Global.floatingButton.setVisibility(View.GONE);
+        Global.monthlyButton.setVisibility(View.GONE);
 
         edSummary = (EditText)view.findViewById(R.id.etSummary_notesaddfragment);
 

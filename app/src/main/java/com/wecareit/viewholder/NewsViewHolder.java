@@ -1,5 +1,6 @@
 package com.wecareit.viewholder;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -82,6 +83,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     private LinearLayout layoutComment,newsrow, lnComment, lnList;
     private String sRead_by;
 
+    @SuppressLint("ResourceAsColor")
     public NewsViewHolder(@NonNull View itemView) {
         super(itemView);
 
