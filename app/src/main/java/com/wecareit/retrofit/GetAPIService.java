@@ -18,6 +18,7 @@ import com.wecareit.model.MainModel;
 import com.wecareit.model.Main_Category;
 import com.wecareit.model.Major_Keyword;
 import com.wecareit.model.Minor_Keywords;
+import com.wecareit.model.MonthlyKeyword;
 import com.wecareit.model.News;
 import com.wecareit.model.NewsPost;
 import com.wecareit.model.NewsPostResponse;
@@ -158,6 +159,10 @@ public interface GetAPIService {
     @Headers({"Accept: application/json"})
     @GET("/api/main-categories/")
     Call<ArrayList<Main_Category>> readMainCategories(@Header("authorization") String token);
+
+    @Headers({"Accept: application/json"})
+    @GET("/api/major-keywords/{client_id}/{year}/{month}/")
+    Call<ArrayList<MonthlyKeyword>> readMonthlyKeywords(@Header("authorization") String token, @Path("client_id") int client_id, @Path("year") int year, @Path("month") int month);
 
     @Headers({"Accept: application/json"})
     @GET("/api/major-keywords/")

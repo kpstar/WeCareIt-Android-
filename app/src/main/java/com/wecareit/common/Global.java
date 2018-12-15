@@ -89,6 +89,7 @@ public class Global {
     public static ArrayList<String> vehicleslist = new ArrayList<String>();
     public static ArrayList<Integer> vehiclesIDlist = new ArrayList<Integer>();
     public static ArrayList<String> areaslist = new ArrayList<String>();
+    public static ArrayList<String> month_majorKeywordList = new ArrayList<String>();
     public static ArrayList<String> main_categorieslist = new ArrayList<String>();
     public static ArrayList<String> major_keywordslist = new ArrayList<String>();
     public static ArrayList<String> minor_keywordslist = new ArrayList<String>();

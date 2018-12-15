@@ -29,7 +29,9 @@ import com.wecareit.MultiSpinner;
 import com.wecareit.R;
 import com.wecareit.common.Global;
 import com.wecareit.fragments.TemplateFragment;
+import com.wecareit.model.Major_Keyword;
 import com.wecareit.model.Minor_Keywords;
+import com.wecareit.model.MonthlyKeyword;
 import com.wecareit.model.NotePost;
 import com.wecareit.model.NotesRes;
 
@@ -48,21 +50,16 @@ import retrofit2.Response;
 public class MonthlySummeryFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener, Spinner.OnItemSelectedListener {
 
     private LinearLayout lnYear, lnMonth, lnUsers, lnCategory, lnArea, lnKeyword;
+    private int year, month, user_id;
     private Spinner spYear, spMonth, spUsers;
     private MultiSpinner msCategory, msArea, msKeyword;
     private Context mContext;
     private String mSummary;
-
-    private List<String> client_ids;
-    private boolean isBackDated;
-    private static int AREA_SPINNER_ID = 1001;
-    private static int GENERAL_SPINNER_ID = 1002;
-    private static int SPECIFIC_SPINNER_ID = 1003;
-    private CheckBox backDated;
-    private EditText edSummary, edDetail;
-    private static int CATEGORY_SPINNER_ID = 1004;
-    private ArrayList<Minor_Keywords> minor_keywords;
-    private NotesRes notesRes;
+    private ArrayList<MonthlyKeyword> keywords;
+    private static int YEAR_SPINNER_ID = 2001;
+    private static int MONTH_SPINNER_ID = 2002;
+    private static int USERS_SPINNER_ID = 2003;
+    private EditText edSummary;
 
     public static MonthlySummeryFragment createInstance() {
         return new MonthlySummeryFragment();
@@ -94,11 +91,7 @@ public class MonthlySummeryFragment extends TemplateFragment implements MultiSpi
         Global.floatingButton.setVisibility(View.GONE);
         Global.monthlyButton.setVisibility(View.GONE);
 
-        edSummary = (EditText)view.findViewById(R.id.etSummary_notesaddfragment);
-
-        edDetail = (EditText)view.findViewById(R.id.etDetails_notesaddfragment);
-
-        backDated = (CheckBox)view.findViewById(R.id.chxBackdated_noteaddfragment);
+        edSummary = (EditText)view.findViewById(R.id.etSummary_month);
 
         lnYear = view.findViewById(R.id.lnYear_month);
         lnMonth = view.findViewById(R.id.lnMonth_month);
@@ -111,10 +104,9 @@ public class MonthlySummeryFragment extends TemplateFragment implements MultiSpi
         msArea.setItems(Global.clientslist, getString(R.string.all), this);
 
         msCategory = view.findViewById(R.id.categorySpinner_month);
-        msCategory.setItems(Global.categorylist, getString(R.string.all), this);
+        msCategory.setItems(Global.main_categorieslist, getString(R.string.all), this);
 
-        msKeyword = view.findViewById(R.id.areaSpinner_month);
-        msKeyword.setItems(Global.major_keywordslist, getString(R.string.all), this);
+        msKeyword = view.findViewById(R.id.keywordSpinner_month);
 
 
 //        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, Global.areaslist);
@@ -123,40 +115,27 @@ public class MonthlySummeryFragment extends TemplateFragment implements MultiSpi
 //        spArea.setOnItemSelectedListener(this);
 
         spYear = view.findViewById(R.id.yearSpinnerMonth);
-//        spCategory.setId(CATEGORY_SPINNER_ID);
+        spYear.setId(YEAR_SPINNER_ID);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, Global.years);
         adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spYear.setAdapter(adapter1);
         spYear.setOnItemSelectedListener(this);
 
         spMonth = view.findViewById(R.id.monthSpinner_month);
-//        spCategory.setId(CATEGORY_SPINNER_ID);
+        spMonth.setId(MONTH_SPINNER_ID);
         adapter1 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, Global.months);
         adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spMonth.setAdapter(adapter1);
         spMonth.setOnItemSelectedListener(this);
 
         spUsers = view.findViewById(R.id.userSpinner_month);
-//        spCategory.setId(CATEGORY_SPINNER_ID);
-        adapter1 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, Global.clients.);
+        spUsers.setId(USERS_SPINNER_ID);
+        String[] musers = new String[Global.clientslist.size()];
+        musers = Global.clientslist.toArray(musers);
+        adapter1 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, musers);
         adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spUsers.setAdapter(adapter1);
         spUsers.setOnItemSelectedListener(this);
-
-//
-//        spGeneralkey = view.findViewById(R.id.generalkeyspinner_notesaddfragment);
-//        spGeneralkey.setId(GENERAL_SPINNER_ID);
-//        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, Global.major_keywordslist);
-//        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-//        spGeneralkey.setAdapter(adapter2);
-//        spGeneralkey.setOnItemSelectedListener(this);
-//
-//        spSpecifickey = view.findViewById(R.id.specifickeyspinner_notesaddfragment);
-//        spSpecifickey.setId(SPECIFIC_SPINNER_ID);
-//        spSpecifickey.setOnItemSelectedListener(this);
-//
-//        spAccomo = view.findViewById(R.id.accommospinner_notesaddfragment);
-//        spAccomo.setItems(Global.clientslist, getString(R.string.all), this);
 
         GradientDrawable gd = new GradientDrawable();
         gd.setShape(GradientDrawable.RECTANGLE);
@@ -237,53 +216,54 @@ public class MonthlySummeryFragment extends TemplateFragment implements MultiSpi
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//        int sp_id = adapterView.getId();
-//        if (sp_id == AREA_SPINNER_ID) {
-//            area_id = i + 1;
-//        } else if (sp_id == GENERAL_SPINNER_ID) {
-//            general_id = i + 1;
-//            getSpecificKey();
-//        } else if (sp_id == SPECIFIC_SPINNER_ID) {
-//            specific_id = 2 * general_id + i + 1;
-//        } else if (sp_id == CATEGORY_SPINNER_ID) {
-//            category_id = i + 1;
-//        } else {
-//            return;
-//        }
+        int sp_id = adapterView.getId();
+        if (sp_id == YEAR_SPINNER_ID) {
+            year = 2018 - i;
+            getKeywords();
+        } else if (sp_id == MONTH_SPINNER_ID) {
+            month = i + 1;
+            getKeywords();
+        } else if (sp_id == USERS_SPINNER_ID) {
+            user_id = i + 1;
+            getKeywords();
+        } else {
+            return;
+        }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
-//
-//    public void getSpecificKey() {
-//        Call<ArrayList<Minor_Keywords>> call_minorkeyword = Global.getAPIService.readMinorKeywords("Token " + Global.token, general_id);
-//        call_minorkeyword.enqueue(new Callback<ArrayList<Minor_Keywords>>() {
-//            @Override
-//            public void onResponse(Call<ArrayList<Minor_Keywords>> call, Response<ArrayList<Minor_Keywords>> response) {
-//                if (response.isSuccessful()) {
-//                    minor_keywords = response.body();
-//                    Global.minor_keywordslist = new ArrayList<String>();
-//                    Collections.sort(minor_keywords, new Comparator<Minor_Keywords>() {
-//                        @Override
-//                        public int compare(Minor_Keywords a, Minor_Keywords b) {
-//                            return (a.getId() >  b.getId() ? 1: -1);
-//                        }
-//                    });
-//                    for (Minor_Keywords minor_keyword : minor_keywords) {
-//                        Global.minor_keywordslist.add(minor_keyword.getTitle());
-//                    }
-//                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_item, Global.minor_keywordslist);
-//                    adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-//                    spSpecifickey.setAdapter(adapter);
-//                } else {
-//                    Log.e(Global.TAG, response.errorBody().toString());
-//                }
-//            }
-//            @Override
-//            public void onFailure(Call<ArrayList<Minor_Keywords>> call, Throwable t) {
-//            }
-//        });
-//    }
+
+    public void getKeywords() {
+        Log.d("cl year, month", String.format("%d/%d/%d", user_id, year, month));
+        Call<ArrayList<MonthlyKeyword>> call_minorkeyword = Global.getAPIService.readMonthlyKeywords("Token " + Global.token, user_id, year, month);
+        call_minorkeyword.enqueue(new Callback<ArrayList<MonthlyKeyword>>() {
+            @Override
+            public void onResponse(Call<ArrayList<MonthlyKeyword>> call, Response<ArrayList<MonthlyKeyword>> response) {
+                if (response.isSuccessful()) {
+                    keywords = response.body();
+                    Log.d("Keywords = ", String.valueOf(keywords.size()));
+                    Global.month_majorKeywordList = new ArrayList<String>();
+                    Collections.sort(keywords, new Comparator<MonthlyKeyword>() {
+                        @Override
+                        public int compare(MonthlyKeyword a, MonthlyKeyword b) {
+                            return (a.getId() >  b.getId() ? 1: -1);
+                        }
+                    });
+                    for (MonthlyKeyword keyword : keywords) {
+                        Log.e("Keyword =", keyword.getLabel());
+                        Global.month_majorKeywordList.add(keyword.getLabel());
+                    }
+                    msKeyword.setItems(Global.month_majorKeywordList, getString(R.string.all), (MultiSpinner.MultiSpinnerListener)MonthlySummeryFragment.this);
+                } else {
+                    Log.e(Global.TAG, response.message());
+                }
+            }
+            @Override
+            public void onFailure(Call<ArrayList<MonthlyKeyword>> call, Throwable t) {
+            }
+        });
+    }
 }
