@@ -58,6 +58,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ru.noties.markwon.Markwon;
 import us.feras.mdv.MarkdownView;
 
 public class NewsViewHolder extends RecyclerView.ViewHolder {
@@ -70,7 +71,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
 
     private TextView mUsername;
     private TextView mTime;
-    private MarkdownView mMessage, mSeenBy;
+    private TextView mMessage, mSeenBy;
     private EditText etUpdateTitle;
     private EditText etPostComment;
     private TextView mReplycounts;
@@ -91,8 +92,8 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
 
         mUsername = (TextView) itemView.findViewById(R.id.tvUsername_newslist);
         mTime = (TextView) itemView.findViewById(R.id.tvTime_newslist);
-        mMessage = (MarkdownView) itemView.findViewById(R.id.tvMessage_newslist);
-        mSeenBy = (MarkdownView) itemView.findViewById(R.id.tvSeenBy_newslist);
+        mMessage = (TextView) itemView.findViewById(R.id.tvMessage_newslist);
+        mSeenBy = (TextView) itemView.findViewById(R.id.tvSeenBy_newslist);
         etUpdateTitle = (EditText) itemView.findViewById(R.id.etMessage_newslist);
         etPostComment = (EditText) itemView.findViewById(R.id.editAddcomment_neslist);
         mReplycounts = (TextView) itemView.findViewById(R.id.tvCommentnumber_newslist);
@@ -239,7 +240,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
                     if (news.getSeen_by().size() > 0) {
                         mSeenBy.setVisibility(View.VISIBLE);
                     }
-                    mMessage.loadMarkdown(etUpdateTitle.getText().toString());
+                    Markwon.setMarkdown(mMessage, etUpdateTitle.getText().toString());
                 }
             }
 
@@ -271,16 +272,16 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
             mUsername.setText(news.getAuthor().getName());
             new DownloadImage(mUserImg).execute(news.getAuthor().getAvatar());
             mTime.setText(stringTime);
-            mMessage.loadMarkdown(news.getMessage());
-            mSeenBy.loadMarkdown(sRead_by);
+            Markwon.setMarkdown(mMessage, news.getMessage());
+            Markwon.setMarkdown(mSeenBy, sRead_by);
             mReplycounts.setText("" + news.getReply_count());
         } else{
             if(news.isMe_mentioned()){
                 mUsername.setText(news.getAuthor().getName());
                 new DownloadImage(mUserImg).execute(news.getAuthor().getAvatar());
                 mTime.setText(stringTime);
-                mMessage.loadMarkdown(news.getMessage());
-                mSeenBy.loadMarkdown(sRead_by);
+                Markwon.setMarkdown(mMessage, news.getMessage());
+                Markwon.setMarkdown(mSeenBy, sRead_by);
                 mReplycounts.setText("" + news.getReply_count());
             } else{
                 newsrow.setVisibility(View.GONE);

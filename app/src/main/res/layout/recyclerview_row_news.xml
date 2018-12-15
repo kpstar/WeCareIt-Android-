@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="@dimen/padding_6dp"
     android:layout_marginBottom="@dimen/padding_6dp"
@@ -78,27 +79,27 @@
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/padding_6dp"
         android:orientation="vertical">
-        <us.feras.mdv.MarkdownView
+        <TextView
             android:id="@+id/tvMessage_newslist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/hello_blank_fragment"
             android:gravity="center_vertical"
             android:padding="@dimen/padding_6dp"
-            android:background="@android:color/transparent"
+            tools:context="ru.noties.markwon.MainActivity"
             android:textColor="@color/colorText"
             android:layout_alignParentLeft="true"
             android:textSize="@dimen/font_16sp"/>
-        <us.feras.mdv.MarkdownView
+        <TextView
             android:id="@+id/tvSeenBy_newslist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorLightGray"
             android:layout_below="@id/tvMessage_newslist"
             android:padding="@dimen/padding_6dp"
             android:visibility="gone"
             android:gravity="center_vertical"
             android:textColor="@color/colorText"
+            tools:context="ru.noties.markwon.MainActivity"
             android:layout_alignParentLeft="true"
             android:textSize="@dimen/font_16sp"/>
         <EditText
