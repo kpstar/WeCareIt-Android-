@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wecareit.MultiSpinner;
 import com.wecareit.R;
 import com.wecareit.model.Spinners;
 
@@ -25,11 +26,14 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
     private String spinnerTitle;
     private boolean isFromView = false;
 
-    public SpinnerAdapter(Context context, int resource, List<Spinners> objects) {
+    private SpinnerAdapterListener listener;
+
+    public SpinnerAdapter(Context context, int resource, List<Spinners> objects, SpinnerAdapterListener listener) {
         super(context, resource, objects);
         this.mContext = context;
         this.listState = (ArrayList<Spinners>) objects;
         this.spinnerAdapter = this;
+        this.listener = listener;
     }
 
     @Override
@@ -55,6 +59,7 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
                     .findViewById(R.id.text);
             holder.mCheckBox = (CheckBox) convertView
                     .findViewById(R.id.checkbox);
+
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -84,9 +89,10 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
         if ((position == 0)) {
             if (isAll) {
                 holder.mTextView.setText("Alla");
-
             } else {
-                spinnerTitle = spinnerTitle.substring(0, spinnerTitle.length() - 2);
+                if (!spinnerTitle.isEmpty()) {
+                    spinnerTitle = spinnerTitle.substring(0, spinnerTitle.length() - 2);
+                }
                 holder.mTextView.setText(spinnerTitle);
             }
             holder.mCheckBox.setVisibility(View.GONE);
@@ -100,17 +106,21 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int getPosition = (Integer) buttonView.getTag();
                 if (!isFromView) {
-
                     listState.get(position).setSelected(isChecked);
+                    listener.onSelected(position, isChecked);
+                    SpinnerAdapter.this.notifyDataSetChanged();
                 }
             }
         });
         return convertView;
     }
 
-
     private class ViewHolder {
         private TextView mTextView;
         private CheckBox mCheckBox;
+    }
+
+    public interface SpinnerAdapterListener {
+        public void onSelected(int pos, boolean isChecked);
     }
 }

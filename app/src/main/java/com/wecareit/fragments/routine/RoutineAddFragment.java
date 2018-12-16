@@ -27,7 +27,7 @@ import com.wecareit.fragments.TemplateFragment;
 import java.util.Arrays;
 
 
-public class RoutineAddFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener {
+public class RoutineAddFragment extends TemplateFragment {
 
     private LinearLayout lnWeekdays, lnUsers, lnAreas;
     private MultiSpinner spWeekdays, spUsers, spAreas;
@@ -64,12 +64,12 @@ public class RoutineAddFragment extends TemplateFragment implements MultiSpinner
         lnAreas = view.findViewById(R.id.lnAreas_routeaddfragment);
 
         spUsers = view.findViewById(R.id.usersspinner_routeaddfragment);
-        spUsers.setItems(Global.clientslist, getString(R.string.all), this);
+        spUsers.setItems(Global.clientslist, getString(R.string.all));
 
         spWeekdays = view.findViewById(R.id.weekdayspinner_routeaddfragment);
-        spWeekdays.setItems(Arrays.asList(Global.weekDays), getString(R.string.all), this);
+        spWeekdays.setItems(Arrays.asList(Global.weekDays), getString(R.string.all));
         spAreas = view.findViewById(R.id.areasspinner_routeaddfragment);
-        spAreas.setItems(Global.areaslist, getString(R.string.all), this);
+        spAreas.setItems(Global.areaslist, getString(R.string.all));
 
         GradientDrawable gd = new GradientDrawable();
         gd.setShape(GradientDrawable.RECTANGLE);

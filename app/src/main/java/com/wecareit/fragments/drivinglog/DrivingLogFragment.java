@@ -41,7 +41,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DrivingLogFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener {
+public class DrivingLogFragment extends TemplateFragment {
 
     private CompanyCarPost companyCarPost;
     private PrivateCarPost privateCarPost;
@@ -361,11 +361,11 @@ public class DrivingLogFragment extends TemplateFragment implements MultiSpinner
         gd_spinner.setCornerRadius(3.0f);
 
         sp_Client_Companycar = view.findViewById(R.id.spUsers_companycar);
-        sp_Client_Companycar.setItems(Global.clientslist, getString(R.string.all), this);
+        sp_Client_Companycar.setItems(Global.clientslist, getString(R.string.all));
         sp_Client_Companycar.setBackground(gd_spinner);
 
         sp_Client_Travelbill = view.findViewById(R.id.spUsers_travelbill);
-        sp_Client_Travelbill.setItems(Global.clientslist, getString(R.string.all), this);
+        sp_Client_Travelbill.setItems(Global.clientslist, getString(R.string.all));
         sp_Client_Travelbill.setBackground(gd_spinner);
 
     }

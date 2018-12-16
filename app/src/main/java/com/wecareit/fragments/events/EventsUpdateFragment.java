@@ -50,7 +50,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EventsUpdateFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener {
+public class EventsUpdateFragment extends TemplateFragment {
 
     private Spinner spTimeinterval;
     private MultiSelectSpinner spVehicle, spEmployee, spClient;

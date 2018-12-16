@@ -1,6 +1,7 @@
 package com.wecareit.model;
 
 public class Spinners {
+
     private String title;
     private boolean selected;
 

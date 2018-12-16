@@ -61,7 +61,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NotesFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener {
+public class NotesFragment extends TemplateFragment {
 
     private ArrayList<NotesRes> notesRes;
 
@@ -90,7 +90,6 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setHasOptionsMenu(true);
     }
 
@@ -155,16 +154,16 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
         });
 
         spAccommodation = view.findViewById(R.id.accommodationspinner_notesfragment);
-        spAccommodation.setItems(Global.clientslist, getString(R.string.all), this);
+        spAccommodation.setItems(Global.clientslist, getString(R.string.all));
 
         spArea = view.findViewById(R.id.areaspinner_notesfragment);
-        spArea.setItems(Global.areaslist, getString(R.string.all), this);
+        spArea.setItems(Global.areaslist, getString(R.string.all));
 
         spKeyword = view.findViewById(R.id.keywordspinner_notesfragment);
-        spKeyword.setItems(Global.major_keywordslist, getString(R.string.all), this);
+        spKeyword.setItems(Global.major_keywordslist, getString(R.string.all));
 
         spCategory = view.findViewById(R.id.categoryspinner_notesfragment);
-        spCategory.setItems(Global.main_categorieslist, getString(R.string.all), this);
+        spCategory.setItems(Global.main_categorieslist, getString(R.string.all));
 
         spTimeinterval = view.findViewById(R.id.timeintervalspinner_notesfragment);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, Global.notestimeintervals_array);

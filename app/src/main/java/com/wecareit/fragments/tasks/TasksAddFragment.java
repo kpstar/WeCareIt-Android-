@@ -37,7 +37,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TasksAddFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener {
+public class TasksAddFragment extends TemplateFragment {
 
     private LinearLayout lnMain, lnActivity, lnResponsible, lnDeadline;
     private EditText etActivity, etDeadline;
@@ -98,7 +98,7 @@ public class TasksAddFragment extends TemplateFragment implements MultiSpinner.M
         etActivity = (EditText) view.findViewById(R.id.etActivity_taskadd);
         etDeadline = (EditText) view.findViewById(R.id.etDeadline_taskadd);
         spResponsible = (MultiSpinner) view.findViewById(R.id.spResponsible_taskadd);
-        spResponsible.setItems(Global.userslist, getString(R.string.all), this);
+        spResponsible.setItems(Global.userslist, getString(R.string.all));
 
         etDeadline.setOnClickListener(new View.OnClickListener() {
             @Override

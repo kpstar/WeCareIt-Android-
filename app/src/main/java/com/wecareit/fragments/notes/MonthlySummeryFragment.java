@@ -47,7 +47,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class MonthlySummeryFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener, Spinner.OnItemSelectedListener {
+public class MonthlySummeryFragment extends TemplateFragment implements Spinner.OnItemSelectedListener {
 
     private LinearLayout lnYear, lnMonth, lnUsers, lnCategory, lnArea, lnKeyword;
     private int year, month, user_id;
@@ -101,10 +101,10 @@ public class MonthlySummeryFragment extends TemplateFragment implements MultiSpi
         lnKeyword = view.findViewById(R.id.lnKeyword_month);
 
         msArea = view.findViewById(R.id.areaSpinner_month);
-        msArea.setItems(Global.clientslist, getString(R.string.all), this);
+        msArea.setItems(Global.clientslist, getString(R.string.all));
 
         msCategory = view.findViewById(R.id.categorySpinner_month);
-        msCategory.setItems(Global.main_categorieslist, getString(R.string.all), this);
+        msCategory.setItems(Global.main_categorieslist, getString(R.string.all));
 
         msKeyword = view.findViewById(R.id.keywordSpinner_month);
 
@@ -256,7 +256,7 @@ public class MonthlySummeryFragment extends TemplateFragment implements MultiSpi
                         Log.e("Keyword =", keyword.getLabel());
                         Global.month_majorKeywordList.add(keyword.getLabel());
                     }
-                    msKeyword.setItems(Global.month_majorKeywordList, getString(R.string.all), (MultiSpinner.MultiSpinnerListener)MonthlySummeryFragment.this);
+                    msKeyword.setItems(Global.month_majorKeywordList, getString(R.string.all));
                 } else {
                     Log.e(Global.TAG, response.message());
                 }

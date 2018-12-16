@@ -17,13 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressLint("AppCompatCustomView")
-public class MultiSpinner extends Spinner {
+public class MultiSpinner extends Spinner implements SpinnerAdapter.SpinnerAdapterListener {
 
     private List<String> items;
     private boolean[] selected = null;
     private String defaultText;
-    private MultiSpinnerListener listener;
     private boolean mOpenInitiated = false;
+    private SpinnerAdapter adapter;
 
     public MultiSpinner(Context context) {
         super(context);
@@ -37,35 +37,34 @@ public class MultiSpinner extends Spinner {
         super(arg0, arg1, arg2);
     }
 
-    public void performCloseEvent() {
-        // refresh text on spinner
-        mOpenInitiated = false;
-        StringBuffer spinnerBuffer = new StringBuffer();
-        boolean someUnselected = false;
-        for (int i = 0; i < items.size(); i++) {
-            if (selected[i] == true) {
-                spinnerBuffer.append(items.get(i));
-                spinnerBuffer.append(", ");
-            } else {
-                someUnselected = true;
-            }
-        }
-        String spinnerText;
-        if (someUnselected) {
-            spinnerText = spinnerBuffer.toString();
-            if (spinnerText.length() > 2)
-                spinnerText = spinnerText.substring(0, spinnerText.length() - 2);
-        } else {
-            spinnerText = defaultText;
-        }
-//        Toast.makeText(getContext(), spinnerText, Toast.LENGTH_SHORT).show();
-//        listener.onItemsSelected(selected);
-    }
+//    public void performCloseEvent() {
+//        // refresh text on spinner
+//        mOpenInitiated = false;
+//        StringBuffer spinnerBuffer = new StringBuffer();
+//        boolean someUnselected = false;
+//        for (int i = 0; i < items.size(); i++) {
+//            if (selected[i] == true) {
+//                spinnerBuffer.append(items.get(i));
+//                spinnerBuffer.append(", ");
+//            } else {
+//                someUnselected = true;
+//            }
+//        }
+//        String spinnerText;
+//        if (someUnselected) {
+//            spinnerText = spinnerBuffer.toString();
+//            if (spinnerText.length() > 2)
+//                spinnerText = spinnerText.substring(0, spinnerText.length() - 2);
+//        } else {
+//            spinnerText = defaultText;
+//        }
+////        Toast.makeText(getContext(), spinnerText, Toast.LENGTH_SHORT).show();
+////        listener.onItemsSelected(selected);
+//    }
 
     @Override
     public boolean performClick() {
         mOpenInitiated = true;
-
         return super.performClick();
     }
 
@@ -90,39 +89,47 @@ public class MultiSpinner extends Spinner {
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
         if (mOpenInitiated && hasWindowFocus) {
-           performCloseEvent();
+//           performCloseEvent();
         }
     }
 
-    public void setItems(List<String> items, String allText, MultiSpinnerListener listener) {
+    public void setItems(List<String> items, String allText) {
         this.items = items;
         this.defaultText = allText;
-        this.listener = listener;
 
         // all selected by default
         selected = new boolean[items.size()];
         for (int i = 0; i < selected.length; i++)
             selected[i] = true;
         ArrayList<Spinners> mItems = new ArrayList<Spinners>();
-        Spinners stateVO = new Spinners(defaultText, true);
-        mItems.add(stateVO);
+        Spinners spinner = new Spinners(defaultText, true);
+        mItems.add(spinner);
         for (int i = 0; i < items.size(); i++) {
-            stateVO = new Spinners(items.get(i).toString(), true);
-            mItems.add(stateVO);
+            spinner = new Spinners(items.get(i).toString(), true);
+            mItems.add(spinner);
         }
-        SpinnerAdapter myAdapter = new SpinnerAdapter(getContext(), 0, mItems);
-        setAdapter(myAdapter);
+        adapter = new SpinnerAdapter(getContext(), 0, mItems, this);
+        setAdapter(adapter);
     }
 
     public List<String> getItems() {
         return items;
     }
 
+    public void setSelected(boolean[] selected) {
+        this.selected = selected;
+    }
+
+    public void setSelectedItem(int position, boolean isChecked) {
+        this.selected[position] = isChecked;
+    }
+
     public boolean[] getSelected() {
         return selected;
     }
 
-    public interface MultiSpinnerListener {
-        public void onItemsSelected(boolean[] selected);
+    @Override
+    public void onSelected(int pos, boolean isChecked) {
+        this.selected[pos - 1] = isChecked;
     }
 }

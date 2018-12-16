@@ -302,6 +302,9 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
                 gd_list.setCornerRadius(5.0f);
 
                 LinearLayout lnListRow = new LinearLayout(context);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                params.setMargins(0,6,0,6);
+                lnListRow.setLayoutParams(params);
                 lnListRow.setOrientation(LinearLayout.VERTICAL);
                 LinearLayout lnUsermain = new LinearLayout(context);
                 lnUsermain.setOrientation(LinearLayout.HORIZONTAL);

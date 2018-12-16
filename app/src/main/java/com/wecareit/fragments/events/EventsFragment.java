@@ -50,7 +50,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EventsFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener {
+public class EventsFragment extends TemplateFragment {
 
     public static int flag_update = 0;
     public static int id_update = 0;

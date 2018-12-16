@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:background="@color/colorLightGray"
     android:padding="@dimen/padding_10dp"
+    android:layout_margin="@dimen/padding_6dp"
     android:id="@+id/row_news">
     <RelativeLayout
         android:layout_width="match_parent"

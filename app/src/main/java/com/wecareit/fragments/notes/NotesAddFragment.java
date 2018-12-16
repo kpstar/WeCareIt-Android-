@@ -44,7 +44,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class NotesAddFragment extends TemplateFragment implements MultiSpinner.MultiSpinnerListener, Spinner.OnItemSelectedListener {
+public class NotesAddFragment extends TemplateFragment implements Spinner.OnItemSelectedListener {
 
     private LinearLayout lnAccomo, lnGenerakkey, lnSpecifickey, lnCategory, lnArea;
     private Spinner spGeneralkey, spArea, spSpecifickey, spCategory;
@@ -131,7 +131,7 @@ public class NotesAddFragment extends TemplateFragment implements MultiSpinner.M
         spSpecifickey.setOnItemSelectedListener(this);
 
         spAccomo = view.findViewById(R.id.accommospinner_notesaddfragment);
-        spAccomo.setItems(Global.clientslist, getString(R.string.all), this);
+        spAccomo.setItems(Global.clientslist, getString(R.string.all));
 
         GradientDrawable gd = new GradientDrawable();
         gd.setShape(GradientDrawable.RECTANGLE);
