@@ -5,6 +5,7 @@ import android.icu.text.UnicodeSetSpanner;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -62,7 +63,7 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
         boolean isAll = true;
         spinnerTitle = "";
         if (position == 0) {
-            holder.mTextView.setText("Alllaa");
+            holder.mTextView.setText("Alla");
         } else {
             holder.mTextView.setText(listState.get(position).getTitle());
         }
@@ -99,14 +100,14 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int getPosition = (Integer) buttonView.getTag();
                 if (!isFromView) {
-                    Toast.makeText(getContext(), "Cilcked", Toast.LENGTH_SHORT).show();
-//                    holder.
+
                     listState.get(position).setSelected(isChecked);
                 }
             }
         });
         return convertView;
     }
+
 
     private class ViewHolder {
         private TextView mTextView;

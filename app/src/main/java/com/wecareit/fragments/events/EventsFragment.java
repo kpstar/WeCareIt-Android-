@@ -68,8 +68,7 @@ public class EventsFragment extends TemplateFragment implements MultiSpinner.Mul
     private Spinner spActivities;
     //private MultiSpinner spEmployees, spAccomm;
     private MultiSelectSpinner spVehicle, spEmployees, spAccomm;
-    private LinearLayout lnEmpty, lnVehicles, lnAccom, lnActivity, lnEmployee;
-    private CardView lnExpand;
+    private LinearLayout lnEmpty, lnVehicles, lnAccom, lnActivity, lnEmployee, lnExpand;
     private Button btnClear, btnUsed;
     private int flag_expand = 0;
     private String day1, day2, day_start, stringofyear;

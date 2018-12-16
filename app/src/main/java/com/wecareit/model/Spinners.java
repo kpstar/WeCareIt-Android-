@@ -4,6 +4,15 @@ public class Spinners {
     private String title;
     private boolean selected;
 
+    public Spinners() {
+
+    }
+
+    public Spinners(String title, boolean selected) {
+        this.title = title;
+        this.selected = selected;
+    }
+
     public String getTitle() {
         return title;
     }

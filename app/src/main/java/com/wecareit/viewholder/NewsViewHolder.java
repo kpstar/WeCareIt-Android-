@@ -269,7 +269,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
             mSeenBy.setVisibility(View.GONE);
         }
         if(NewsFragment.flag_relevant==0) {
-            mUsername.setText(news.getAuthor().getName());
+            mUsername.setText(news.getAuthor().getName() +", " +  news.getAuthor().getTitle());
             new DownloadImage(mUserImg).execute(news.getAuthor().getAvatar());
             mTime.setText(stringTime);
             Markwon.setMarkdown(mMessage, news.getMessage());
@@ -277,7 +277,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
             mReplycounts.setText("" + news.getReply_count());
         } else{
             if(news.isMe_mentioned()){
-                mUsername.setText(news.getAuthor().getName());
+                mUsername.setText(news.getAuthor().getName() +", " +  news.getAuthor().getTitle());
                 new DownloadImage(mUserImg).execute(news.getAuthor().getAvatar());
                 mTime.setText(stringTime);
                 Markwon.setMarkdown(mMessage, news.getMessage());

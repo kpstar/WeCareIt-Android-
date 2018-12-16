@@ -1,8 +1,11 @@
 package com.wecareit;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.util.AttributeSet;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -13,8 +16,8 @@ import com.wecareit.model.Spinners;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiSpinner extends Spinner implements
-        DialogInterface.OnMultiChoiceClickListener {
+@SuppressLint("AppCompatCustomView")
+public class MultiSpinner extends Spinner {
 
     private List<String> items;
     private boolean[] selected = null;
@@ -32,14 +35,6 @@ public class MultiSpinner extends Spinner implements
 
     public MultiSpinner(Context arg0, AttributeSet arg1, int arg2) {
         super(arg0, arg1, arg2);
-    }
-
-    @Override
-    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-        if (isChecked)
-            selected[which] = true;
-        else
-            selected[which] = false;
     }
 
     public void performCloseEvent() {
@@ -63,16 +58,14 @@ public class MultiSpinner extends Spinner implements
         } else {
             spinnerText = defaultText;
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item,
-                new String[] { spinnerText });
-        setAdapter(adapter);
-        listener.onItemsSelected(selected);
+//        Toast.makeText(getContext(), spinnerText, Toast.LENGTH_SHORT).show();
+//        listener.onItemsSelected(selected);
     }
 
     @Override
     public boolean performClick() {
         mOpenInitiated = true;
+
         return super.performClick();
     }
 
@@ -103,23 +96,18 @@ public class MultiSpinner extends Spinner implements
 
     public void setItems(List<String> items, String allText, MultiSpinnerListener listener) {
         this.items = items;
-//        this.defaultText = allText;
+        this.defaultText = allText;
         this.listener = listener;
 
         // all selected by default
         selected = new boolean[items.size()];
         for (int i = 0; i < selected.length; i++)
             selected[i] = true;
-
         ArrayList<Spinners> mItems = new ArrayList<Spinners>();
-        Spinners stateVO = new Spinners();
-        stateVO.setTitle(allText);
-        stateVO.setSelected(true);
+        Spinners stateVO = new Spinners(defaultText, true);
         mItems.add(stateVO);
         for (int i = 0; i < items.size(); i++) {
-            stateVO = new Spinners();
-            stateVO.setTitle(items.get(i).toString());
-            stateVO.setSelected(true);
+            stateVO = new Spinners(items.get(i).toString(), true);
             mItems.add(stateVO);
         }
         SpinnerAdapter myAdapter = new SpinnerAdapter(getContext(), 0, mItems);
