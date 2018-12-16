@@ -22,6 +22,7 @@ import com.wecareit.fragments.routine.RoutineAddFragment;
 import com.wecareit.fragments.routine.RoutineFragment;
 import com.wecareit.fragments.start.StartFragment;
 import com.wecareit.fragments.tasks.TasksAddFragment;
+import android.text.format.DateFormat;
 import com.wecareit.fragments.tasks.TasksFragment;
 import com.wecareit.model.Area;
 import com.wecareit.model.AuthorRes;
@@ -33,7 +34,10 @@ import com.wecareit.model.Vehicle;
 import com.wecareit.model.Vehicles;
 import com.wecareit.retrofit.GetAPIService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Global {
     public static String TAG = "WeCareIT";
@@ -96,4 +100,43 @@ public class Global {
     public static ArrayList<String> drivingcategories = new ArrayList<String>();
     public static ArrayList<Integer> drivingcategoriesID = new ArrayList<Integer>();
     public static ArrayList<Spinners> testSpinArray = new ArrayList<Spinners>();
+
+    public static String dateString(String nowDate) {
+        String day = "Söndag";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = format.parse(nowDate);
+            day = (String) DateFormat.format("EEEE", date);
+            switch (day) {
+                case "Monday":
+                    day = "Måndag";
+                    break;
+                case "Tuesday":
+                    day = "Tisdag";
+                    break;
+                case "Wednesday":
+                    day = "Onsdag";
+                    break;
+                case "Thursday":
+                    day = "Torsdag";
+                    break;
+                case "Friday":
+                    day = "Fredag";
+                    break;
+                case "Saturday":
+                    day = "Lördag";
+                    break;
+                case "Sunday":
+                    day = "Söndag";
+                    break;
+            }
+            day += " " + nowDate.split("-")[2];
+            int monthId = Integer.parseInt(nowDate.split("-")[1]);
+            day += " " + months[monthId - 1];
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return day;
+    }
 }

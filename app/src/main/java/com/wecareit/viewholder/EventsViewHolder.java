@@ -9,6 +9,7 @@ import android.icu.text.UnicodeSetSpanner;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuInflater;
@@ -34,7 +35,10 @@ import com.wecareit.model.Client;
 import com.wecareit.model.EventsRes;
 import com.wecareit.model.Vehicles;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -226,8 +230,8 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
 
     public void setContent(EventsRes news) {
         this.news = news;
-
-        mTimeTitle.setText(news.getTime().getLower().substring(0,10)+"("+news.getName()+")");
+        String dateStr = news.getTime().getLower().substring(0,10);
+        mTimeTitle.setText(Global.dateString(dateStr));
         mTime.setText(news.getTime().getLower().substring(11,16) + " - " + news.getTime().getUpper().substring(11,16));
         mTitle.setText(news.getName());
         mDesc.setText(news.getDescription());

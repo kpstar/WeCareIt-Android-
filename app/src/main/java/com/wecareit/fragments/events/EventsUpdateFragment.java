@@ -35,6 +35,7 @@ import com.wecareit.common.Global;
 import com.wecareit.fragments.TemplateFragment;
 import com.wecareit.model.AuthorRes;
 import com.wecareit.model.Client;
+import com.wecareit.model.Events;
 import com.wecareit.model.EventsRes;
 import com.wecareit.model.EventspostBody;
 import com.wecareit.model.Timeperiod;
@@ -53,7 +54,7 @@ import retrofit2.Response;
 public class EventsUpdateFragment extends TemplateFragment {
 
     private Spinner spTimeinterval;
-    private MultiSelectSpinner spVehicle, spEmployee, spClient;
+    private MultiSpinner spVehicle, spEmployee, spClient;
     private EditText etHeader, etDescription, etStartdate, etStarttime;
     private LinearLayout lnUser, lnVehicle, lnTimeinterval,lnClient, lnHeader, lnDsec, lnDate, lnTime;
     private EventspostBody postBody;
@@ -110,9 +111,9 @@ public class EventsUpdateFragment extends TemplateFragment {
         etStarttime = (EditText) view.findViewById(R.id.editTimePicker_eventsupdatefragment);
 
         spTimeinterval = (Spinner) view.findViewById(R.id.timeintervalSpinner_eventsupdatefragment);
-        spVehicle = (MultiSelectSpinner) view.findViewById(R.id.vehicleSpinner_eventsupdatefragment);
-        spEmployee = (MultiSelectSpinner) view.findViewById(R.id.userSpinner_eventsupdatefragment);
-        spClient = (MultiSelectSpinner) view.findViewById(R.id.clientSpinner_eventsupdatefragment);
+        spVehicle = (MultiSpinner) view.findViewById(R.id.vehicleSpinner_eventsupdatefragment);
+        spEmployee = (MultiSpinner) view.findViewById(R.id.userSpinner_eventsupdatefragment);
+        spClient = (MultiSpinner) view.findViewById(R.id.clientSpinner_eventsupdatefragment);
 
         etStartdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,19 +166,19 @@ public class EventsUpdateFragment extends TemplateFragment {
             adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
             spTimeinterval.setAdapter(adapter);
             spTimeinterval.setSelection(4);
-            spVehicle.setItems(Global.vehicleslist);
-            spVehicle.setSelection(EventsFragment.vehicles_update);
-            spEmployee.setItems(Global.userslist);
-            spClient.setItems(Global.clientslist);
-            spEmployee.setSelection(EventsFragment.clients_update);
-            spClient.setSelection(EventsFragment.clients_update);
+            spVehicle.setItemsWithOptions(Global.vehicleslist, EventsFragment.vehicles_update);
+//            spVehicle.setSelection(EventsFragment.vehicles_update);
+            spEmployee.setItemsWithOptions(Global.userslist, EventsFragment.clients_update);
+            spClient.setItemsWithOptions(Global.clientslist, EventsFragment.clients_update);
+//            spEmployee.setSelection(EventsFragment.clients_update);
+//            spClient.setSelection(EventsFragment.clients_update);
         } else {
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, Global.eventsupdatetimeintervals_array);
             adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
             spTimeinterval.setAdapter(adapter);
-            spVehicle.setItems(Global.vehicleslist);
-            spEmployee.setItems(Global.userslist);
-            spClient.setItems(Global.clientslist);
+            spVehicle.setItems(Global.vehicleslist, "Alla");
+            spEmployee.setItems(Global.userslist, "Alla");
+            spClient.setItems(Global.clientslist, "Alla");
         }
 
         lnTimeinterval = (LinearLayout) view.findViewById(R.id.lnTimeinterval_eventupdate);
@@ -309,44 +310,62 @@ public class EventsUpdateFragment extends TemplateFragment {
         String users = spEmployee.getSelectedItem().toString();
         String[] splited_user = users.split(", ");
 
-        if(users.equals("Alla")){
-            for (AuthorRes authoRres : Global.users) {
-                user_id.add(authoRres.getId());
-            }
-        } else {
-            for (AuthorRes authoRres : Global.users) {
-                for (int i = 0; i < splited_user.length; i++) {
-                    //Log.d(splited_user[i], "" + authoRres.getName());
-                    if (splited_user[i].equals(authoRres.getName())) {
-                        user_id.add(authoRres.getId());
-                    }
-                }
+        for (int i=0; i<spVehicle.getItems().size(); i++) {
+            if (spVehicle.getSelected()[i] == true) {
+                vehicle_id.add(i + 1);
             }
         }
-        if(clients.equals("Alla")){
-            for (Client client : Global.clients) {
-                client_id.add(client.getId());
-            }
-        } else {
-            for (int i = 0; i < splited_client.length; i++) {
-                for (Client client : Global.clients) {
-                    if (splited_client[i].equals(client.getName()))
-                        client_id.add(client.getId());
-                }
+
+        for (int i=0; i<spClient.getItems().size(); i++) {
+            if (spClient.getSelected()[i] == true) {
+                client_id.add(i + 1);
             }
         }
-        if(vehicles.equals("Alla")){
-            for (Vehicle vehicle : Global.vehicles) {
-                vehicle_id.add(vehicle.getId());
-            }
-        } else {
-            for (int i = 0; i < splited_vehicle.length; i++) {
-                for (Vehicle vehicle : Global.vehicles) {
-                    if (splited_vehicle[i].equals(vehicle.getName()))
-                        vehicle_id.add(vehicle.getId());
-                }
+
+        for (int i=0; i<spEmployee.getItems().size(); i++) {
+            if (spEmployee.getSelected()[i] == true) {
+                user_id.add(i + 1);
             }
         }
+
+//        if(users.equals("Alla")){
+//            for (AuthorRes authoRres : Global.users) {
+//                user_id.add(authoRres.getId());
+//            }
+//        } else {
+//            for (AuthorRes authoRres : Global.users) {
+//                for (int i = 0; i < splited_user.length; i++) {
+//                    //Log.d(splited_user[i], "" + authoRres.getName());
+//                    if (splited_user[i].equals(authoRres.getName())) {
+//                        user_id.add(authoRres.getId());
+//                    }
+//                }
+//            }
+//        }
+//        if(clients.equals("Alla")){
+//            for (Client client : Global.clients) {
+//                client_id.add(client.getId());
+//            }
+//        } else {
+//            for (int i = 0; i < splited_client.length; i++) {
+//                for (Client client : Global.clients) {
+//                    if (splited_client[i].equals(client.getName()))
+//                        client_id.add(client.getId());
+//                }
+//            }
+//        }
+//        if(vehicles.equals("Alla")){
+//            for (Vehicle vehicle : Global.vehicles) {
+//                vehicle_id.add(vehicle.getId());
+//            }
+//        } else {
+//            for (int i = 0; i < splited_vehicle.length; i++) {
+//                for (Vehicle vehicle : Global.vehicles) {
+//                    if (splited_vehicle[i].equals(vehicle.getName()))
+//                        vehicle_id.add(vehicle.getId());
+//                }
+//            }
+//        }
 
     }
 

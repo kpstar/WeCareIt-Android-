@@ -14,6 +14,7 @@ import com.wecareit.adapter.SpinnerAdapter;
 import com.wecareit.model.Spinners;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @SuppressLint("AppCompatCustomView")
@@ -110,6 +111,43 @@ public class MultiSpinner extends Spinner implements SpinnerAdapter.SpinnerAdapt
         }
         adapter = new SpinnerAdapter(getContext(), 0, mItems, this);
         setAdapter(adapter);
+    }
+
+    public void setItemsWithOptions(List<String> items, List<String> selection) {
+        this.items = items;
+
+        // all selected by default
+        selected = new boolean[items.size()];
+        for (int i = 0; i < selected.length; i++)
+            selected[i] = false;
+
+        for (int i=0;i<items.size(); i++) {
+            for (String sel: selection) {
+                if (items.get(i).equals(sel)) {
+                    selected[i] = true;
+                    break;
+                }
+            }
+        }
+        ArrayList<Spinners> mItems = new ArrayList<Spinners>();
+        Spinners spinner = new Spinners(defaultText, true);
+        mItems.add(spinner);
+        for (int i = 0; i < items.size(); i++) {
+            spinner = new Spinners(items.get(i).toString(), selected[i]);
+            mItems.add(spinner);
+        }
+        adapter = new SpinnerAdapter(getContext(), 0, mItems, this);
+        setAdapter(adapter);
+    }
+
+    public List<String> getSelectedStrings() {
+        List<String> selection = new LinkedList<String>();
+        for (int i = 0; i < items.size(); ++i) {
+            if (selected[i]) {
+                selection.add(items.get(i));
+            }
+        }
+        return selection;
     }
 
     public List<String> getItems() {

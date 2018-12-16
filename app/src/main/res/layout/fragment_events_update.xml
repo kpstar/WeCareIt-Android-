@@ -156,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_10dp"
                 android:orientation="vertical">
-                <com.wecareit.MultiSelectSpinner
+                <com.wecareit.MultiSpinner
                     android:id="@+id/vehicleSpinner_eventsupdatefragment"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_10dp"
                 android:orientation="vertical">
-                <com.wecareit.MultiSelectSpinner
+                <com.wecareit.MultiSpinner
                     android:id="@+id/userSpinner_eventsupdatefragment"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -204,7 +204,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_10dp"
                 android:orientation="vertical">
-                <com.wecareit.MultiSelectSpinner
+                <com.wecareit.MultiSpinner
                     android:id="@+id/clientSpinner_eventsupdatefragment"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"

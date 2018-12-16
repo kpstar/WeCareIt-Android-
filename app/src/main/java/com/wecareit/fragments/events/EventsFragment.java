@@ -67,7 +67,7 @@ public class EventsFragment extends TemplateFragment {
     private Calendar day2Calendar;
     private Spinner spActivities;
     //private MultiSpinner spEmployees, spAccomm;
-    private MultiSelectSpinner spVehicle, spEmployees, spAccomm;
+    private MultiSpinner spVehicle, spEmployees, spAccomm;
     private LinearLayout lnEmpty, lnVehicles, lnAccom, lnActivity, lnEmployee, lnExpand;
     private Button btnClear, btnUsed;
     private int flag_expand = 0;
@@ -115,10 +115,10 @@ public class EventsFragment extends TemplateFragment {
         });
 
         spAccomm = view.findViewById(R.id.accommospinner_eventsfragment);
-        spAccomm.setItems(Global.clientslist);
+        spAccomm.setItems(Global.clientslist, "Alla");
 
         spVehicle = view.findViewById(R.id.vehiclespinner_eventsfragment);
-        spVehicle.setItems(Global.vehicleslist);
+        spVehicle.setItems(Global.vehicleslist, "Alla");
 
         spActivities = view.findViewById(R.id.activitiesspinner_eventsfragment);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(EventsFragment.this.getContext(), R.array.activities_arrays, android.R.layout.simple_spinner_item);
@@ -126,7 +126,7 @@ public class EventsFragment extends TemplateFragment {
         spActivities.setAdapter(adapter);
 
         spEmployees = view.findViewById(R.id.employeesspinner_eventsfragment);
-        spEmployees.setItems(Global.userslist);
+        spEmployees.setItems(Global.userslist, "Alla");
 
         mRecyclerView = view.findViewById(R.id.framgment_events_recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -166,11 +166,9 @@ public class EventsFragment extends TemplateFragment {
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                spAccomm.setItems(Global.clientslist);
-                spAccomm.setSelection(0);
-                spVehicle.setItems(Global.vehicleslist);
-                spEmployees.setItems(Global.userslist);
-                spActivities.setSelection(0);
+                spAccomm.setItems(Global.clientslist, "Alla");
+                spVehicle.setItems(Global.vehicleslist, "Alla");
+                spEmployees.setItems(Global.userslist, "Alla");
             }
         });
 

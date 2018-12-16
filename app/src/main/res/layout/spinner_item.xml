@@ -13,12 +13,13 @@
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
+        android:padding="@dimen/padding_6dp"
+        android:layout_height="wrap_content"
         android:textSize="@dimen/font_16sp"
+        android:maxLines="1"
         android:textColor="@color/black"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:text="text"
-        android:gravity="start" />
+        android:gravity="center" />
 
 </LinearLayout>

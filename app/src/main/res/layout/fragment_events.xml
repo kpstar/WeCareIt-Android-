@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="@dimen/padding_10dp">
-            <com.wecareit.MultiSelectSpinner
+            <com.wecareit.MultiSpinner
                 android:id="@+id/vehiclespinner_eventsfragment"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             android:padding="@dimen/padding_10dp"
             android:orientation="horizontal">
 
-            <com.wecareit.MultiSelectSpinner
+            <com.wecareit.MultiSpinner
                 android:id="@+id/accommospinner_eventsfragment"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
             android:padding="@dimen/padding_10dp"
             android:orientation="horizontal">
 
-            <com.wecareit.MultiSelectSpinner
+            <com.wecareit.MultiSpinner
                 android:id="@+id/employeesspinner_eventsfragment"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

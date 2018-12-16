@@ -89,7 +89,8 @@ public class AttendanceFragment extends TemplateFragment {
 
         mSelectedDateView = (TextView) getView().findViewById(R.id.fragment_attendance_date);
         mSubmitStatusView = (TextView) getView().findViewById(R.id.fragment_attendance_submit_status);
-        mSelectedDateView.setText(nowdate);
+        String day = Global.dateString(nowdate);
+        mSelectedDateView.setText(day);
         //mSubmitStatusView.setText(" - ej inskickad");
 
         mRecyclerView = (RecyclerView) getView().findViewById(R.id.fragment_attendance_recyclerview);
@@ -280,7 +281,7 @@ public class AttendanceFragment extends TemplateFragment {
     }
 
     private void loadData() {
-        mSelectedDateView.setText(nowdate);
+        mSelectedDateView.setText(Global.dateString(nowdate));
 
         Call<Attendance> call = Global.getAPIService.readAttendance("Token " + Global.token, nowdate);
         call.enqueue(new Callback<Attendance>() {
@@ -289,7 +290,7 @@ public class AttendanceFragment extends TemplateFragment {
             public void onResponse(Call<Attendance> call, Response<Attendance> response) {
                 if (response.isSuccessful()) {
                     if (response != null && response.body().getAttendedClients() != null) {
-                        //Log.e(Global.TAG, response.body().toJSON());
+                        Log.e(Global.TAG, response.body().toJSON());
                         AttendanceAdapter adapter = new AttendanceAdapter(AttendanceFragment.this.getContext(), response.body().getAttendedClients());
                         adapter.setSubmitted(response.body().isSubmitted());
                         if (response.body().isSubmitted()) {

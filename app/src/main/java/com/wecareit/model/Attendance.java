@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Attendance extends BaseModel {
     @SerializedName("clients")
@@ -13,7 +15,13 @@ public class Attendance extends BaseModel {
     private boolean submitted;
 
     public ArrayList<AttendedClient> getAttendedClients() {
-        return attendedClients;
+        Collections.sort(this.attendedClients, new Comparator<AttendedClient>() {
+            @Override
+            public int compare(AttendedClient a, AttendedClient b) {
+                return (a.getId() >  b.getId() ? 1: -1);
+            }
+        });
+        return this.attendedClients;
     }
 
     public void setClients(ArrayList<AttendedClient> attendedClients) {
