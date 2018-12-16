@@ -5,9 +5,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.icu.text.UnicodeSetSpanner;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +21,7 @@ import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.Space;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.flexbox.FlexboxLayout;
 import com.wecareit.LoginActivity;
@@ -175,7 +178,7 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 if (menuItem.getItemId() == R.id.menu_edit) {
                     weeklyEdit();
-                } else {
+                } else if (menuItem.getItemId() == R.id.menu_remove) {
                     weeklyRemove();
                 }
                 return false;
@@ -218,6 +221,7 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
 
             }
         });
+        alertDialog.show();
     }
 
     public void setContent(EventsRes news) {
@@ -239,6 +243,7 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
         EventsFragment.users_update = new ArrayList<String>();
 
         Id = news.getId();
+        Log.e("ID", String.valueOf(Id));
 
         array_vehicles = new ArrayList<Vehicles>();
         array_vehicles = news.getVehicles();
@@ -306,7 +311,7 @@ public class EventsViewHolder extends RecyclerView.ViewHolder {
     public void deleteData(){
 
         Call<String> call = Global.getAPIService.deleteWeeklySchedule("Token " + Global.token, Id);
-
+        Log.e("ID Value = ", String.valueOf(Id));
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {

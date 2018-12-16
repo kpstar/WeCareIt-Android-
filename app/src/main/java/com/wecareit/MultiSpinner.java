@@ -2,11 +2,14 @@ package com.wecareit;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
 import android.util.AttributeSet;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.wecareit.adapter.SpinnerAdapter;
+import com.wecareit.model.Spinners;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class MultiSpinner extends Spinner implements
@@ -65,38 +68,66 @@ public class MultiSpinner extends Spinner implements
         listener.onItemsSelected(selected);
     }
 
-    @Override
-    public boolean performClick() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setMultiChoiceItems(
-                items.toArray(new CharSequence[items.size()]), selected, this);
-        builder.setPositiveButton(android.R.string.ok,
-                new DialogInterface.OnClickListener() {
+//    @Override
+//    public boolean performClick() {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+//        builder.setMultiChoiceItems(
+//                items.toArray(new CharSequence[items.size()]), selected, this);
+//        builder.setPositiveButton(android.R.string.ok,
+//                new DialogInterface.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.cancel();
+//                    }
+//                });
+//        builder.setOnCancelListener(this);
+//        builder.show();
+//        return true;
+//    }
 
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-        builder.setOnCancelListener(this);
-        builder.show();
-        return true;
-    }
+//    public void setItems(List<String> items, String allText,
+//                         MultiSpinnerListener listener) {
+//        this.items = items;
+//        this.defaultText = allText;
+//        this.listener = listener;
+//
+//        // all unselected by default
+//        selected = new boolean[items.size()];
+//        for (int i = 0; i < selected.length; i++)
+//            selected[i] = true;
+//
+//        // all text on the spinner
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, new String[] { allText });
+//        setAdapter(adapter);
+//    }
 
-    public void setItems(List<String> items, String allText,
-                         MultiSpinnerListener listener) {
+    public void setItems(List<String> items, String allText, MultiSpinnerListener listener) {
         this.items = items;
         this.defaultText = allText;
         this.listener = listener;
 
-        // all unselected by default
+        // all selected by default
         selected = new boolean[items.size()];
         for (int i = 0; i < selected.length; i++)
             selected[i] = true;
 
         // all text on the spinner
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, new String[] { allText });
-        setAdapter(adapter);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, new String[] { allText });
+//        setAdapter(adapter);
+        ArrayList<Spinners> mItems = new ArrayList<Spinners>();
+        Spinners stateVO = new Spinners();
+        stateVO.setTitle(allText);
+        stateVO.setSelected(true);
+        mItems.add(stateVO);
+        for (int i = 0; i < items.size(); i++) {
+            stateVO = new Spinners();
+            stateVO.setTitle(items.get(i).toString());
+            stateVO.setSelected(true);
+            mItems.add(stateVO);
+        }
+        SpinnerAdapter myAdapter = new SpinnerAdapter(getContext(), 0, mItems);
+        setAdapter(myAdapter);
     }
 
     public List<String> getItems() {
