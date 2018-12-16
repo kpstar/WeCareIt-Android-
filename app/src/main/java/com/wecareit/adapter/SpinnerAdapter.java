@@ -1,6 +1,7 @@
 package com.wecareit.adapter;
 
 import android.content.Context;
+import android.icu.text.UnicodeSetSpanner;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wecareit.R;
 import com.wecareit.model.Spinners;
@@ -19,6 +21,7 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
     private Context mContext;
     private ArrayList<Spinners> listState;
     private SpinnerAdapter spinnerAdapter;
+    private String spinnerTitle;
     private boolean isFromView = false;
 
     public SpinnerAdapter(Context context, int resource, List<Spinners> objects) {
@@ -56,7 +59,21 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.mTextView.setText(listState.get(position).getTitle());
+        boolean isAll = true;
+        spinnerTitle = "";
+        if (position == 0) {
+            holder.mTextView.setText("Alllaa");
+        } else {
+            holder.mTextView.setText(listState.get(position).getTitle());
+        }
+        for (int i=1;i<listState.size(); i ++) {
+            if (listState.get(i).isSelected() == true) {
+                spinnerTitle += listState.get(i).getTitle() + ", ";
+            } else {
+                isAll = false;
+            }
+        }
+
 
         // To check weather checked event fire from getview() or user input
         isFromView = true;
@@ -64,7 +81,14 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
         isFromView = false;
 
         if ((position == 0)) {
-            holder.mCheckBox.setVisibility(View.INVISIBLE);
+            if (isAll) {
+                holder.mTextView.setText("Alla");
+
+            } else {
+                spinnerTitle = spinnerTitle.substring(0, spinnerTitle.length() - 2);
+                holder.mTextView.setText(spinnerTitle);
+            }
+            holder.mCheckBox.setVisibility(View.GONE);
         } else {
             holder.mCheckBox.setVisibility(View.VISIBLE);
         }
@@ -74,8 +98,9 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 int getPosition = (Integer) buttonView.getTag();
-
                 if (!isFromView) {
+                    Toast.makeText(getContext(), "Cilcked", Toast.LENGTH_SHORT).show();
+//                    holder.
                     listState.get(position).setSelected(isChecked);
                 }
             }

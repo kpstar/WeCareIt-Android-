@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.util.AttributeSet;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.wecareit.adapter.SpinnerAdapter;
 import com.wecareit.model.Spinners;
@@ -13,12 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MultiSpinner extends Spinner implements
-        DialogInterface.OnMultiChoiceClickListener, DialogInterface.OnCancelListener {
+        DialogInterface.OnMultiChoiceClickListener {
 
     private List<String> items;
     private boolean[] selected = null;
     private String defaultText;
     private MultiSpinnerListener listener;
+    private boolean mOpenInitiated = false;
 
     public MultiSpinner(Context context) {
         super(context);
@@ -40,9 +42,9 @@ public class MultiSpinner extends Spinner implements
             selected[which] = false;
     }
 
-    @Override
-    public void onCancel(DialogInterface dialog) {
+    public void performCloseEvent() {
         // refresh text on spinner
+        mOpenInitiated = false;
         StringBuffer spinnerBuffer = new StringBuffer();
         boolean someUnselected = false;
         for (int i = 0; i < items.size(); i++) {
@@ -68,23 +70,11 @@ public class MultiSpinner extends Spinner implements
         listener.onItemsSelected(selected);
     }
 
-//    @Override
-//    public boolean performClick() {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-//        builder.setMultiChoiceItems(
-//                items.toArray(new CharSequence[items.size()]), selected, this);
-//        builder.setPositiveButton(android.R.string.ok,
-//                new DialogInterface.OnClickListener() {
-//
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.cancel();
-//                    }
-//                });
-//        builder.setOnCancelListener(this);
-//        builder.show();
-//        return true;
-//    }
+    @Override
+    public boolean performClick() {
+        mOpenInitiated = true;
+        return super.performClick();
+    }
 
 //    public void setItems(List<String> items, String allText,
 //                         MultiSpinnerListener listener) {
@@ -102,9 +92,18 @@ public class MultiSpinner extends Spinner implements
 //        setAdapter(adapter);
 //    }
 
+
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
+        if (mOpenInitiated && hasWindowFocus) {
+           performCloseEvent();
+        }
+    }
+
     public void setItems(List<String> items, String allText, MultiSpinnerListener listener) {
         this.items = items;
-        this.defaultText = allText;
+//        this.defaultText = allText;
         this.listener = listener;
 
         // all selected by default
@@ -112,9 +111,6 @@ public class MultiSpinner extends Spinner implements
         for (int i = 0; i < selected.length; i++)
             selected[i] = true;
 
-        // all text on the spinner
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, new String[] { allText });
-//        setAdapter(adapter);
         ArrayList<Spinners> mItems = new ArrayList<Spinners>();
         Spinners stateVO = new Spinners();
         stateVO.setTitle(allText);

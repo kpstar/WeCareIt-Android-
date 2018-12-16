@@ -101,7 +101,6 @@ public class NotesFragment extends TemplateFragment implements MultiSpinner.Mult
     }
 
     public void onItemsSelected(boolean[] selected){
-        Log.e("Selected", String.valueOf(selected.length));
     };
 
     @Override
