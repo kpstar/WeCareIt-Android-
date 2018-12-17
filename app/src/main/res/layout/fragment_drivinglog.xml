@@ -94,6 +94,7 @@
                             android:id="@+id/tvFirstcar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/ic_car"
                             android:text="UYM451"
                             android:gravity="center"/>
                     </LinearLayout>
@@ -110,6 +111,7 @@
                             android:id="@+id/tvSecondcar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/ic_car"
                             android:text="YHT949"
                             android:gravity="center"/>
                     </LinearLayout>
@@ -125,6 +127,7 @@
                     <TextView
                         android:id="@+id/tvThirdcar"
                         android:layout_width="match_parent"
+                        android:drawableTop="@drawable/ic_car"
                         android:layout_height="wrap_content"
                         android:text="LOREM IPSUMDASDASD"
                         android:gravity="center"/>

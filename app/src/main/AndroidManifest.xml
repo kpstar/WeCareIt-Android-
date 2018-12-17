@@ -28,16 +28,18 @@
             android:configChanges="orientation"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NavigationActivity"
             android:configChanges="orientation"
             android:label="@string/title_activity_navigation"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".InformationEditActivity"
+        <activity
+            android:name=".InformationEditActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".fragments.tasks.TasksAddActivity"></activity>
     </application>
 
 </manifest>

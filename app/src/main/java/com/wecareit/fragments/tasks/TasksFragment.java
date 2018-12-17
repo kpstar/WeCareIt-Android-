@@ -23,7 +23,9 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 
+import com.wecareit.InformationEditActivity;
 import com.wecareit.LoginActivity;
+import com.wecareit.NavigationActivity;
 import com.wecareit.R;
 import com.wecareit.adapter.TasksAdapter;
 import com.wecareit.common.Global;
@@ -82,11 +84,9 @@ public class TasksFragment extends TemplateFragment {
         Global.floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.tasksAddFragment = TasksAddFragment.createInstance();
-                Global.fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, Global.tasksAddFragment)
-                        .addToBackStack(null)
-                        .commit();
+
+                Intent mIntent = new Intent(getContext(), TasksAddActivity.class);
+                getContext().startActivity(mIntent);
             }
         });
 

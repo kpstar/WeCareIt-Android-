@@ -224,6 +224,11 @@ public class NavigationActivity extends AppCompatActivity
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("Current", "");
             editor.apply();
+        } else if (mFragment.equals("Tasks")) {
+            mContentFragment = TasksFragment.createInstance();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("Current", "");
+            editor.apply();
         }
         if (mContentFragment == null) {
             mContentFragment = StartFragment.createInstance();

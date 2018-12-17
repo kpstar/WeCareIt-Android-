@@ -1,6 +1,7 @@
 package com.wecareit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wecareit.common.Global;
+import com.wecareit.fragments.tasks.TasksAddActivity;
 import com.wecareit.model.InfoRes;
 
 import retrofit2.Call;
@@ -101,6 +103,11 @@ public class InformationEditActivity extends AppCompatActivity {
         call.enqueue(new Callback<InfoRes>() {
             @Override
             public void onResponse(Call<InfoRes> call, Response<InfoRes> response) {
+                if(response.code() == 401){
+                    Intent intent = new Intent(InformationEditActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    InformationEditActivity.this.finish();
+                }
                 if (response.isSuccessful()) {
                     InfoRes infoRes = response.body();
                     InformationEditActivity.this.finish();
