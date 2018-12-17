@@ -9,12 +9,14 @@ import android.os.StrictMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -93,7 +95,6 @@ public class NewsFragment extends TemplateFragment {
         mRecyclerView = view.findViewById(R.id.framgment_news_recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         mEdit = view.findViewById(R.id.edit_newsfragment);
-        mImage = view.findViewById(R.id.btnEdit_newsfragment);
         rlEdit = view.findViewById(R.id.editLinear_newsfragment);
 
         GradientDrawable gd = new GradientDrawable();
@@ -102,21 +103,26 @@ public class NewsFragment extends TemplateFragment {
         gd.setCornerRadius(5.0f);
 
         rlEdit.setBackground(gd);
-        mImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                postData();
-                final Handler h = new Handler();
-                h.postDelayed(new Runnable()
-                {
-                    private long time = 0;
 
-                    @Override
-                    public void run()
+        mEdit.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    postData();
+                    final Handler h = new Handler();
+                    h.postDelayed(new Runnable()
                     {
-                        loadData();
-                    }
-                }, 1000);
+                        private long time = 0;
+
+                        @Override
+                        public void run()
+                        {
+                            loadData();
+                        }
+                    }, 1000);
+                    return true;
+                }
+                return false;
             }
         });
         loadData();

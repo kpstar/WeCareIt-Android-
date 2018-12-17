@@ -12,20 +12,20 @@
         <TextView
             android:id="@+id/fragment_attendance_date"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/height_40dp"
+            android:layout_height="@dimen/height_32dp"
             android:text="@string/heading"
             android:textColor="@color/colorGreen"
             android:textStyle="bold"
-            android:textSize="@dimen/font_20sp"
+            android:textSize="@dimen/font_16sp"
             android:gravity="center_vertical"
             android:layout_alignParentLeft="true"/>
         <TextView
             android:id="@+id/fragment_attendance_submit_status"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/height_40dp"
+            android:layout_height="@dimen/height_32dp"
             android:gravity="center_vertical"
             android:textColor="@color/colorOrange"
-            android:textSize="@dimen/font_20sp"
+            android:textSize="@dimen/font_16sp"
             android:textStyle="bold"
             android:layout_alignParentRight="true"
             android:layout_toRightOf="@+id/fragment_attendance_date"/>

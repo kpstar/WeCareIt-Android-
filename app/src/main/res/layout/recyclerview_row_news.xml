@@ -194,18 +194,13 @@
             android:orientation="horizontal"
             android:paddingLeft="@dimen/padding_10dp"
             android:gravity="center_vertical">
-            <ImageView
-                android:id="@+id/btnAddcomment_newslist"
-                android:layout_marginRight="@dimen/padding_6dp"
-                android:layout_width="@dimen/height_40dp"
-                android:layout_height="@dimen/height_32dp"
-                android:background="@drawable/upload"
-                android:layout_alignParentRight="true"/>
             <EditText
                 android:id="@+id/editAddcomment_neslist"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_toLeftOf="@id/btnAddcomment_newslist"
+                android:singleLine="true"
+                android:layout_alignParentRight="true"
+                android:maxLines="1"
                 android:hint="@string/write"/>
         </RelativeLayout>
     </LinearLayout>

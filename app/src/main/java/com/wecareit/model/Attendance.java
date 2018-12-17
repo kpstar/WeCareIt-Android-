@@ -15,12 +15,6 @@ public class Attendance extends BaseModel {
     private boolean submitted;
 
     public ArrayList<AttendedClient> getAttendedClients() {
-        Collections.sort(this.attendedClients, new Comparator<AttendedClient>() {
-            @Override
-            public int compare(AttendedClient a, AttendedClient b) {
-                return (a.getId() >  b.getId() ? 1: -1);
-            }
-        });
         return this.attendedClients;
     }
 

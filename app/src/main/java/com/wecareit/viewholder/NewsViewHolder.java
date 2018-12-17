@@ -12,10 +12,12 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -103,7 +105,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         mCancel = (Button) itemView.findViewById(R.id.btnCancel);
         ivEdit = (CircleImageView) itemView.findViewById(R.id.ivEdit_newslist);
         //ivDel = (ImageView) itemView.findViewById(R.id.ivDelete_newslist);
-        ivPostComment = (ImageView) itemView.findViewById(R.id.btnAddcomment_newslist);
+//        ivPostComment = (ImageView) itemView.findViewById(R.id.btnAddcomment_newslist);
 //        ivUpdateTitle = (ImageView) itemView.findViewById(R.id.ivUpdateTitle_newslist);
         layoutComment = (LinearLayout) itemView.findViewById(R.id.editComent_newslist);
         lnComment = (LinearLayout) itemView.findViewById(R.id.lnComment_newsfragment);
@@ -136,6 +138,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
                 showPopup(v);
             }
         });
+
         mCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -153,15 +156,19 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
-        ivPostComment.setOnClickListener(new View.OnClickListener() {
+        etPostComment.setOnEditorActionListener(new EditText.OnEditorActionListener() {
             @Override
-            public void onClick(View v) {
-                postComment();
-                Global.newsFragment = NewsFragment.createInstance();
-                Global.fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, Global.newsFragment)
-                        .addToBackStack(null)
-                        .commit();
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    postComment();
+                    Global.newsFragment = NewsFragment.createInstance();
+                    Global.fragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, Global.newsFragment)
+                            .addToBackStack(null)
+                            .commit();
+                    return true;
+                }
+                return false;
             }
         });
     }

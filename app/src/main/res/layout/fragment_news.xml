@@ -10,20 +10,16 @@
         android:layout_margin="@dimen/padding_10dp"
         android:orientation="horizontal"
         android:gravity="center_vertical">
-        <ImageView
-            android:id="@+id/btnEdit_newsfragment"
-            android:layout_marginTop="@dimen/padding_10dp"
-            android:layout_width="@dimen/width_60dp"
-            android:layout_height="@dimen/height_40dp"
-            android:background="@drawable/upload"
-            android:layout_alignParentRight="true"/>
         <EditText
             android:id="@+id/edit_newsfragment"
-            android:layout_marginLeft="@dimen/padding_10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/padding_10dp"
             android:hint="@string/write"
-            android:layout_toLeftOf="@id/btnEdit_newsfragment"/>
+            android:maxLines="1"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <ScrollView
         android:layout_width="match_parent"

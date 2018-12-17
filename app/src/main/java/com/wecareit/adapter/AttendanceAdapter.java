@@ -16,6 +16,8 @@ import com.wecareit.model.Client;
 import com.wecareit.viewholder.AttendanceViewHolder;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceViewHolder> {
     private Context context;
@@ -25,9 +27,21 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceViewHolder
     public AttendanceAdapter(Context context, ArrayList<AttendedClient> attendedClients) {
         this.context = context;
         this.attendedClients = attendedClients;
+        Collections.sort(this.attendedClients, new Comparator<AttendedClient>() {
+            @Override
+            public int compare(AttendedClient a, AttendedClient b) {
+                return (a.getClient().getId() >  b.getClient().getId() ? 1: -1);
+            }
+        });
     }
 
     public AttendanceAdapter(ArrayList<AttendedClient> attendedClients) {
+        Collections.sort(attendedClients, new Comparator<AttendedClient>() {
+            @Override
+            public int compare(AttendedClient a, AttendedClient b) {
+                return (a.getId() >  b.getId() ? 1: -1);
+            }
+        });
         this.attendedClients = attendedClients;
     }
 
