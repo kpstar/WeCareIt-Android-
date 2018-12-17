@@ -1,6 +1,7 @@
 package com.wecareit.fragments.document;
 
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,27 +32,27 @@ import retrofit2.Response;
 public class DocumentFragment extends TemplateFragment {
     private ArrayList<DocCategory> docCategories;
 
-    private LinearLayout mGeneralSection;
+    private CardView mGeneralSection;
     private RecyclerView mGeneralList;
     private Button mGeneralViewAll;
 
-    private LinearLayout mDayTimeActivitySection;
+    private CardView mDayTimeActivitySection;
     private RecyclerView mDayTimeActivityList;
     private Button mDayTimeAcivityViewAll;
 
-    private LinearLayout mAccomodationSection;
+    private CardView mAccomodationSection;
     private RecyclerView mAccomodationList;
     private Button mAccomodationViewAll;
 
-    private LinearLayout mPersonalSection;
+    private CardView mPersonalSection;
     private RecyclerView mPersonalList;
     private Button mPersonalViewAll;
 
-    private LinearLayout mQualitySection;
+    private CardView mQualitySection;
     private RecyclerView mQualityList;
     private Button mQualityViewAll;
 
-    private LinearLayout mAPTSection;
+    private CardView mAPTSection;
     private RecyclerView mAPTList;
     private Button mAPTViewAll;
 
@@ -96,37 +97,37 @@ public class DocumentFragment extends TemplateFragment {
             }
         });
 
-        mGeneralSection = (LinearLayout) view.findViewById(R.id.fragment_document_general_section);
+        mGeneralSection = (CardView) view.findViewById(R.id.fragment_document_general_section);
         mGeneralSection.setVisibility(View.GONE);
         mGeneralList = (RecyclerView) view.findViewById(R.id.fragment_document_general_list);
         mGeneralList.setLayoutManager(new LinearLayoutManager(getContext()));
         mGeneralViewAll = (Button) view.findViewById(R.id.fragment_document_general_view_all);
 
-        mDayTimeActivitySection = (LinearLayout) view.findViewById(R.id.fragment_document_daytime_activity_section);
+        mDayTimeActivitySection = (CardView) view.findViewById(R.id.fragment_document_daytime_activity_section);
         mDayTimeActivitySection.setVisibility(View.GONE);
         mDayTimeActivityList = (RecyclerView) view.findViewById(R.id.fragment_document_daytime_activity_list);
         mDayTimeActivityList.setLayoutManager(new LinearLayoutManager(getContext()));
         mDayTimeAcivityViewAll = (Button) view.findViewById(R.id.fragment_document_daytime_activity_view_all);
 
-        mAccomodationSection = (LinearLayout) view.findViewById(R.id.fragment_document_accomodation_section);
+        mAccomodationSection = (CardView) view.findViewById(R.id.fragment_document_accomodation_section);
         mAccomodationSection.setVisibility(View.GONE);
         mAccomodationList = (RecyclerView) view.findViewById(R.id.fragment_document_accomodation_list);
         mAccomodationList.setLayoutManager(new LinearLayoutManager(getContext()));
         mAccomodationViewAll = (Button) view.findViewById(R.id.fragment_document_accomodation_view_all);
 
-        mPersonalSection = (LinearLayout) view.findViewById(R.id.fragment_document_personal_section);
+        mPersonalSection = (CardView) view.findViewById(R.id.fragment_document_personal_section);
         mPersonalSection.setVisibility(View.GONE);
         mPersonalList = (RecyclerView) view.findViewById(R.id.fragment_document_personal_list);
         mPersonalList.setLayoutManager(new LinearLayoutManager(getContext()));
         mPersonalViewAll = (Button) view.findViewById(R.id.fragment_document_personal_view_all);
 
-        mQualitySection = (LinearLayout) view.findViewById(R.id.fragment_document_quality_section);
+        mQualitySection = (CardView) view.findViewById(R.id.fragment_document_quality_section);
         mQualitySection.setVisibility(View.GONE);
         mQualityList = (RecyclerView) view.findViewById(R.id.fragment_document_quality_list);
         mQualityList.setLayoutManager(new LinearLayoutManager(getContext()));
         mQualityViewAll = (Button) view.findViewById(R.id.fragment_document_quality_view_all);
 
-        mAPTSection = (LinearLayout) view.findViewById(R.id.fragment_document_apt_staff_meeting_section);
+        mAPTSection = (CardView) view.findViewById(R.id.fragment_document_apt_staff_meeting_section);
         mAPTSection.setVisibility(View.GONE);
         mAPTList = (RecyclerView) view.findViewById(R.id.fragment_document_apt_staff_meeting_list);
         mAPTList.setLayoutManager(new LinearLayoutManager(getContext()));

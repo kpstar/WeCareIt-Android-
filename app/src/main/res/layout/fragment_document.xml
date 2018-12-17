@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
     <ScrollView
         android:padding="@dimen/padding_10dp"
         android:layout_width="match_parent"
@@ -10,270 +11,295 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
+            <android.support.v7.widget.CardView
                 android:id="@+id/fragment_document_general_section"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_32dp"
-                    android:text="Generella"
-                    android:textSize="@dimen/font_16sp"
-                    android:textColor="@color/colorText"
-                    android:background="@color/colorLightGray"
-                    android:paddingLeft="@dimen/padding_12dp"
-                    android:gravity="center_vertical"/>
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/fragment_document_general_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding_6dp">
-
-                </android.support.v7.widget.RecyclerView>
+                android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorLightGray"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <Button
-                        android:id="@+id/fragment_document_general_view_all"
-                        android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_32dp"
+                        android:text="Generella"
+                        android:textSize="@dimen/font_16sp"
+                        android:textColor="@color/colorText"
+                        android:background="@color/colorHeader"
+                        android:paddingLeft="@dimen/padding_12dp"
+                        android:gravity="center_vertical"/>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/fragment_document_general_list"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="SE ALLA DOKUMENT"
-                        android:layout_marginRight="@dimen/padding_12dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:background="@color/colorGreen"
-                        android:textColor="@color/colorWhite"
-                        android:layout_margin="@dimen/padding_6dp"
-                        android:paddingLeft="@dimen/padding_10dp"
-                        android:paddingRight="@dimen/padding_10dp"/>
-                </RelativeLayout>
-            </LinearLayout>
-            <LinearLayout
+                        android:layout_marginTop="@dimen/padding_6dp">
+
+                    </android.support.v7.widget.RecyclerView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorLightGray"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:id="@+id/fragment_document_general_view_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SE ALLA DOKUMENT"
+                            android:layout_marginRight="@dimen/padding_12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@color/colorGreen"
+                            android:textColor="@color/colorWhite"
+                            android:layout_margin="@dimen/padding_6dp"
+                            android:paddingLeft="@dimen/padding_10dp"
+                            android:paddingRight="@dimen/padding_10dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
                 android:id="@+id/fragment_document_daytime_activity_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="@dimen/padding_12dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_32dp"
-                    android:text="Dagverksamheten"
-                    android:textSize="@dimen/font_16sp"
-                    android:paddingLeft="@dimen/padding_12dp"
-                    android:textColor="@color/colorText"
-                    android:background="@color/colorLightGray"
-                    android:gravity="center_vertical"/>
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/fragment_document_daytime_activity_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding_6dp">
-
-                </android.support.v7.widget.RecyclerView>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorLightGray"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <Button
-                        android:id="@+id/fragment_document_daytime_activity_view_all"
-                        android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_32dp"
+                        android:text="Dagverksamheten"
+                        android:textSize="@dimen/font_16sp"
+                        android:paddingLeft="@dimen/padding_12dp"
+                        android:textColor="@color/colorText"
+                        android:background="@color/colorHeader"
+                        android:gravity="center_vertical"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/fragment_document_daytime_activity_list"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="SE ALLA DOKUMENT"
-                        android:layout_marginRight="@dimen/padding_12dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:background="@color/colorGreen"
-                        android:textColor="@color/colorWhite"
-                        android:layout_margin="@dimen/padding_6dp"
-                        android:paddingLeft="@dimen/padding_10dp"
-                        android:paddingRight="@dimen/padding_10dp"/>
-                </RelativeLayout>
-            </LinearLayout>
-            <LinearLayout
+                        android:layout_marginTop="@dimen/padding_6dp">
+
+                    </android.support.v7.widget.RecyclerView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorLightGray"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:id="@+id/fragment_document_daytime_activity_view_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SE ALLA DOKUMENT"
+                            android:layout_marginRight="@dimen/padding_12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@color/colorGreen"
+                            android:textColor="@color/colorWhite"
+                            android:layout_margin="@dimen/padding_6dp"
+                            android:paddingLeft="@dimen/padding_10dp"
+                            android:paddingRight="@dimen/padding_10dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
                 android:id="@+id/fragment_document_accomodation_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="@dimen/padding_12dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_32dp"
-                    android:text="Boende"
-                    android:textSize="@dimen/font_16sp"
-                    android:paddingLeft="@dimen/padding_12dp"
-                    android:textColor="@color/colorText"
-                    android:background="@color/colorLightGray"
-                    android:gravity="center_vertical"/>
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/fragment_document_accomodation_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding_6dp">
-
-                </android.support.v7.widget.RecyclerView>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorLightGray"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <Button
-                        android:id="@+id/fragment_document_accomodation_view_all"
-                        android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_32dp"
+                        android:text="Boende"
+                        android:textSize="@dimen/font_16sp"
+                        android:paddingLeft="@dimen/padding_12dp"
+                        android:textColor="@color/colorText"
+                        android:background="@color/colorHeader"
+                        android:gravity="center_vertical"/>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/fragment_document_accomodation_list"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="SE ALLA DOKUMENT"
-                        android:layout_marginRight="@dimen/padding_12dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:background="@color/colorGreen"
-                        android:textColor="@color/colorWhite"
-                        android:layout_margin="@dimen/padding_6dp"
-                        android:paddingLeft="@dimen/padding_10dp"
-                        android:paddingRight="@dimen/padding_10dp"/>
-                </RelativeLayout>
-            </LinearLayout>
-            <LinearLayout
+                        android:layout_marginTop="@dimen/padding_6dp">
+
+                    </android.support.v7.widget.RecyclerView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorLightGray"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:id="@+id/fragment_document_accomodation_view_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SE ALLA DOKUMENT"
+                            android:layout_marginRight="@dimen/padding_12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@color/colorGreen"
+                            android:textColor="@color/colorWhite"
+                            android:layout_margin="@dimen/padding_6dp"
+                            android:paddingLeft="@dimen/padding_10dp"
+                            android:paddingRight="@dimen/padding_10dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
                 android:id="@+id/fragment_document_personal_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="@dimen/padding_12dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_32dp"
-                    android:text="Personal"
-                    android:textSize="@dimen/font_16sp"
-                    android:paddingLeft="@dimen/padding_12dp"
-                    android:textColor="@color/colorText"
-                    android:background="@color/colorLightGray"
-                    android:gravity="center_vertical"/>
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/fragment_document_personal_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding_6dp">
-
-                </android.support.v7.widget.RecyclerView>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorLightGray"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <Button
-                        android:id="@+id/fragment_document_personal_view_all"
-                        android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_32dp"
+                        android:text="Personal"
+                        android:textSize="@dimen/font_16sp"
+                        android:paddingLeft="@dimen/padding_12dp"
+                        android:textColor="@color/colorText"
+                        android:background="@color/colorHeader"
+                        android:gravity="center_vertical"/>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/fragment_document_personal_list"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="SE ALLA DOKUMENT"
-                        android:layout_marginRight="@dimen/padding_12dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:background="@color/colorGreen"
-                        android:textColor="@color/colorWhite"
-                        android:layout_margin="@dimen/padding_6dp"
-                        android:paddingLeft="@dimen/padding_10dp"
-                        android:paddingRight="@dimen/padding_10dp"/>
-                </RelativeLayout>
-            </LinearLayout>
-            <LinearLayout
+                        android:layout_marginTop="@dimen/padding_6dp">
+
+                    </android.support.v7.widget.RecyclerView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorLightGray"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:id="@+id/fragment_document_personal_view_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SE ALLA DOKUMENT"
+                            android:layout_marginRight="@dimen/padding_12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@color/colorGreen"
+                            android:textColor="@color/colorWhite"
+                            android:layout_margin="@dimen/padding_6dp"
+                            android:paddingLeft="@dimen/padding_10dp"
+                            android:paddingRight="@dimen/padding_10dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
                 android:id="@+id/fragment_document_quality_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="@dimen/padding_12dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_32dp"
-                    android:text="Kvalitetssystem"
-                    android:textSize="@dimen/font_16sp"
-                    android:paddingLeft="@dimen/padding_12dp"
-                    android:textColor="@color/colorText"
-                    android:background="@color/colorLightGray"
-                    android:gravity="center_vertical"/>
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/fragment_document_quality_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding_6dp">
-
-                </android.support.v7.widget.RecyclerView>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorLightGray"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <Button
-                        android:id="@+id/fragment_document_quality_view_all"
-                        android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/padding_12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_32dp"
+                        android:text="Kvalitetssystem"
+                        android:textSize="@dimen/font_16sp"
+                        android:paddingLeft="@dimen/padding_12dp"
+                        android:textColor="@color/colorText"
+                        android:background="@color/colorHeader"
+                        android:gravity="center_vertical"/>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/fragment_document_quality_list"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="SE ALLA DOKUMENT"
-                        android:layout_marginRight="@dimen/padding_12dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:background="@color/colorGreen"
-                        android:textColor="@color/colorWhite"
-                        android:layout_margin="@dimen/padding_6dp"
-                        android:paddingLeft="@dimen/padding_10dp"
-                        android:paddingRight="@dimen/padding_10dp"/>
-                </RelativeLayout>
-            </LinearLayout>
-            <LinearLayout
+                        android:layout_marginTop="@dimen/padding_6dp">
+
+                    </android.support.v7.widget.RecyclerView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorLightGray"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:id="@+id/fragment_document_quality_view_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SE ALLA DOKUMENT"
+                            android:layout_marginRight="@dimen/padding_12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@color/colorGreen"
+                            android:textColor="@color/colorWhite"
+                            android:layout_margin="@dimen/padding_6dp"
+                            android:paddingLeft="@dimen/padding_10dp"
+                            android:paddingRight="@dimen/padding_10dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
                 android:id="@+id/fragment_document_apt_staff_meeting_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="@dimen/padding_12dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_32dp"
-                    android:text="APT / Personalmöte"
-                    android:textSize="@dimen/font_16sp"
-                    android:paddingLeft="@dimen/padding_12dp"
-                    android:textColor="@color/colorText"
-                    android:background="@color/colorLightGray"
-                    android:gravity="center_vertical"/>
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/fragment_document_apt_staff_meeting_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/padding_6dp">
-
-                </android.support.v7.widget.RecyclerView>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorLightGray"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <Button
-                        android:id="@+id/fragment_document_apt_staff_meeting_view_all"
-                        android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_32dp"
+                        android:text="APT / Personalmöte"
+                        android:textSize="@dimen/font_16sp"
+                        android:paddingLeft="@dimen/padding_12dp"
+                        android:textColor="@color/colorText"
+                        android:background="@color/colorHeader"
+                        android:gravity="center_vertical"/>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/fragment_document_apt_staff_meeting_list"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="SE ALLA DOKUMENT"
-                        android:layout_marginRight="@dimen/padding_12dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:background="@color/colorGreen"
-                        android:textColor="@color/colorWhite"
-                        android:layout_margin="@dimen/padding_6dp"
-                        android:paddingLeft="@dimen/padding_10dp"
-                        android:paddingRight="@dimen/padding_10dp"/>
-                </RelativeLayout>
-            </LinearLayout>
+                        android:layout_marginTop="@dimen/padding_6dp">
+
+                    </android.support.v7.widget.RecyclerView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorLightGray"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:id="@+id/fragment_document_apt_staff_meeting_view_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SE ALLA DOKUMENT"
+                            android:layout_marginRight="@dimen/padding_12dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@color/colorGreen"
+                            android:textColor="@color/colorWhite"
+                            android:layout_margin="@dimen/padding_6dp"
+                            android:paddingLeft="@dimen/padding_10dp"
+                            android:paddingRight="@dimen/padding_10dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

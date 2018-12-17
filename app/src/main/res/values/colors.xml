@@ -18,6 +18,7 @@
     <color name="colorPinknote">#e91e63</color>
     <color name="colorFloatingButton">#039be5</color>
     <color name="colorRedFlag">#ee6e73</color>
+    <color name="colorHeader">#fafafa</color>
     <color name="colorCleaarBtn">#F44336</color>
     <color name="colorSelectedCar">#2bbbad</color>
 </resources>
