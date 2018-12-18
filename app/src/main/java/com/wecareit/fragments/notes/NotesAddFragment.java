@@ -55,6 +55,7 @@ public class NotesAddFragment extends TemplateFragment implements Spinner.OnItem
     private int area_id, general_id, specific_id, category_id;
     private List<String> client_ids;
     private boolean isBackDated;
+    private TextView txtSummary, txtNote;
     private static int AREA_SPINNER_ID = 1001;
     private static int GENERAL_SPINNER_ID = 1002;
     private static int SPECIFIC_SPINNER_ID = 1003;
@@ -97,7 +98,8 @@ public class NotesAddFragment extends TemplateFragment implements Spinner.OnItem
         edSummary = (EditText)view.findViewById(R.id.etSummary_notesaddfragment);
 
         edDetail = (EditText)view.findViewById(R.id.etDetails_notesaddfragment);
-
+        txtSummary = (TextView)view.findViewById(R.id.summaryText);
+        txtNote = (TextView)view.findViewById(R.id.notesText);
         backDated = (CheckBox)view.findViewById(R.id.chxBackdated_noteaddfragment);
 
         lnAccomo = view.findViewById(R.id.lnAccommo_notesaddfragment);
@@ -165,6 +167,7 @@ public class NotesAddFragment extends TemplateFragment implements Spinner.OnItem
         });
     }
 
+    @SuppressLint("ResourceAsColor")
     private void saveData() {
         Map<String, String> params = new HashMap<>();
         client_ids = new ArrayList<String>();
@@ -177,11 +180,23 @@ public class NotesAddFragment extends TemplateFragment implements Spinner.OnItem
 
         mSummary = edSummary.getText().toString();
         mDetail = edDetail.getText().toString();
-
-        if (mSummary.isEmpty() || mDetail.isEmpty()) {
-            Toast.makeText(getContext(), "Det här fältet är obligatoriskt.", Toast.LENGTH_LONG).show();
-            return;
+        boolean success = true;
+        if (mSummary.isEmpty()) {
+            txtSummary.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+            edSummary.setHint(R.string.errorHint);
+            edSummary.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+            success = false;
         }
+
+        if (mDetail.isEmpty()) {
+            txtNote.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+            edDetail.setHint(R.string.errorHint);
+            edDetail.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+            success = false;
+        }
+
+        if (!success) return;
+
         isBackDated = backDated.isChecked();
 
         NotePost post = new NotePost(area_id, client_ids, category_id, general_id, specific_id, mSummary, mDetail, isBackDated);

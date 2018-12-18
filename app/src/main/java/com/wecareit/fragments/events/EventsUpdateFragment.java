@@ -59,6 +59,7 @@ public class EventsUpdateFragment extends TemplateFragment {
     private EditText etHeader, etDescription, etStartdate, etStarttime;
     private LinearLayout lnUser, lnVehicle, lnTimeinterval,lnClient, lnHeader, lnDsec, lnDate, lnTime;
     private EventspostBody postBody;
+    private TextView tvHeading, tvDesc;
     private Timeperiod timeperiod;
     private ArrayList<Integer> user_id,vehicle_id, client_id;
     private String time_start, time_end, name,description;
@@ -115,6 +116,13 @@ public class EventsUpdateFragment extends TemplateFragment {
         spVehicle = (MultiSpinner) view.findViewById(R.id.vehicleSpinner_eventsupdatefragment);
         spEmployee = (MultiSpinner) view.findViewById(R.id.userSpinner_eventsupdatefragment);
         spClient = (MultiSpinner) view.findViewById(R.id.clientSpinner_eventsupdatefragment);
+
+        tvDesc = (TextView) view.findViewById(R.id.txtDescription);
+        tvHeading = (TextView) view.findViewById(R.id.txtHeading);
+
+        Date mDate = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        etStartdate.setText(df.format(mDate));
 
         etStartdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -226,14 +234,20 @@ public class EventsUpdateFragment extends TemplateFragment {
             @Override
             public void onClick(View v) {
                 EventsFragment.flag_update = 0;
-//                if(etHeader.getText().toString().isEmpty()){
-//                    etHeader.setHint("Please fill this field");
-//                    etHeader.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
-//                }
-//                if(etDescription.getText().toString().isEmpty()){
-//                    etDescription.setHint("Please fill this field");
-//                    etDescription.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
-//                }
+                boolean flag = true;
+                if(etHeader.getText().toString().isEmpty()){
+                    tvHeading.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                    etHeader.setHint(R.string.errorHint);
+                    etHeader.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                    flag = false;
+                }
+                if(etDescription.getText().toString().isEmpty()){
+                    tvDesc.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                    etDescription.setHint(R.string.errorHint);
+                    etDescription.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                    flag = false;
+                }
+                if (!flag) return;
                 int min_span = 0, hr_span = 0, end_hr=0, end_min=0;
                 String st_hr, st_min, st_enddate;
                 time_start = etStartdate.getText().toString()+"T"+etStarttime.getText().toString();

@@ -61,6 +61,8 @@ public class DrivingLogFragment extends TemplateFragment {
     private int flag_tab = 0;
     private String address_start, address_end, odometer_start, odometer_end, km, regno, date, client_string;
 
+    private TextView txtStart, txtAddStart, txtAddEnd;
+
     private Calendar myCalendar = Calendar.getInstance();
 
     public static DrivingLogFragment createInstance() {
@@ -115,6 +117,10 @@ public class DrivingLogFragment extends TemplateFragment {
         etAddressStart_travelbill = view.findViewById(R.id.etAddressStart_travelbill);
         etAddressTravel_travelbill = view.findViewById(R.id.etAddressTravel_travelbill);
         etDrivingKilo_travelbill = view.findViewById(R.id.etDrivingKilo_travelbill);
+
+        txtStart = view.findViewById(R.id.driveStart);
+        txtAddStart = view.findViewById(R.id.driveAddressStart);
+        txtAddEnd = view.findViewById(R.id.driveAddressEnd);
 
         tvError = view.findViewById(R.id.tvTravelEndError_drivinglog);
         tvKM = view.findViewById(R.id.tvTravelEnd_drivinglog);
@@ -434,6 +440,35 @@ public class DrivingLogFragment extends TemplateFragment {
                         return;
                     }
 
+                    boolean flag = true;
+                    if(txtStart.getText().toString().isEmpty()){
+                        txtStart.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        etMeasureStart_companycar.setHint(R.string.errorHint);
+                        etMeasureStart_companycar.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        flag = false;
+                    }
+
+                    if(tvKM.getText().toString().isEmpty()){
+                        tvKM.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        etMeasureDest_companycar.setHint(R.string.errorHint);
+                        etMeasureDest_companycar.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        flag = false;
+                    }
+
+                    if(txtAddStart.getText().toString().isEmpty()){
+                        txtAddStart.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        etAddressStart_companycar.setHint(R.string.errorHint);
+                        etAddressStart_companycar.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        flag = false;
+                    }
+
+                    if(txtAddEnd.getText().toString().isEmpty()){
+                        txtAddEnd.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        etAddressDest_companycar.setHint(R.string.errorHint);
+                        etAddressDest_companycar.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        flag = false;
+                    }
+
                     String[] splited_client = client_string.split(", ");
                     if (splited_client[0].equals("Alla")){
                         client.add(1);
@@ -456,10 +491,12 @@ public class DrivingLogFragment extends TemplateFragment {
                     if(start_km>=end_km){
                         tvKM.setTextColor(getResources().getColor(R.color.colorPinknote));
                         tvError.setVisibility(View.VISIBLE);
+                        flag = false;
                     } else {
                         tvKM.setTextColor(Color.GRAY);
                         tvError.setVisibility(View.GONE);
-                        postLog();
+                        if (flag)
+                            postLog();
                     }
                 } else {
                     address_start = etAddressStart_travelbill.getText().toString();
@@ -507,6 +544,7 @@ public class DrivingLogFragment extends TemplateFragment {
 
     public void postLog() {
         if(flag_tab == 0){
+
 
             companyCarPost =new CompanyCarPost(address_end,address_start,client,categoryID_companycar,odometer_start,odometer_end,vehicle_ID_companycar);
 

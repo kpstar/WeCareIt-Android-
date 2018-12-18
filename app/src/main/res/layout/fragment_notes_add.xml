@@ -24,6 +24,7 @@
             android:layout_marginRight="@dimen/padding_10dp"
             >
             <TextView
+                android:id="@+id/summaryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/summarizetheevent"
@@ -45,6 +46,7 @@
             android:layout_marginRight="@dimen/padding_10dp"
             >
             <TextView
+                android:id="@+id/notesText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/details"

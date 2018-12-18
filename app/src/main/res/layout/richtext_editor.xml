@@ -1,48 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/rounded_border_background">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:background="@color/colorLightGray"
-            android:layout_height="@dimen/height_40dp">
-            <ImageView
-                android:id="@+id/richBold"
-                android:src="@drawable/ic_bold"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/padding_10dp"
-                android:layout_width="@dimen/width_24dp"
-                android:layout_height="@dimen/width_24dp" />
-            <ImageView
-                android:id="@+id/richItalic"
-                android:layout_width="@dimen/width_24dp"
-                android:layout_height="@dimen/width_24dp"
-                android:layout_marginLeft="@dimen/padding_6dp"
-                android:src="@drawable/ic_italic"
-                android:layout_toRightOf="@id/richBold"
-                android:layout_centerVertical="true" />
+        android:layout_height="@dimen/height_40dp"
+        android:background="@color/colorLightGray"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:id="@+id/etDesc"
+        android:layout_width="match_parent"
+        android:layout_below="@id/imageContainer"
+        android:layout_height="@dimen/width_100dp"
+        android:background="@null"
+        android:textSize="@dimen/font_16sp"
+        android:layout_alignParentLeft="true"
+        android:padding="@dimen/padding_10dp" />
+    <ImageView
+        android:id="@+id/richBold"
+        android:src="@drawable/ic_bold"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="@dimen/padding_10dp"
+        android:layout_width="@dimen/width_24dp"
+        android:layout_height="@dimen/width_24dp" />
+    <ImageView
+        android:id="@+id/richItalic"
+        android:layout_width="@dimen/width_24dp"
+        android:layout_height="@dimen/width_24dp"
+        android:layout_marginLeft="@dimen/padding_6dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_italic"
+        android:layout_toRightOf="@id/richBold" />
 
-            <ImageView
-                android:id="@+id/richBullets"
-                android:layout_width="@dimen/width_24dp"
-                android:layout_height="@dimen/width_24dp"
-                android:layout_marginLeft="@dimen/padding_6dp"
-                android:src="@drawable/ic_bullets"
-                android:layout_toRightOf="@id/richItalic"
-                android:layout_centerVertical="true" />
-        </RelativeLayout>
-        <EditText
-            android:id="@+id/etDesc_informationfragment"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_100dp"
-            android:background="@null"
-            android:textSize="@dimen/font_16sp"
-            android:layout_marginLeft="@dimen/padding_10dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="@dimen/padding_10dp"
-            android:padding="@dimen/padding_10dp"
-            android:maxLines="10" />
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/richBullets"
+        android:layout_width="@dimen/width_24dp"
+        android:layout_height="@dimen/width_24dp"
+        android:layout_marginLeft="@dimen/padding_6dp"
+        android:src="@drawable/ic_bullets"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@id/richItalic" />
+
 </merge>

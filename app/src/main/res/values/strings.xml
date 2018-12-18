@@ -38,6 +38,7 @@
     <string name="area">Område</string>
     <string name="keyword">Nyckelord</string>
     <string name="category">Kategori</string>
+    <string name="errorHint">Det här fältet är obligatoriskt.</string>
     <string name="timeinterval">Tidsintervall</string>
     <string name="clear">RENSA</string>
     <string name="used">ANVÄND</string>
