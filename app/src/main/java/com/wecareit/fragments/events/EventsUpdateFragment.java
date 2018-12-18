@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.wecareit.LoginActivity;
 import com.wecareit.MultiSelectSpinner;
@@ -225,14 +226,14 @@ public class EventsUpdateFragment extends TemplateFragment {
             @Override
             public void onClick(View v) {
                 EventsFragment.flag_update = 0;
-                if(etHeader.getText().toString().isEmpty()){
-                    etHeader.setHint("Please fill this field");
-                    etHeader.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
-                }
-                if(etDescription.getText().toString().isEmpty()){
-                    etDescription.setHint("Please fill this field");
-                    etDescription.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
-                }
+//                if(etHeader.getText().toString().isEmpty()){
+//                    etHeader.setHint("Please fill this field");
+//                    etHeader.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+//                }
+//                if(etDescription.getText().toString().isEmpty()){
+//                    etDescription.setHint("Please fill this field");
+//                    etDescription.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+//                }
                 int min_span = 0, hr_span = 0, end_hr=0, end_min=0;
                 String st_hr, st_min, st_enddate;
                 time_start = etStartdate.getText().toString()+"T"+etStarttime.getText().toString();
@@ -289,6 +290,11 @@ public class EventsUpdateFragment extends TemplateFragment {
                 name = etHeader.getText().toString();
                 description = etDescription.getText().toString();
                 getIDist();
+
+                if (description.isEmpty() || name.isEmpty() || time_end.isEmpty() || time_start.isEmpty()) {
+                    Toast.makeText(getContext(), "Det här fältet är obligatoriskt.", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 //Log.d(time_start,time_end+name+description);
                 if (EventsFragment.flag_update == 0){
                     postEvent();

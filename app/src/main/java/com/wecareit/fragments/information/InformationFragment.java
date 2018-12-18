@@ -47,6 +47,8 @@ public class InformationFragment extends Fragment {
     public static int flagEdit_informationfragment = 0, id_information;
     public static String stTitle = "", stDesc = "";
 
+    private boolean isBold, isItalic;
+
     public static InformationFragment createInstance() {
         return new InformationFragment();
     }

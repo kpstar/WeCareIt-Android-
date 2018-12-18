@@ -39,7 +39,9 @@
             android:name=".InformationEditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".fragments.tasks.TasksAddActivity"></activity>
+        <activity android:name=".fragments.tasks.TasksAddActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

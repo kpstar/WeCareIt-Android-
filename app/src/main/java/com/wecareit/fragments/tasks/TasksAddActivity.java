@@ -151,6 +151,11 @@ public class TasksAddActivity extends AppCompatActivity {
             }
         }
 
+        if (user_id.size() < 1 || stActivity.isEmpty() || stDeadline.isEmpty()) {
+            Toast.makeText(TasksAddActivity.this, "Det här fältet är obligatoriskt.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         postTask =new PostTask(stActivity, user_id, stDeadline);
 
         Call<ResponseBody> call = Global.getAPIService.postTask("Token " + Global.token, postTask);

@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wecareit.LoginActivity;
 import com.wecareit.MultiSpinner;
@@ -140,6 +141,8 @@ public class DrivingLogFragment extends TemplateFragment {
         lnMain = view.findViewById(R.id.lnMain_drivinglog);
         lnTab = view.findViewById(R.id.lnTab_drivingfragment);
 
+        initOptions();
+
         GradientDrawable gd_tab = new GradientDrawable();
         gd_tab.setShape(GradientDrawable.RECTANGLE);
         gd_tab.setStroke(2,Color.LTGRAY);
@@ -189,6 +192,7 @@ public class DrivingLogFragment extends TemplateFragment {
                 lnTravelbill.setVisibility(View.GONE);
                 lnBottom_travelbill.setVisibility(View.INVISIBLE);
                 tvTab_travelbill.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+                initOptions();
             }
         });
         tvTab_travelbill.setOnClickListener(new View.OnClickListener() {
@@ -201,6 +205,16 @@ public class DrivingLogFragment extends TemplateFragment {
                 lnTravelbill.setVisibility(View.VISIBLE);
                 lnBottom_travelbill.setVisibility(View.VISIBLE);
                 tvTab_travelbill.setBackgroundColor(getResources().getColor(R.color.colorCardView));
+
+                categoryID_travelbill = 1;
+                tvBeach_travelbill.setBackgroundColor(getResources().getColor(R.color.colorGreenText));
+                tvLib_travelbill.setBackgroundColor(getResources().getColor(R.color.colorCardView));
+                tvShop_travelbill.setBackgroundColor(getResources().getColor(R.color.colorCardView));
+                tv12_travelbill.setBackgroundColor(getResources().getColor(R.color.colorCardView));
+                tvBeach_travelbill.setTextColor(getResources().getColor(R.color.colorWhite));
+                tvLib_travelbill.setTextColor(getResources().getColor(R.color.colorText));
+                tvShop_travelbill.setTextColor(getResources().getColor(R.color.colorText));
+                tv12_travelbill.setTextColor(getResources().getColor(R.color.colorText));
             }
         });
         lnButton_firstcar.setOnClickListener(new View.OnClickListener() {
@@ -370,6 +384,27 @@ public class DrivingLogFragment extends TemplateFragment {
 
     }
 
+    public void initOptions() {
+        categoryID_companycar = 1;
+        tvBeach_companycar.setBackgroundColor(getResources().getColor(R.color.colorGreenText));
+        tvLib_companycar.setBackgroundColor(getResources().getColor(R.color.colorCardView));
+        tvShop_companycar.setBackgroundColor(getResources().getColor(R.color.colorCardView));
+        tv12_companycar.setBackgroundColor(getResources().getColor(R.color.colorCardView));
+        tvBeach_companycar.setTextColor(getResources().getColor(R.color.colorWhite));
+        tvLib_companycar.setTextColor(getResources().getColor(R.color.colorText));
+        tvShop_companycar.setTextColor(getResources().getColor(R.color.colorText));
+        tv12_companycar.setTextColor(getResources().getColor(R.color.colorText));
+
+        vehicle_ID_companycar = 1;
+        lnButton_firstcar.setBackgroundColor(getResources().getColor(R.color.colorGreenText));
+        lnButton_secondCar.setBackgroundColor(getResources().getColor(R.color.colorLightGray));
+        lnButton_thirdcar.setBackgroundColor(getResources().getColor(R.color.colorLightGray));
+        tvFirstCar.setTextColor(getResources().getColor(R.color.colorWhite));
+        tvSecondCar.setTextColor(getResources().getColor(R.color.colorText));
+        tvThirdCar.setTextColor(getResources().getColor(R.color.colorText));
+        loadData();
+    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_drivinglog, menu);
@@ -393,6 +428,12 @@ public class DrivingLogFragment extends TemplateFragment {
                     odometer_start = etMeasureStart_companycar.getText().toString();
                     odometer_end = etMeasureDest_companycar.getText().toString();
                     client_string = sp_Client_Companycar.getSelectedItem().toString();
+
+                    if (address_end.isEmpty() || address_start.isEmpty() || odometer_end.isEmpty() || odometer_start.isEmpty() || client_string.isEmpty()) {
+                        Toast.makeText(getContext(), "Det här fältet är obligatoriskt.", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
                     String[] splited_client = client_string.split(", ");
                     if (splited_client[0].equals("Alla")){
                         client.add(1);
@@ -427,6 +468,12 @@ public class DrivingLogFragment extends TemplateFragment {
                     km = etDrivingKilo_travelbill.getText().toString();
                     regno = etRegister_travelbill.getText().toString();
                     client_string = sp_Client_Travelbill.getSelectedItem().toString();
+
+                    if (address_end.isEmpty() || address_start.isEmpty() || date.isEmpty() || km.isEmpty() || regno.isEmpty() || client_string.isEmpty()) {
+                        Toast.makeText(getContext(), "Det här fältet är obligatoriskt.", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
                     String[] splited_client = client_string.split(", ");
                     if (splited_client[0].equals("Alla")){
                         client.add(1);

@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wecareit.LoginActivity;
 import com.wecareit.MultiSpinner;
@@ -176,6 +177,11 @@ public class NotesAddFragment extends TemplateFragment implements Spinner.OnItem
 
         mSummary = edSummary.getText().toString();
         mDetail = edDetail.getText().toString();
+
+        if (mSummary.isEmpty() || mDetail.isEmpty()) {
+            Toast.makeText(getContext(), "Det här fältet är obligatoriskt.", Toast.LENGTH_LONG).show();
+            return;
+        }
         isBackDated = backDated.isChecked();
 
         NotePost post = new NotePost(area_id, client_ids, category_id, general_id, specific_id, mSummary, mDetail, isBackDated);
