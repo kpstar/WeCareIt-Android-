@@ -33,9 +33,13 @@ import com.wecareit.fragments.TemplateFragment;
 import com.wecareit.model.Tasks;
 import com.wecareit.model.User;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 import retrofit2.Call;
@@ -239,6 +243,22 @@ public class TasksFragment extends TemplateFragment {
                     }
                     tasks = response.body();
 
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+                    Collections.sort(tasks, new Comparator<Tasks>() {
+                        @Override
+                        public int compare(Tasks tasks, Tasks t1) {
+                            Date date1, date2;
+                            try {
+                                date1 = dateFormat.parse(tasks.getDeadline_date());
+                                date2 = dateFormat.parse(t1.getDeadline_date());
+                                return date1.compareTo(date2);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            return 1;
+                        }
+                    });
                     for (Tasks newsres : tasks) {
 
                         switch (filter_status){
@@ -379,9 +399,9 @@ public class TasksFragment extends TemplateFragment {
                             default:
                                 break;
                         }
-                                TasksAdapter adapter = new TasksAdapter(TasksFragment.this.getContext(), tasks);
-                                mRecyclerView.setAdapter(adapter);
-                                adapter.notifyDataSetChanged();
+                        TasksAdapter adapter = new TasksAdapter(TasksFragment.this.getContext(), tasks);
+                        mRecyclerView.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
 
                     }
                 }

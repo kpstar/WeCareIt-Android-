@@ -279,6 +279,7 @@
                 android:layout_below="@id/lnTab_drivingfragment"
                 android:visibility="gone">
                 <TextView
+                    android:id="@+id/txtDriveRegistration"
                     android:layout_marginTop="@dimen/padding_6dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -292,6 +293,7 @@
                     android:paddingRight="@dimen/padding_10dp"
                     />
                 <TextView
+                    android:id="@+id/txtDriveTravel"
                     android:layout_marginTop="@dimen/padding_6dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -306,6 +308,7 @@
                     android:paddingRight="@dimen/padding_10dp"
                     />
                 <TextView
+                    android:id="@+id/txtDriveAddJourneyStart"
                     android:layout_marginTop="@dimen/padding_6dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -319,6 +322,7 @@
                     android:paddingRight="@dimen/padding_10dp"
                     />
                 <TextView
+                    android:id="@+id/txtDriveAddJourneyDest"
                     android:layout_marginTop="@dimen/padding_6dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -332,6 +336,7 @@
                     android:paddingRight="@dimen/padding_10dp"
                     />
                 <TextView
+                    android:id="@+id/txtDriveKM"
                     android:layout_marginTop="@dimen/padding_6dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

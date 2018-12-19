@@ -24,9 +24,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class InformationEditActivity extends AppCompatActivity {
+public class InformationEditActivity extends AppCompatActivity implements RichEditText.RichEditTextListener {
 
-    private EditText mDescEdit, mTitle;
+    private EditText mTitle;
+    private RichEditText mDescEdit;
     private TextView mNumbers;
     int flag_relevant, id_information;
     SharedPreferences sharedPreferences;
@@ -40,25 +41,12 @@ public class InformationEditActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Redigera info");
 
         mTitle = (EditText)findViewById(R.id.etTitle_informationfragment);
-        mDescEdit = (EditText)findViewById(R.id.etDesc_informationfragment);
-        mDescEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
+        mDescEdit = (RichEditText) findViewById(R.id.mRichText);
+        mDescEdit.listener = (RichEditText.RichEditTextListener) this;
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                setNumbers();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
         mNumbers = (TextView)findViewById(R.id.letterNumberTxt);
         mTitle.setText(getIntent().getStringExtra("Title"));
-        mDescEdit.setText(getIntent().getStringExtra("Desc"));
+        mDescEdit.setRealText(getIntent().getStringExtra("Desc"));
         setNumbers();
         flag_relevant = getIntent().getIntExtra("EditFlag", 0);
         id_information = getIntent().getIntExtra("InfoId", 0);
@@ -71,7 +59,7 @@ public class InformationEditActivity extends AppCompatActivity {
     }
 
     public void setNumbers() {
-        int number = mDescEdit.getText().toString().length();
+        int number = mDescEdit.getShowText().toString().length();
         mNumbers.setText(String.format("%d/500", number));
     }
 
@@ -99,7 +87,7 @@ public class InformationEditActivity extends AppCompatActivity {
 
     public void saveData(){
 
-        Call<InfoRes> call = Global.getAPIService.postInfo("Token " + Global.token, flag_relevant, id_information, mDescEdit.getText().toString());
+        Call<InfoRes> call = Global.getAPIService.postInfo("Token " + Global.token, flag_relevant, id_information, mDescEdit.getRealText().toString());
         call.enqueue(new Callback<InfoRes>() {
             @Override
             public void onResponse(Call<InfoRes> call, Response<InfoRes> response) {
@@ -120,5 +108,10 @@ public class InformationEditActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onChanged(CharSequence text, int i1, int i2, int i3) {
+        setNumbers();
     }
 }

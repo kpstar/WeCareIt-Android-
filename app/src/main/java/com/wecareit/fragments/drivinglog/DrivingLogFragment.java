@@ -58,10 +58,10 @@ public class DrivingLogFragment extends TemplateFragment {
     private DatePickerDialog mDatePickerDialog;
     private ArrayList<Integer> client;
     private int categoryID_companycar, vehicle_ID_companycar, categoryID_travelbill, vehicle_ID_travelbill;
-    private int flag_tab = 0;
+    private int flag_tab;
     private String address_start, address_end, odometer_start, odometer_end, km, regno, date, client_string;
 
-    private TextView txtStart, txtAddStart, txtAddEnd;
+    private TextView txtStart, txtAddStart, txtAddEnd, txtOne, txtTwo, txtThree, txtFour;
 
     private Calendar myCalendar = Calendar.getInstance();
 
@@ -121,6 +121,10 @@ public class DrivingLogFragment extends TemplateFragment {
         txtStart = view.findViewById(R.id.driveStart);
         txtAddStart = view.findViewById(R.id.driveAddressStart);
         txtAddEnd = view.findViewById(R.id.driveAddressEnd);
+        txtOne = view.findViewById(R.id.txtDriveRegistration);
+        txtTwo = view.findViewById(R.id.txtDriveAddJourneyStart);
+        txtThree = view.findViewById(R.id.txtDriveAddJourneyDest);
+        txtFour = view.findViewById(R.id.txtDriveKM);
 
         tvError = view.findViewById(R.id.tvTravelEndError_drivinglog);
         tvKM = view.findViewById(R.id.tvTravelEnd_drivinglog);
@@ -191,7 +195,7 @@ public class DrivingLogFragment extends TemplateFragment {
         tvTab_companycar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flag_tab = 1;
+                flag_tab = 0;
                 lnCompanycar.setVisibility(View.VISIBLE);
                 lnBottom_companycar.setVisibility(View.VISIBLE);
                 tvTab_companycar.setBackgroundColor(getResources().getColor(R.color.colorCardView));
@@ -204,7 +208,7 @@ public class DrivingLogFragment extends TemplateFragment {
         tvTab_travelbill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flag_tab = 0;
+                flag_tab = 1;
                 lnCompanycar.setVisibility(View.GONE);
                 lnBottom_companycar.setVisibility(View.INVISIBLE);
                 tvTab_companycar.setBackgroundColor(getResources().getColor(R.color.colorWhite));
@@ -435,34 +439,34 @@ public class DrivingLogFragment extends TemplateFragment {
                     odometer_end = etMeasureDest_companycar.getText().toString();
                     client_string = sp_Client_Companycar.getSelectedItem().toString();
 
-                    if (address_end.isEmpty() || address_start.isEmpty() || odometer_end.isEmpty() || odometer_start.isEmpty() || client_string.isEmpty()) {
-                        Toast.makeText(getContext(), "Det här fältet är obligatoriskt.", Toast.LENGTH_LONG).show();
-                        return;
-                    }
+//                    if (address_end.isEmpty() || address_start.isEmpty() || odometer_end.isEmpty() || odometer_start.isEmpty() || client_string.isEmpty()) {
+//                        Toast.makeText(getContext(), "Det här fältet är obligatoriskt.", Toast.LENGTH_LONG).show();
+//                        return;
+//                    }
 
                     boolean flag = true;
-                    if(txtStart.getText().toString().isEmpty()){
+                    if(odometer_start.isEmpty()){
                         txtStart.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
                         etMeasureStart_companycar.setHint(R.string.errorHint);
                         etMeasureStart_companycar.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
                         flag = false;
                     }
 
-                    if(tvKM.getText().toString().isEmpty()){
+                    if(odometer_end.isEmpty()){
                         tvKM.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
                         etMeasureDest_companycar.setHint(R.string.errorHint);
                         etMeasureDest_companycar.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
                         flag = false;
                     }
 
-                    if(txtAddStart.getText().toString().isEmpty()){
+                    if(address_start.isEmpty()){
                         txtAddStart.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
                         etAddressStart_companycar.setHint(R.string.errorHint);
                         etAddressStart_companycar.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
                         flag = false;
                     }
 
-                    if(txtAddEnd.getText().toString().isEmpty()){
+                    if(address_end.isEmpty()){
                         txtAddEnd.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
                         etAddressDest_companycar.setHint(R.string.errorHint);
                         etAddressDest_companycar.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
@@ -476,17 +480,15 @@ public class DrivingLogFragment extends TemplateFragment {
                         client.add(3);
                         client.add(4);
                     } else {
-                        client_list = Global.clients;
-                        for (Client client1: client_list){
-                            for(int i=0;i<splited_client.length;i++){
-                                if(client1.getName().equals(splited_client[i])){
-                                    client.add(client1.getId());
-                                }
+                        for (int i=0; i<sp_Client_Companycar.getItems().size(); i++) {
+                            if (sp_Client_Companycar.getSelected()[i]) {
+                                client.add(i+1);
                             }
                         }
                     }
 
                     Double start_km = Double.parseDouble(etMeasureStart_companycar.getText().toString());
+                    if (etMeasureDest_companycar.getText().toString().isEmpty()) return;
                     Double end_km = Double.parseDouble(etMeasureDest_companycar.getText().toString());
                     if(start_km>=end_km){
                         tvKM.setTextColor(getResources().getColor(R.color.colorPinknote));
@@ -506,9 +508,33 @@ public class DrivingLogFragment extends TemplateFragment {
                     regno = etRegister_travelbill.getText().toString();
                     client_string = sp_Client_Travelbill.getSelectedItem().toString();
 
-                    if (address_end.isEmpty() || address_start.isEmpty() || date.isEmpty() || km.isEmpty() || regno.isEmpty() || client_string.isEmpty()) {
-                        Toast.makeText(getContext(), "Det här fältet är obligatoriskt.", Toast.LENGTH_LONG).show();
-                        return;
+                    boolean flag = true;
+                    if(regno.isEmpty()){
+                        txtOne.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        etRegister_travelbill.setHint(R.string.errorHint);
+                        etRegister_travelbill.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        flag = false;
+                    }
+
+                    if(address_start.isEmpty()){
+                        txtTwo.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        etAddressStart_travelbill.setHint(R.string.errorHint);
+                        etAddressStart_travelbill.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        flag = false;
+                    }
+
+                    if(address_end.isEmpty()){
+                        txtThree.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        etAddressTravel_travelbill.setHint(R.string.errorHint);
+                        etAddressTravel_travelbill.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        flag = false;
+                    }
+
+                    if(km.isEmpty()){
+                        txtFour.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        etDrivingKilo_travelbill.setHint(R.string.errorHint);
+                        etDrivingKilo_travelbill.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+                        flag = false;
                     }
 
                     String[] splited_client = client_string.split(", ");
@@ -518,15 +544,14 @@ public class DrivingLogFragment extends TemplateFragment {
                         client.add(3);
                         client.add(4);
                     } else {
-                        client_list = Global.clients;
-                        for (Client client1: client_list){
-                            for(int i=0;i<splited_client.length;i++){
-                                if(client1.getName().equals(splited_client[i])){
-                                    client.add(client1.getId());
-                                }
+                        for (int i=0; i<sp_Client_Companycar.getItems().size(); i++) {
+                            if (sp_Client_Companycar.getSelected()[i]) {
+                                client.add(i+1);
                             }
                         }
                     }
+
+                    if (!flag) return;
                     postLog();
                 }
 

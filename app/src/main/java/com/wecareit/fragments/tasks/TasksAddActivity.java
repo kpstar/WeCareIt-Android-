@@ -49,6 +49,8 @@ public class TasksAddActivity extends AppCompatActivity {
     private String stDeadline, stActivity;
     private ArrayList<Integer> user_id;
 
+    private TextView txtActivity, txtDeadline;
+
     private Calendar myCalendar = Calendar.getInstance();
 
     @Override
@@ -86,6 +88,9 @@ public class TasksAddActivity extends AppCompatActivity {
         etDeadline = (EditText) findViewById(R.id.etDeadline_taskadd);
         spResponsible = (MultiSpinner) findViewById(R.id.spResponsible_taskadd);
         spResponsible.setItems(Global.userslist, getString(R.string.all));
+
+        txtDeadline = (TextView) findViewById(R.id.txtDeadline);
+        txtActivity = (TextView) findViewById(R.id.txtActivity);
 
         etDeadline.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +149,22 @@ public class TasksAddActivity extends AppCompatActivity {
         user_id = new ArrayList<Integer>();
         stActivity = etActivity.getText().toString();
         stDeadline = etDeadline.getText().toString();
+
+        boolean flag = true;
+        if(stActivity.isEmpty()){
+            txtActivity.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+            etActivity.setHint(R.string.errorHint);
+            etActivity.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+            flag = false;
+        }
+
+        if(stDeadline.isEmpty()){
+            txtDeadline.setTextColor(getResources().getColor(R.color.colorCleaarBtn));
+            etDeadline.setHint(R.string.errorHint);
+            etDeadline.setHintTextColor(getResources().getColor(R.color.colorCleaarBtn));
+            flag = false;
+        }
+
         ArrayList<String> users = new ArrayList<String>();
         for (int i=0; i<spResponsible.getItems().size(); i++) {
             if (spResponsible.getSelected()[i] == true) {
