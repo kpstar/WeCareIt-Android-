@@ -18,26 +18,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42df7c93-1593-4cc2-be7e-4de4a7a118c7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/InformationEditActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/InformationEditActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/SplashActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/SplashActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/drivinglog/DrivingLogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/drivinglog/DrivingLogFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/tasks/TasksAddActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/tasks/TasksAddActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/tasks/TasksFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/tasks/TasksFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/TasksViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/TasksViewHolder.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_information_edit.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_information_edit.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_tasks_add.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_tasks_add.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_tasks_add.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_tasks_add.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_row_tasks.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recyclerview_row_tasks.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,8 +45,8 @@
       <file leaf-file-name="RichEditText.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/RichEditText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1379">
-              <caret line="109" column="32" lean-forward="true" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
+            <state relative-caret-position="223">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
                 <element signature="e#5306#5307#0" expanded="true" />
                 <element signature="e#5337#5338#0" expanded="true" />
@@ -3520,8 +3501,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/RichEditText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1379">
-          <caret line="109" column="32" lean-forward="true" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
+        <state relative-caret-position="223">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="e#5306#5307#0" expanded="true" />
             <element signature="e#5337#5338#0" expanded="true" />
