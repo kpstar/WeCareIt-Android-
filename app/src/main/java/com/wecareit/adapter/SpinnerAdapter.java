@@ -2,6 +2,7 @@ package com.wecareit.adapter;
 
 import android.content.Context;
 import android.icu.text.UnicodeSetSpanner;
+import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,7 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
                     .findViewById(R.id.text);
             holder.mCheckBox = (CheckBox) convertView
                     .findViewById(R.id.checkbox);
-
+            holder.mLayout = (ConstraintLayout) convertView.findViewById(R.id.constLayout);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -69,6 +70,8 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
         spinnerTitle = "";
         if (position == 0) {
             holder.mTextView.setText("Alla");
+            holder.mLayout.setBackgroundColor(mContext.getColor(R.color.white));
+//            holder.mTextView.setBackgroundColor(mContext.getColor(R.color.white));
         } else {
             holder.mTextView.setText(listState.get(position).getTitle());
         }
@@ -118,6 +121,7 @@ public class SpinnerAdapter extends ArrayAdapter<Spinners> {
     private class ViewHolder {
         private TextView mTextView;
         private CheckBox mCheckBox;
+        private ConstraintLayout mLayout;
     }
 
     public interface SpinnerAdapterListener {

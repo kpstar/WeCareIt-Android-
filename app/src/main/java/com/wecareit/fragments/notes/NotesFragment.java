@@ -216,11 +216,11 @@ public class NotesFragment extends TemplateFragment {
 
         tvEmpty.setBackground(gd);
         //lnExpand.setBackground(gd);
-        lnAccom.setBackground(gd);
-        lnArea.setBackground(gd);
-        lnCategory.setBackground(gd);
-        lnKeyword.setBackground(gd);
-        lnTime.setBackground(gd);
+//        lnAccom.setBackground(gd);
+//        lnArea.setBackground(gd);
+//        lnCategory.setBackground(gd);
+//        lnKeyword.setBackground(gd);
+//        lnTime.setBackground(gd);
 
         GradientDrawable gd1 = new GradientDrawable();
         gd1.setShape(GradientDrawable.RECTANGLE);

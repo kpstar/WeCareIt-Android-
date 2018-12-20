@@ -38,53 +38,11 @@ public class MultiSpinner extends Spinner implements SpinnerAdapter.SpinnerAdapt
         super(arg0, arg1, arg2);
     }
 
-//    public void performCloseEvent() {
-//        // refresh text on spinner
-//        mOpenInitiated = false;
-//        StringBuffer spinnerBuffer = new StringBuffer();
-//        boolean someUnselected = false;
-//        for (int i = 0; i < items.size(); i++) {
-//            if (selected[i] == true) {
-//                spinnerBuffer.append(items.get(i));
-//                spinnerBuffer.append(", ");
-//            } else {
-//                someUnselected = true;
-//            }
-//        }
-//        String spinnerText;
-//        if (someUnselected) {
-//            spinnerText = spinnerBuffer.toString();
-//            if (spinnerText.length() > 2)
-//                spinnerText = spinnerText.substring(0, spinnerText.length() - 2);
-//        } else {
-//            spinnerText = defaultText;
-//        }
-////        Toast.makeText(getContext(), spinnerText, Toast.LENGTH_SHORT).show();
-////        listener.onItemsSelected(selected);
-//    }
-
     @Override
     public boolean performClick() {
         mOpenInitiated = true;
         return super.performClick();
     }
-
-//    public void setItems(List<String> items, String allText,
-//                         MultiSpinnerListener listener) {
-//        this.items = items;
-//        this.defaultText = allText;
-//        this.listener = listener;
-//
-//        // all unselected by default
-//        selected = new boolean[items.size()];
-//        for (int i = 0; i < selected.length; i++)
-//            selected[i] = true;
-//
-//        // all text on the spinner
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, new String[] { allText });
-//        setAdapter(adapter);
-//    }
-
 
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {

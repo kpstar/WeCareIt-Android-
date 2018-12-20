@@ -62,6 +62,7 @@ public class RichEditText extends RelativeLayout {
             @Override
             public void onSpanChanged(final Spannable text, final Object what,
                                       final int ostart, final int oend, final int nstart, final int nend) {
+                Toast.makeText(context, "Changed", Toast.LENGTH_LONG).show();
                 if (what == Selection.SELECTION_START) {
                     // Selection start changed from ostart to nstart.
                 } else if (what == Selection.SELECTION_END) {

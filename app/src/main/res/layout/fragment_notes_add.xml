@@ -71,13 +71,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@drawable/layout_bg"
             android:layout_marginLeft="@dimen/padding_10dp"
-            android:layout_marginRight="@dimen/padding_10dp"
-            android:padding="@dimen/padding_10dp">
+            android:layout_marginRight="@dimen/padding_10dp">
             <Spinner
                 android:id="@+id/arearspinner_notesaddfragment"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
+                android:dropDownWidth="match_parent"
+                android:layout_width="match_parent"
+                android:padding="2dp"
+                android:layout_height="@dimen/height_40dp"
                 android:prompt="@string/spinner_prompt"/>
         </LinearLayout>
         <TextView
@@ -91,15 +93,17 @@
             android:id="@+id/lnGeneralkey_notesaddfragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg"
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/padding_10dp"
-            android:layout_marginRight="@dimen/padding_10dp"
-            android:padding="@dimen/padding_10dp">
+            android:layout_marginRight="@dimen/padding_10dp">
 
             <Spinner
                 android:id="@+id/generalkeyspinner_notesaddfragment"
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent"
+                android:dropDownWidth="match_parent"
+                android:layout_height="@dimen/height_40dp"
+                android:padding="2dp"
                 android:prompt="@string/spinner_prompt"/>
         </LinearLayout>
         <TextView
@@ -113,15 +117,17 @@
             android:id="@+id/lnSpecificKey_notesaddfragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg"
             android:layout_marginLeft="@dimen/padding_10dp"
             android:layout_marginRight="@dimen/padding_10dp"
-            android:padding="@dimen/padding_10dp"
             android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/specifickeyspinner_notesaddfragment"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
+                android:dropDownWidth="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40dp"
+                android:padding="2dp"
                 android:prompt="@string/spinner_prompt"/>
         </LinearLayout>
         <TextView
@@ -141,15 +147,17 @@
             android:id="@+id/lnCategory_notesaddfragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_10dp"
+            android:background="@drawable/layout_bg"
             android:layout_marginLeft="@dimen/padding_10dp"
             android:layout_marginRight="@dimen/padding_10dp"
             android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/categoryspinner_notesaddfragment"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
+                android:dropDownWidth="match_parent"
+                android:layout_width="match_parent"
+                android:padding="2dp"
+                android:layout_height="@dimen/height_40dp"
                 android:prompt="@string/spinner_prompt"/>
         </LinearLayout>
         <TextView
@@ -162,15 +170,17 @@
             android:id="@+id/lnAccommo_notesaddfragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_10dp"
-            android:layout_marginLeft="@dimen/padding_10dp"
+            android:background="@drawable/layout_bg"
             android:layout_marginRight="@dimen/padding_10dp"
+            android:layout_marginLeft="@dimen/padding_10dp"
             android:orientation="horizontal">
 
             <com.wecareit.MultiSpinner
                 android:id="@+id/accommospinner_notesaddfragment"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:dropDownWidth="match_parent"
+                android:padding="2dp"
+                android:layout_height="wrap_content"
                 android:prompt="@string/timeintervalspinner_prompt"/>
         </LinearLayout>
         <CheckBox

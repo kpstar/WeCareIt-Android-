@@ -16,115 +16,124 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_vertical"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:layout_marginLeft="@dimen/padding_10dp"
             >
+            <TextView
+                android:layout_width="@dimen/width_120dp"
+                android:layout_height="match_parent"
+                android:text="@string/accommodation"
+                android:layout_marginTop="@dimen/padding_10dp"
+                android:textSize="@dimen/font_16sp"
+                android:textColor="@color/colorText"/>
             <LinearLayout
                 android:id="@+id/lnAccommodation_notesfragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/padding_6dp"
-                android:layout_marginLeft="@dimen/padding_10dp"
-                android:layout_marginRight="@dimen/padding_10dp"
-                android:padding="@dimen/padding_10dp">
-                <TextView
-                    android:layout_width="@dimen/width_120dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/accommodation"
-                    android:textSize="@dimen/font_16sp"
-                    android:textColor="@color/colorText"/>
+                android:layout_marginBottom="@dimen/padding_10dp"
+                android:background="@drawable/layout_bg"
+                android:orientation="horizontal">
                 <com.wecareit.MultiSpinner
                     android:id="@+id/accommodationspinner_notesfragment"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
+                    android:padding="2dp"
+                    android:layout_width="match_parent"
+                    android:dropDownWidth="match_parent"
+                    android:layout_height="@dimen/height_40dp"
                     android:prompt="@string/spinner_prompt"/>
             </LinearLayout>
+            <TextView
+                android:layout_width="@dimen/width_120dp"
+                android:layout_height="match_parent"
+                android:text="@string/area"
+                android:textSize="@dimen/font_16sp"
+                android:textColor="@color/colorText"/>
             <LinearLayout
                 android:id="@+id/lnArea_notesfragment"
                 android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/padding_10dp"
+                android:background="@drawable/layout_bg"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="@dimen/padding_10dp"
-                android:padding="@dimen/padding_10dp">
-                <TextView
-                    android:layout_width="@dimen/width_120dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/area"
-                    android:textSize="@dimen/font_16sp"
-                    android:textColor="@color/colorText"/>
+                android:orientation="horizontal">
                 <com.wecareit.MultiSpinner
                     android:id="@+id/areaspinner_notesfragment"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:dropDownWidth="match_parent"
+                    android:padding="2dp"
+                    android:layout_height="@dimen/height_40dp"
                     android:prompt="@string/spinner_prompt"/>
             </LinearLayout>
+            <TextView
+                android:layout_width="@dimen/width_120dp"
+                android:layout_height="match_parent"
+                android:text="@string/keyword"
+                android:textSize="@dimen/font_16sp"
+                android:textColor="@color/colorText"/>
             <LinearLayout
                 android:id="@+id/lnKeyword_notesfragment"
                 android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/padding_10dp"
+                android:background="@drawable/layout_bg"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/padding_10dp"
-                android:layout_marginRight="@dimen/padding_10dp"
-                android:padding="@dimen/padding_10dp"
                 android:orientation="horizontal">
-                <TextView
-                    android:layout_width="@dimen/width_120dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/keyword"
-                    android:textSize="@dimen/font_16sp"
-                    android:textColor="@color/colorText"/>
                 <com.wecareit.MultiSpinner
                     android:id="@+id/keywordspinner_notesfragment"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:dropDownWidth="match_parent"
+                    android:padding="2dp"
+                    android:layout_height="@dimen/height_40dp"
                     android:prompt="@string/spinner_prompt"/>
             </LinearLayout>
+            <TextView
+                android:layout_width="@dimen/width_120dp"
+                android:layout_height="match_parent"
+                android:text="@string/category"
+                android:textSize="@dimen/font_16sp"
+                android:textColor="@color/colorText"/>
             <LinearLayout
                 android:id="@+id/lnCategory_notesfragment"
                 android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/padding_10dp"
+                android:background="@drawable/layout_bg"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
-                android:layout_margin="@dimen/padding_10dp"
                 android:orientation="horizontal">
-                <TextView
-                    android:layout_width="@dimen/width_120dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/category"
-                    android:textSize="@dimen/font_16sp"
-                    android:textColor="@color/colorText"/>
                 <com.wecareit.MultiSpinner
                     android:id="@+id/categoryspinner_notesfragment"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:dropDownWidth="match_parent"
+                    android:padding="2dp"
+                    android:layout_height="@dimen/height_40dp"
                     android:prompt="@string/spinner_prompt"/>
             </LinearLayout>
+            <TextView
+                android:layout_width="@dimen/width_120dp"
+                android:layout_height="match_parent"
+                android:text="@string/timeinterval"
+                android:textSize="@dimen/font_16sp"
+                android:textColor="@color/colorText"/>
             <LinearLayout
                 android:id="@+id/lnTimeinterval_notesfragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
-                android:layout_marginLeft="@dimen/padding_10dp"
-                android:layout_marginRight="@dimen/padding_10dp"
+                android:background="@drawable/layout_bg"
+                android:layout_marginBottom="@dimen/padding_10dp"
                 android:orientation="horizontal">
-                <TextView
-                    android:layout_width="@dimen/width_120dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/timeinterval"
-                    android:textSize="@dimen/font_16sp"
-                    android:textColor="@color/colorText"/>
                 <Spinner
                     android:id="@+id/timeintervalspinner_notesfragment"
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:dropDownWidth="match_parent"
+                    android:padding="2dp"
+                    android:layout_height="@dimen/height_40dp"
                     android:prompt="@string/timeintervalspinner_prompt"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
+                android:layout_marginBottom="@dimen/padding_10dp"
                 android:orientation="horizontal">
                 <Button
                     android:id="@+id/btnClear_notesfragment"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/height_48dp"
                     android:layout_weight="1"
                     android:textSize="@dimen/font_20sp"
                     android:textColor="@color/colorWhite"

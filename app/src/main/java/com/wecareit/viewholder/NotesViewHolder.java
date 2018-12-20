@@ -135,7 +135,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
             GradientDrawable gd_client = new GradientDrawable();
             gd_client.setShape(GradientDrawable.RECTANGLE);
             gd_client.setColor(Color.argb(255,76,175,80));
-            gd_client.setCornerRadius(20.0f);
+            gd_client.setCornerRadius(32.0f);
             TextView tvClient = new TextView(context);
             tvClient.setText(client.getName());
             tvClient.setBackground(gd_client);
@@ -165,7 +165,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         GradientDrawable gd_category = new GradientDrawable();
         gd_category.setShape(GradientDrawable.RECTANGLE);
         gd_category.setColor(Color.argb(255,158,158,158));
-        gd_category.setCornerRadius(20.0f);
+        gd_category.setCornerRadius(32.0f);
         TextView tvCategory = new TextView(context);
         FlexboxLayout.LayoutParams params_category = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
         params_category.setMargins(10,6,10,6);
@@ -205,7 +205,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         GradientDrawable gd_area = new GradientDrawable();
         gd_area.setShape(GradientDrawable.RECTANGLE);
         gd_area.setColor(Color.argb(255,233,30,99));
-        gd_area.setCornerRadius(20.0f);
+        gd_area.setCornerRadius(32.0f);
 
         TextView tvArea = new TextView(context);
         FlexboxLayout.LayoutParams params_area = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);

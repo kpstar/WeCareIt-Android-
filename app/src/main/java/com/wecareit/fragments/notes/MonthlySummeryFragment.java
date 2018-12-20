@@ -141,12 +141,12 @@ public class MonthlySummeryFragment extends TemplateFragment implements Spinner.
         gd.setShape(GradientDrawable.RECTANGLE);
         gd.setStroke(2,Color.LTGRAY);
         gd.setCornerRadius(5.0f);
-        lnMonth.setBackground(gd);
-        lnArea.setBackground(gd);
-        lnCategory.setBackground(gd);
-        lnKeyword.setBackground(gd);
-        lnYear.setBackground(gd);
-        lnUsers.setBackground(gd);
+//        lnMonth.setBackground(gd);
+//        lnArea.setBackground(gd);
+//        lnCategory.setBackground(gd);
+//        lnKeyword.setBackground(gd);
+//        lnYear.setBackground(gd);
+//        lnUsers.setBackground(gd);
     }
 
 //    @Override

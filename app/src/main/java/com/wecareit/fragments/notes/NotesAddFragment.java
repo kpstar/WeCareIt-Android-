@@ -140,11 +140,11 @@ public class NotesAddFragment extends TemplateFragment implements Spinner.OnItem
         gd.setShape(GradientDrawable.RECTANGLE);
         gd.setStroke(2,Color.LTGRAY);
         gd.setCornerRadius(5.0f);
-        lnAccomo.setBackground(gd);
-        lnArea.setBackground(gd);
-        lnCategory.setBackground(gd);
-        lnGenerakkey.setBackground(gd);
-        lnSpecifickey.setBackground(gd);
+//        lnAccomo.setBackground(gd);
+//        lnArea.setBackground(gd);
+//        lnCategory.setBackground(gd);
+//        lnGenerakkey.setBackground(gd);
+//        lnSpecifickey.setBackground(gd);
     }
 
     @Override

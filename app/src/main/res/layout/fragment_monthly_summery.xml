@@ -32,14 +32,16 @@
                     android:id="@+id/lnYear_month"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg"
                     android:orientation="vertical"
                     android:layout_marginLeft="@dimen/padding_10dp"
-                    android:layout_marginRight="@dimen/padding_10dp"
-                    android:padding="@dimen/padding_10dp">
+                    android:layout_marginRight="@dimen/padding_10dp">
                     <Spinner
                         android:id="@+id/yearSpinnerMonth"
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:dropDownWidth="match_parent"
+                        android:padding="2dp"
+                        android:layout_height="@dimen/height_40dp"
                         android:prompt="@string/spinner_prompt"/>
                 </LinearLayout>
                 <TextView
@@ -52,16 +54,18 @@
                 <LinearLayout
                     android:id="@+id/lnMonth_month"
                     android:layout_width="match_parent"
+                    android:background="@drawable/layout_bg"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginLeft="@dimen/padding_10dp"
-                    android:layout_marginRight="@dimen/padding_10dp"
-                    android:padding="@dimen/padding_10dp">
+                    android:layout_marginRight="@dimen/padding_10dp">
 
                     <Spinner
                         android:id="@+id/monthSpinner_month"
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:dropDownWidth="match_parent"
+                        android:padding="2dp"
+                        android:layout_height="@dimen/height_40dp"
                         android:prompt="@string/spinner_prompt"/>
                 </LinearLayout>
                 <TextView
@@ -75,15 +79,17 @@
                     android:id="@+id/lnUsers_month"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg"
                     android:layout_marginLeft="@dimen/padding_10dp"
                     android:layout_marginRight="@dimen/padding_10dp"
-                    android:padding="@dimen/padding_10dp"
                     android:orientation="horizontal">
 
                     <Spinner
                         android:id="@+id/userSpinner_month"
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:dropDownWidth="match_parent"
+                        android:padding="2dp"
+                        android:layout_height="@dimen/height_40dp"
                         android:prompt="@string/spinner_prompt"/>
                 </LinearLayout>
                 <TextView
@@ -97,15 +103,17 @@
                     android:id="@+id/lnCategory_month"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10dp"
+                    android:background="@drawable/layout_bg"
                     android:layout_marginLeft="@dimen/padding_10dp"
                     android:layout_marginRight="@dimen/padding_10dp"
                     android:orientation="horizontal">
 
                     <com.wecareit.MultiSpinner
                         android:id="@+id/categorySpinner_month"
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:padding="2dp"
+                        android:dropDownWidth="match_parent"
+                        android:layout_height="wrap_content"
                         android:prompt="@string/spinner_prompt"/>
                 </LinearLayout>
                 <TextView
@@ -118,15 +126,17 @@
                     android:id="@+id/lnArea_month"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10dp"
+                    android:background="@drawable/layout_bg"
                     android:layout_marginLeft="@dimen/padding_10dp"
                     android:layout_marginRight="@dimen/padding_10dp"
                     android:orientation="horizontal">
 
                     <com.wecareit.MultiSpinner
                         android:id="@+id/areaSpinner_month"
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:dropDownWidth="match_parent"
+                        android:padding="2dp"
+                        android:layout_height="wrap_content"
                         android:prompt="@string/timeintervalspinner_prompt"/>
                 </LinearLayout>
                 <TextView
@@ -139,15 +149,17 @@
                     android:id="@+id/lnKeyword_month"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_10dp"
+                    android:background="@drawable/layout_bg"
                     android:layout_marginLeft="@dimen/padding_10dp"
                     android:layout_marginRight="@dimen/padding_10dp"
                     android:orientation="horizontal">
 
                     <com.wecareit.MultiSpinner
                         android:id="@+id/keywordSpinner_month"
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:dropDownWidth="match_parent"
                         android:prompt="@string/timeintervalspinner_prompt"/>
                 </LinearLayout>
                 <RelativeLayout
