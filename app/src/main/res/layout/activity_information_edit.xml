@@ -33,60 +33,35 @@
             android:text="information"
             android:layout_marginLeft="@dimen/height_20dp"
             android:layout_marginTop="@dimen/padding_6dp"/>
-        <!--<LinearLayout-->
+        <!--<com.wecareit.RichEditText-->
+            <!--android:id="@+id/mRichText"-->
             <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical"-->
-            <!--android:visibility="gone"-->
-            <!--android:background="@drawable/rounded_border_background">-->
-            <!--<RelativeLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:background="@color/colorLightGray"-->
-                <!--android:layout_height="@dimen/height_40dp">-->
-                <!--<ImageView-->
-                    <!--android:id="@+id/richBold"-->
-                    <!--android:src="@drawable/ic_bold"-->
-                    <!--android:layout_centerVertical="true"-->
-                    <!--android:layout_marginLeft="@dimen/padding_10dp"-->
-                    <!--android:layout_width="@dimen/width_24dp"-->
-                    <!--android:layout_height="@dimen/width_24dp" />-->
-                <!--<ImageView-->
-                    <!--android:id="@+id/richItalic"-->
-                    <!--android:layout_width="@dimen/width_24dp"-->
-                    <!--android:layout_height="@dimen/width_24dp"-->
-                    <!--android:layout_marginLeft="@dimen/padding_6dp"-->
-                    <!--android:src="@drawable/ic_italic"-->
-                    <!--android:layout_toRightOf="@id/richBold"-->
-                    <!--android:layout_centerVertical="true" />-->
-
-                <!--<ImageView-->
-                    <!--android:id="@+id/richBullets"-->
-                    <!--android:layout_width="@dimen/width_24dp"-->
-                    <!--android:layout_height="@dimen/width_24dp"-->
-                    <!--android:layout_marginLeft="@dimen/padding_6dp"-->
-                    <!--android:src="@drawable/ic_bullets"-->
-                    <!--android:layout_toRightOf="@id/richItalic"-->
-                    <!--android:layout_centerVertical="true" />-->
-            <!--</RelativeLayout>-->
-            <!--<EditText-->
-                <!--android:id="@+id/etDesc_informationfragment"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="@dimen/height_100dp"-->
-                <!--android:background="@null"-->
-                <!--android:layout_margin="@dimen/padding_10dp"-->
-                <!--android:padding="@dimen/padding_10dp"-->
-                <!--android:maxLines="10" />-->
-        <!--</LinearLayout>-->
-        <com.wecareit.RichEditText
-            android:id="@+id/mRichText"
+            <!--android:background="@drawable/rounded_border_background"-->
+            <!--android:layout_margin="@dimen/padding_6dp"-->
+            <!--android:layout_height="wrap_content">-->
+        <!--</com.wecareit.RichEditText>-->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:background="@drawable/rounded_border_background"
-            android:layout_margin="@dimen/padding_6dp"
-            android:layout_height="wrap_content">
-        </com.wecareit.RichEditText>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/layout_bg"
+            android:layout_margin="@dimen/padding_10dp">
+            <com.chinalwb.are.styles.toolbar.ARE_ToolbarDefault
+                android:id="@+id/areToolbar"
+                android:gravity="center_vertical"
+                android:background="@color/colorLightGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <com.chinalwb.are.AREditText
+                android:id="@+id/arEditText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_100dp"
+                />
+        </LinearLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginRight="@dimen/padding_10dp">
             <TextView
                 android:id="@+id/letterNumberTxt"

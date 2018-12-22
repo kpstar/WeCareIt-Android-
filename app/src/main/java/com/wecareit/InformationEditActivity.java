@@ -16,10 +16,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.chinalwb.are.AREditText;
+import com.chinalwb.are.AREditor;
+import com.chinalwb.are.styles.toolbar.IARE_Toolbar;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Bold;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Italic;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_ListBullet;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Strikethrough;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Underline;
+import com.chinalwb.are.styles.toolitems.IARE_ToolItem;
 import com.wecareit.common.Global;
 import com.wecareit.fragments.tasks.TasksAddActivity;
 import com.wecareit.model.InfoRes;
 
+import jp.wasabeef.richeditor.RichEditor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,10 +37,12 @@ import retrofit2.Response;
 public class InformationEditActivity extends AppCompatActivity implements RichEditText.RichEditTextListener {
 
     private EditText mTitle;
-    private RichEditText mDescEdit;
+    private IARE_Toolbar mToolbar;
+    private AREditText arEditText;
     private TextView mNumbers;
     int flag_relevant, id_information;
     SharedPreferences sharedPreferences;
+    RichEditor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +53,15 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
         getSupportActionBar().setTitle("Redigera info");
 
         mTitle = (EditText)findViewById(R.id.etTitle_informationfragment);
-        mDescEdit = (RichEditText) findViewById(R.id.mRichText);
-        mDescEdit.listener = (RichEditText.RichEditTextListener) this;
 
         mNumbers = (TextView)findViewById(R.id.letterNumberTxt);
         mTitle.setText(getIntent().getStringExtra("Title"));
-        mDescEdit.setRealText(getIntent().getStringExtra("Desc"));
+        arEditText = (AREditText)findViewById(R.id.arEditText);
+//        arEditText.setText(getIntent().getStringExtra("Desc"));
+        arEditText.fromHtml(getIntent().getStringExtra("Desc"));
+        initToolbar();
+
+
         setNumbers();
         flag_relevant = getIntent().getIntExtra("EditFlag", 0);
         id_information = getIntent().getIntExtra("InfoId", 0);
@@ -58,8 +73,23 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
         editor.apply();
     }
 
+    private void initToolbar() {
+        mToolbar = findViewById(R.id.areToolbar);
+        IARE_ToolItem bold = new ARE_ToolItem_Bold();
+        IARE_ToolItem italic = new ARE_ToolItem_Italic();
+        IARE_ToolItem listBullet = new ARE_ToolItem_ListBullet();
+        mToolbar.addToolbarItem(bold);
+        mToolbar.addToolbarItem(italic);
+        mToolbar.addToolbarItem(listBullet);
+
+        arEditText.setToolbar(mToolbar);
+
+//        setHtml();
+    }
+
+
     public void setNumbers() {
-        int number = mDescEdit.getShowText().toString().length();
+        int number = arEditText.getText().toString().length();
         mNumbers.setText(String.format("%d/500", number));
     }
 
@@ -87,7 +117,7 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
 
     public void saveData(){
 
-        Call<InfoRes> call = Global.getAPIService.postInfo("Token " + Global.token, flag_relevant, id_information, mDescEdit.getRealText().toString());
+        Call<InfoRes> call = Global.getAPIService.postInfo("Token " + Global.token, flag_relevant, id_information, arEditText.getText().toString());
         call.enqueue(new Callback<InfoRes>() {
             @Override
             public void onResponse(Call<InfoRes> call, Response<InfoRes> response) {
