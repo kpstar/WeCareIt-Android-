@@ -144,6 +144,7 @@
     <orderEntry type="library" name="Gradle: com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android:flexbox-1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.14.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:disklrucache:4.3.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: ru.noties:prism4j:1.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: ru.noties:markwon-html-parser-api-2.0.1" level="project" />
     <orderEntry type="library" name="Gradle: us.feras.mdv:markdownview-1.1.0" level="project" />
@@ -153,9 +154,11 @@
     <orderEntry type="library" name="Gradle: jp.wasabeef:richeditor-android-1.2.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-v4-27.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-annotations:27.1.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:annotations:4.3.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: me.grantland:autofittextview-0.2.1" level="project" />
     <orderEntry type="library" name="Gradle: com.atlassian.commonmark:commonmark-ext-gfm-strikethrough:0.12.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: ru.noties:markwon-2.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:gifdecoder:4.3.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:common:1.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7-27.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.atlassian.commonmark:commonmark-ext-gfm-tables:0.12.1@jar" level="project" />
@@ -166,10 +169,12 @@
     <orderEntry type="library" name="Gradle: com.android.support:design-27.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-27.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.10.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.chinalwb:are-0.1.5" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.picasso:picasso:2.5.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.markdownj:markdownj-core:0.4@jar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime-1.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:4.3.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: ru.noties:markwon-syntax-highlight-2.0.1" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.0.3@jar" level="project" />
   </component>

@@ -32,8 +32,7 @@ public class RichEditText extends RelativeLayout {
     private ImageView ivItalic;
     private ImageView ivBullets;
     private EditText edText;
-    public String realText;
-    public String showText;
+    public String text;
     public void initialize(Context context) {
         isBold = false;
         isItalic = false;
@@ -79,8 +78,8 @@ public class RichEditText extends RelativeLayout {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Log.e("Change Value = ", realText);
-                showText = charSequence.toString();
+                Log.e("Change Value = ", text);
+                text = charSequence.toString();
                 edText.setSelection(i);
                 listener.onChanged(charSequence, i, i1, i2);
             }
@@ -142,18 +141,12 @@ public class RichEditText extends RelativeLayout {
         edText.setTypeface(null);
     }
 
-    public void setShowText(String showText) {
-        this.showText = showText;
-        edText.setText(showText);
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public void setRealText(String realText) {
-        this.realText = realText;
-        Markwon.setMarkdown(edText, realText);
-    }
-
-    public String getRealText() {
-        return realText;
+    public String getText() {
+        return text;
     }
 
     public RichEditText(Context context) {
@@ -169,10 +162,6 @@ public class RichEditText extends RelativeLayout {
     public RichEditText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initialize(context);
-    }
-
-    public String getShowText() {
-        return showText;
     }
 
     public void setBold(boolean bold) {
