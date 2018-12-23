@@ -22,12 +22,15 @@
             android:id="@+id/lnVehicl_eventsfragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/padding_10dp">
+            android:background="@drawable/layout_bg"
+            android:layout_marginBottom="@dimen/padding_10dp"
+            android:orientation="horizontal">
             <com.wecareit.MultiSpinner
                 android:id="@+id/vehiclespinner_eventsfragment"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:dropDownWidth="match_parent"
+                android:padding="@dimen/padding_2dp"
+                android:layout_height="@dimen/height_40dp"
                 android:prompt="@string/spinner_prompt"/>
         </LinearLayout>
         <TextView
@@ -41,14 +44,16 @@
         <LinearLayout
             android:id="@+id/lnAccommo_eventsfragment"
             android:layout_width="match_parent"
+            android:background="@drawable/layout_bg"
+            android:layout_marginBottom="@dimen/padding_10dp"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_10dp"
             android:orientation="horizontal">
-
             <com.wecareit.MultiSpinner
                 android:id="@+id/accommospinner_eventsfragment"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:padding="@dimen/padding_2dp"
+                android:dropDownWidth="match_parent"
+                android:layout_height="@dimen/height_40dp"
                 android:prompt="@string/spinner_prompt"/>
         </LinearLayout>
         <TextView
@@ -63,13 +68,16 @@
             android:id="@+id/lnEmployees_eventsfragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_10dp"
+            android:layout_marginBottom="@dimen/padding_10dp"
+            android:background="@drawable/layout_bg"
             android:orientation="horizontal">
 
             <com.wecareit.MultiSpinner
                 android:id="@+id/employeesspinner_eventsfragment"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:dropDownWidth="match_parent"
+                android:padding="2dp"
+                android:layout_height="@dimen/height_40dp"
                 android:prompt="@string/spinner_prompt"/>
         </LinearLayout>
         <TextView
@@ -83,12 +91,15 @@
             android:id="@+id/lnActivities_eventsfragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_10dp"
+            android:background="@drawable/layout_bg"
+            android:layout_marginBottom="@dimen/padding_10dp"
             android:orientation="horizontal">
             <Spinner
                 android:id="@+id/activitiesspinner_eventsfragment"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_2dp"
+                android:layout_width="match_parent"
+                android:dropDownWidth="match_parent"
+                android:layout_height="@dimen/height_40dp"
                 android:prompt="@string/spinner_prompt"/>
         </LinearLayout>
         <LinearLayout

@@ -53,11 +53,14 @@
                 android:id="@+id/lnResponsible_taskadd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
+                android:background="@drawable/layout_bg"
+                android:layout_marginBottom="@dimen/padding_10dp"
                 android:orientation="vertical">
                 <com.wecareit.MultiSpinner
                     android:id="@+id/spResponsible_taskadd"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
+                    android:dropDownWidth="match_parent"
+                    android:padding="@dimen/padding_2dp"
                     android:layout_height="wrap_content"
                     android:prompt="@string/spinner_prompt"/>
             </LinearLayout>

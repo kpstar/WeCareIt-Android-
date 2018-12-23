@@ -39,4 +39,5 @@
     <dimen name="font_24sp">24sp</dimen>
     <dimen name="font_32sp">32sp</dimen>
     <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="padding_2dp">2dp</dimen>
 </resources>

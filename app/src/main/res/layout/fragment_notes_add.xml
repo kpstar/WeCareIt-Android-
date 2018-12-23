@@ -51,13 +51,30 @@
                 android:layout_height="wrap_content"
                 android:text="@string/details"
                 android:layout_marginLeft="@dimen/padding_10dp"/>
-            <EditText
-                android:id="@+id/etDetails_notesaddfragment"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/details"
-                android:padding="@dimen/padding_10dp"
-                android:background="@drawable/rounded_border_background"/>
+                android:orientation="vertical"
+                android:background="@drawable/layout_bg">
+                <com.chinalwb.are.styles.toolbar.ARE_ToolbarDefault
+                    android:id="@+id/areToolbar"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorLightGray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <com.chinalwb.are.AREditText
+                    android:id="@+id/arEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_100dp"
+                    />
+            </LinearLayout>
+            <!--<EditText-->
+                <!--android:id="@+id/etDetails_notesaddfragment"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="@string/details"-->
+                <!--android:padding="@dimen/padding_10dp"-->
+                <!--android:background="@drawable/rounded_border_background"/>-->
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"

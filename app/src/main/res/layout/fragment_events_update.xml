@@ -132,12 +132,14 @@
                 android:id="@+id/lnTimeinterval_eventupdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
+                android:background="@drawable/layout_bg"
+                android:layout_marginBottom="@dimen/padding_10dp"
                 android:orientation="vertical">
                 <Spinner
                     android:id="@+id/timeintervalSpinner_eventsupdatefragment"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_2dp"
+                    android:layout_height="@dimen/height_40dp"
                     android:prompt="@string/spinner_prompt"/>
             </LinearLayout>
         </LinearLayout>
@@ -156,12 +158,15 @@
                 android:id="@+id/lnVehicle_eventupdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
+                android:background="@drawable/layout_bg"
+                android:layout_marginBottom="@dimen/padding_10dp"
                 android:orientation="vertical">
                 <com.wecareit.MultiSpinner
                     android:id="@+id/vehicleSpinner_eventsupdatefragment"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:dropDownWidth="match_parent"
+                    android:padding="@dimen/padding_2dp"
+                    android:layout_height="@dimen/height_40dp"
                     android:prompt="@string/spinner_prompt"/>
             </LinearLayout>
         </LinearLayout>
@@ -179,13 +184,16 @@
             <LinearLayout
                 android:id="@+id/lnUser_eventupdate"
                 android:layout_width="match_parent"
+                android:background="@drawable/layout_bg"
+                android:layout_marginBottom="@dimen/padding_10dp"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
                 android:orientation="vertical">
                 <com.wecareit.MultiSpinner
                     android:id="@+id/userSpinner_eventsupdatefragment"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:dropDownWidth="match_parent"
+                    android:padding="@dimen/padding_2dp"
+                    android:layout_height="@dimen/height_40dp"
                     android:prompt="@string/spinner_prompt"/>
             </LinearLayout>
         </LinearLayout>
@@ -204,12 +212,13 @@
                 android:id="@+id/lnClient_eventupdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
                 android:orientation="vertical">
                 <com.wecareit.MultiSpinner
                     android:id="@+id/clientSpinner_eventsupdatefragment"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:dropDownWidth="match_parent"
+                    android:padding="@dimen/padding_2dp"
+                    android:layout_height="@dimen/height_40dp"
                     android:prompt="@string/spinner_prompt"/>
             </LinearLayout>
         </LinearLayout>
