@@ -27,12 +27,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_information_edit.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_information_edit.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_tasks_add.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_tasks_add.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_events.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_events.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_events_update.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_events_update.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notes_add.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notes_add.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,97 +52,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="InformationEditActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/InformationEditActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-56">
-              <caret line="81" column="40" lean-forward="false" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_information_edit.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_information_edit.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="58" selection-end-column="18" />
-              <folding>
-                <element signature="e#732#749#0" expanded="true" />
-                <element signature="e#788#808#0" expanded="true" />
-                <element signature="e#846#866#0" expanded="true" />
-                <element signature="e#1145#1166#0" expanded="true" />
-                <element signature="e#1195#1216#0" expanded="true" />
-                <element signature="e#1444#1464#0" expanded="true" />
-                <element signature="e#1502#1522#0" expanded="true" />
-                <element signature="e#2157#2178#0" expanded="true" />
-                <element signature="e#2682#2703#0" expanded="true" />
-                <element signature="e#2907#2928#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EventsFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/events/EventsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="358" column="46" lean-forward="false" selection-start-line="358" selection-start-column="46" selection-end-line="358" selection-end-column="46" />
+            <state relative-caret-position="214">
+              <caret line="373" column="38" lean-forward="false" selection-start-line="373" selection-start-column="37" selection-end-line="373" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragment_events.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_events.xml">
+      <file leaf-file-name="NotesFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-              <folding>
-                <element signature="e#325#346#0" expanded="true" />
-                <element signature="e#377#398#0" expanded="true" />
-                <element signature="e#702#719#0" expanded="true" />
-                <element signature="e#804#825#0" expanded="true" />
-                <element signature="e#1107#1128#0" expanded="true" />
-                <element signature="e#1415#1435#0" expanded="true" />
-                <element signature="e#1474#1494#0" expanded="true" />
-                <element signature="e#1526#1550#0" expanded="true" />
-                <element signature="e#1763#1786#0" expanded="true" />
-                <element signature="e#1825#1846#0" expanded="true" />
-                <element signature="e#2123#2144#0" expanded="true" />
-                <element signature="e#2427#2447#0" expanded="true" />
-                <element signature="e#2539#2559#0" expanded="true" />
-                <element signature="e#2591#2615#0" expanded="true" />
-                <element signature="e#2828#2847#0" expanded="true" />
-                <element signature="e#2929#2950#0" expanded="true" />
-                <element signature="e#3182#3203#0" expanded="true" />
-                <element signature="e#3590#3610#0" expanded="true" />
-                <element signature="e#3642#3666#0" expanded="true" />
-                <element signature="e#3879#3899#0" expanded="true" />
-                <element signature="e#3938#3959#0" expanded="true" />
-                <element signature="e#4275#4296#0" expanded="true" />
-                <element signature="e#4463#4483#0" expanded="true" />
-                <element signature="e#4627#4647#0" expanded="true" />
-                <element signature="e#4679#4703#0" expanded="true" />
-                <element signature="e#4931#4951#0" expanded="true" />
-                <element signature="e#5211#5229#0" expanded="true" />
-                <element signature="e#5386#5406#0" expanded="true" />
-                <element signature="e#5436#5451#0" expanded="true" />
-                <element signature="e#5711#5729#0" expanded="true" />
-                <element signature="e#5885#5905#0" expanded="true" />
-                <element signature="e#5935#5949#0" expanded="true" />
-                <element signature="e#6214#6235#0" expanded="true" />
-                <element signature="e#6266#6287#0" expanded="true" />
-                <element signature="e#6495#6513#0" expanded="true" />
-                <element signature="e#7191#7211#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="5854">
+              <caret line="382" column="38" lean-forward="false" selection-start-line="382" selection-start-column="37" selection-end-line="382" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="InformationEditActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/InformationEditActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="75" column="4" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="87" selection-end-column="5" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -190,25 +122,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NotesAddFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NotesAddFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1251">
-              <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+            <state relative-caret-position="480">
+              <caret line="116" column="16" lean-forward="false" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="16" />
+              <folding>
+                <element signature="e#7254#7255#0" expanded="true" />
+                <element signature="e#7296#7297#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InformationFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/information/InformationFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragment_notes_add.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fragment_notes_add.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_notes_add.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="63" column="59" lean-forward="true" selection-start-line="63" selection-start-column="59" selection-end-line="63" selection-end-column="59" />
+            <state relative-caret-position="379">
+              <caret line="58" column="50" lean-forward="false" selection-start-line="58" selection-start-column="49" selection-end-line="58" selection-end-column="50" />
               <folding>
                 <element signature="e#3109#3130#0" expanded="true" />
-                <marker date="1545514234793" expanded="false" signature="3431:3448" ph="&quot;Detaljer&quot;" />
-                <marker date="1545514234793" expanded="false" signature="3488:3509" ph="&quot;10dp&quot;" />
               </folding>
             </state>
           </provider>
@@ -217,28 +160,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragment_notes.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_notes.xml">
+      <file leaf-file-name="DrivingLogFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/drivinglog/DrivingLogFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1625">
-              <caret line="23" column="52" lean-forward="false" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
-              <folding>
-                <element signature="e#2041#2065#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2080">
-              <caret line="104" column="18" lean-forward="false" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
+            <state relative-caret-position="294">
+              <caret line="449" column="68" lean-forward="false" selection-start-line="446" selection-start-column="20" selection-end-line="452" selection-end-column="21" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_drivinglog.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -254,8 +195,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>svar</find>
-      <find>if</find>
       <find>initOp</find>
       <find>etStartTime</find>
       <find>mat</find>
@@ -282,8 +221,10 @@
       <find>notifyData</find>
       <find>cate</find>
       <find>isOpen</find>
-      <find>multi</find>
       <find>spinner</find>
+      <find>multi</find>
+      <find>edDetail</find>
+      <find>init</find>
     </findStrings>
     <replaceStrings>
       <replace>routeaddfragment</replace>
@@ -2596,7 +2537,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/richtext_editor.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/events/EventsUpdateFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/drivinglog/DrivingLogFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_tasks_add.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/tasks/TasksAddActivity.java" />
@@ -2608,7 +2548,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/NotesViewHolder.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_notes.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/MonthlySummeryFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_monthly_summery.xml" />
@@ -2623,6 +2562,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_tasks_add.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_events_update.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_notes_add.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java" />
       </list>
     </option>
   </component>
@@ -2682,7 +2623,15 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="wecareit" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="fragments" type="462c0819:PsiDirectoryNode" />
-              <item name="events" type="462c0819:PsiDirectoryNode" />
+              <item name="drivinglog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wecareit" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="wecareit" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+              <item name="information" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wecareit" type="1abcf292:AndroidViewProjectNode" />
@@ -2890,7 +2839,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2903,12 +2851,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3470464" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3470464" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24784946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23701298" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23628692" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2982,34 +2930,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2822">
-          <caret line="166" column="66" lean-forward="false" selection-start-line="166" selection-start-column="66" selection-end-line="166" selection-end-column="66" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/events/EventsUpdateFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="122" column="8" lean-forward="false" selection-start-line="122" selection-start-column="8" selection-end-line="124" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/drivinglog/DrivingLogFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="446" column="20" lean-forward="false" selection-start-line="446" selection-start-column="20" selection-end-line="452" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/information/InformationFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -3155,13 +3079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="215" column="0" lean-forward="false" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/NotesViewHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -3267,22 +3184,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/InformationEditActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-56">
-          <caret line="81" column="40" lean-forward="false" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/events/EventsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="358" column="46" lean-forward="false" selection-start-line="358" selection-start-column="46" selection-end-line="358" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
@@ -3296,7 +3197,7 @@
         <state relative-caret-position="-1625">
           <caret line="23" column="52" lean-forward="false" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
           <folding>
-            <element signature="e#2041#2065#0" expanded="true" />
+            <element signature="e#2041#2065#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3309,42 +3210,42 @@
         <state relative-caret-position="200">
           <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
           <folding>
-            <element signature="e#325#346#0" expanded="true" />
-            <element signature="e#377#398#0" expanded="true" />
-            <element signature="e#702#719#0" expanded="true" />
-            <element signature="e#804#825#0" expanded="true" />
-            <element signature="e#1107#1128#0" expanded="true" />
-            <element signature="e#1415#1435#0" expanded="true" />
-            <element signature="e#1474#1494#0" expanded="true" />
-            <element signature="e#1526#1550#0" expanded="true" />
-            <element signature="e#1763#1786#0" expanded="true" />
-            <element signature="e#1825#1846#0" expanded="true" />
-            <element signature="e#2123#2144#0" expanded="true" />
-            <element signature="e#2427#2447#0" expanded="true" />
-            <element signature="e#2539#2559#0" expanded="true" />
-            <element signature="e#2591#2615#0" expanded="true" />
-            <element signature="e#2828#2847#0" expanded="true" />
-            <element signature="e#2929#2950#0" expanded="true" />
-            <element signature="e#3182#3203#0" expanded="true" />
-            <element signature="e#3590#3610#0" expanded="true" />
-            <element signature="e#3642#3666#0" expanded="true" />
-            <element signature="e#3879#3899#0" expanded="true" />
-            <element signature="e#3938#3959#0" expanded="true" />
-            <element signature="e#4275#4296#0" expanded="true" />
-            <element signature="e#4463#4483#0" expanded="true" />
-            <element signature="e#4627#4647#0" expanded="true" />
-            <element signature="e#4679#4703#0" expanded="true" />
-            <element signature="e#4931#4951#0" expanded="true" />
-            <element signature="e#5211#5229#0" expanded="true" />
-            <element signature="e#5386#5406#0" expanded="true" />
-            <element signature="e#5436#5451#0" expanded="true" />
-            <element signature="e#5711#5729#0" expanded="true" />
-            <element signature="e#5885#5905#0" expanded="true" />
-            <element signature="e#5935#5949#0" expanded="true" />
-            <element signature="e#6214#6235#0" expanded="true" />
-            <element signature="e#6266#6287#0" expanded="true" />
-            <element signature="e#6495#6513#0" expanded="true" />
-            <element signature="e#7191#7211#0" expanded="true" />
+            <element signature="e#325#346#0" expanded="false" />
+            <element signature="e#377#398#0" expanded="false" />
+            <element signature="e#702#719#0" expanded="false" />
+            <element signature="e#804#825#0" expanded="false" />
+            <element signature="e#1107#1128#0" expanded="false" />
+            <element signature="e#1415#1435#0" expanded="false" />
+            <element signature="e#1474#1494#0" expanded="false" />
+            <element signature="e#1526#1550#0" expanded="false" />
+            <element signature="e#1763#1786#0" expanded="false" />
+            <element signature="e#1825#1846#0" expanded="false" />
+            <element signature="e#2123#2144#0" expanded="false" />
+            <element signature="e#2427#2447#0" expanded="false" />
+            <element signature="e#2539#2559#0" expanded="false" />
+            <element signature="e#2591#2615#0" expanded="false" />
+            <element signature="e#2828#2847#0" expanded="false" />
+            <element signature="e#2929#2950#0" expanded="false" />
+            <element signature="e#3182#3203#0" expanded="false" />
+            <element signature="e#3590#3610#0" expanded="false" />
+            <element signature="e#3642#3666#0" expanded="false" />
+            <element signature="e#3879#3899#0" expanded="false" />
+            <element signature="e#3938#3959#0" expanded="false" />
+            <element signature="e#4275#4296#0" expanded="false" />
+            <element signature="e#4463#4483#0" expanded="false" />
+            <element signature="e#4627#4647#0" expanded="false" />
+            <element signature="e#4679#4703#0" expanded="false" />
+            <element signature="e#4931#4951#0" expanded="false" />
+            <element signature="e#5211#5229#0" expanded="false" />
+            <element signature="e#5386#5406#0" expanded="false" />
+            <element signature="e#5436#5451#0" expanded="false" />
+            <element signature="e#5711#5729#0" expanded="false" />
+            <element signature="e#5885#5905#0" expanded="false" />
+            <element signature="e#5935#5949#0" expanded="false" />
+            <element signature="e#6214#6235#0" expanded="false" />
+            <element signature="e#6266#6287#0" expanded="false" />
+            <element signature="e#6495#6513#0" expanded="false" />
+            <element signature="e#7191#7211#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3374,36 +3275,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1251">
-          <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_information_edit.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="58" selection-end-column="18" />
-          <folding>
-            <element signature="e#732#749#0" expanded="true" />
-            <element signature="e#788#808#0" expanded="true" />
-            <element signature="e#846#866#0" expanded="true" />
-            <element signature="e#1145#1166#0" expanded="true" />
-            <element signature="e#1195#1216#0" expanded="true" />
-            <element signature="e#1444#1464#0" expanded="true" />
-            <element signature="e#1502#1522#0" expanded="true" />
-            <element signature="e#2157#2178#0" expanded="true" />
-            <element signature="e#2682#2703#0" expanded="true" />
-            <element signature="e#2907#2928#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tasks_add.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -3418,19 +3289,101 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/drivinglog/DrivingLogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="449" column="68" lean-forward="false" selection-start-line="446" selection-start-column="20" selection-end-line="452" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_notes_add.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="63" column="59" lean-forward="true" selection-start-line="63" selection-start-column="59" selection-end-line="63" selection-end-column="59" />
+        <state relative-caret-position="379">
+          <caret line="58" column="50" lean-forward="false" selection-start-line="58" selection-start-column="49" selection-end-line="58" selection-end-column="50" />
           <folding>
             <element signature="e#3109#3130#0" expanded="true" />
-            <marker date="1545514234793" expanded="false" signature="3431:3448" ph="&quot;Detaljer&quot;" />
-            <marker date="1545514234793" expanded="false" signature="3488:3509" ph="&quot;10dp&quot;" />
           </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_information_edit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+          <folding>
+            <element signature="e#732#749#0" expanded="false" />
+            <element signature="e#788#808#0" expanded="false" />
+            <element signature="e#846#866#0" expanded="false" />
+            <element signature="e#1145#1166#0" expanded="false" />
+            <element signature="e#1195#1216#0" expanded="false" />
+            <element signature="e#1444#1464#0" expanded="false" />
+            <element signature="e#1502#1522#0" expanded="false" />
+            <element signature="e#2157#2178#0" expanded="false" />
+            <element signature="e#2682#2703#0" expanded="false" />
+            <element signature="e#2907#2928#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/events/EventsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="373" column="38" lean-forward="false" selection-start-line="373" selection-start-column="37" selection-end-line="373" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5854">
+          <caret line="382" column="38" lean-forward="false" selection-start-line="382" selection-start-column="37" selection-end-line="382" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/information/InformationFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/InformationEditActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="75" column="4" lean-forward="false" selection-start-line="75" selection-start-column="4" selection-end-line="87" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="116" column="16" lean-forward="false" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="16" />
+          <folding>
+            <element signature="e#7254#7255#0" expanded="true" />
+            <element signature="e#7296#7297#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

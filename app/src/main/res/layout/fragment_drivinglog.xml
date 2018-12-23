@@ -212,14 +212,16 @@
                     android:id="@+id/lnUsers_companycar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg"
+                    android:layout_marginBottom="@dimen/padding_10dp"
                     android:orientation="horizontal"
                     >
                     <com.wecareit.MultiSpinner
                         android:id="@+id/spUsers_companycar"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/padding_10dp"
-                        android:paddingRight="@dimen/padding_10dp"
+                        android:dropDownWidth="match_parent"
+                        android:layout_height="@dimen/height_40dp"
+                        android:padding="@dimen/padding_2dp"
                         android:prompt="@string/spinner_prompt"/>
                 </LinearLayout>
                 <LinearLayout
@@ -360,14 +362,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_10dp"
+                    android:background="@drawable/layout_bg"
                     android:orientation="horizontal"
                     >
                     <com.wecareit.MultiSpinner
                         android:id="@+id/spUsers_travelbill"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/padding_10dp"
-                        android:paddingRight="@dimen/padding_10dp"
+                        android:dropDownWidth="match_parent"
+                        android:layout_height="@dimen/height_40dp"
+                        android:padding="@dimen/padding_2dp"
                         android:prompt="@string/spinner_prompt"/>
                 </LinearLayout>
                 <LinearLayout

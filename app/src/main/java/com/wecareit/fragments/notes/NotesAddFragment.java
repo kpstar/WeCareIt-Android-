@@ -24,6 +24,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.chinalwb.are.AREditText;
+import com.chinalwb.are.styles.toolbar.IARE_Toolbar;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Bold;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Italic;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_ListBullet;
+import com.chinalwb.are.styles.toolitems.IARE_ToolItem;
 import com.wecareit.LoginActivity;
 import com.wecareit.MultiSpinner;
 import com.wecareit.R;
@@ -55,12 +61,14 @@ public class NotesAddFragment extends TemplateFragment implements Spinner.OnItem
     private int area_id, general_id, specific_id, category_id;
     private List<String> client_ids;
     private boolean isBackDated;
+    private IARE_Toolbar mToolbar;
     private TextView txtSummary, txtNote;
     private static int AREA_SPINNER_ID = 1001;
     private static int GENERAL_SPINNER_ID = 1002;
     private static int SPECIFIC_SPINNER_ID = 1003;
     private CheckBox backDated;
-    private EditText edSummary, edDetail;
+    private AREditText edDetail;
+    private EditText edSummary;
     private static int CATEGORY_SPINNER_ID = 1004;
     private ArrayList<Minor_Keywords> minor_keywords;
     private NotesRes notesRes;
@@ -97,7 +105,16 @@ public class NotesAddFragment extends TemplateFragment implements Spinner.OnItem
 
         edSummary = (EditText)view.findViewById(R.id.etSummary_notesaddfragment);
 
-        edDetail = (EditText)view.findViewById(R.id.etDetails_notesaddfragment);
+        edDetail = view.findViewById(R.id.arEditText);
+        mToolbar = view.findViewById(R.id.areToolbar);
+        IARE_ToolItem bold = new ARE_ToolItem_Bold();
+        IARE_ToolItem italic = new ARE_ToolItem_Italic();
+        IARE_ToolItem listBullet = new ARE_ToolItem_ListBullet();
+        mToolbar.addToolbarItem(bold);
+        mToolbar.addToolbarItem(italic);
+        mToolbar.addToolbarItem(listBullet);
+
+        edDetail.setToolbar(mToolbar);
         txtSummary = (TextView)view.findViewById(R.id.summaryText);
         txtNote = (TextView)view.findViewById(R.id.notesText);
         backDated = (CheckBox)view.findViewById(R.id.chxBackdated_noteaddfragment);
@@ -140,11 +157,6 @@ public class NotesAddFragment extends TemplateFragment implements Spinner.OnItem
         gd.setShape(GradientDrawable.RECTANGLE);
         gd.setStroke(2,Color.LTGRAY);
         gd.setCornerRadius(5.0f);
-//        lnAccomo.setBackground(gd);
-//        lnArea.setBackground(gd);
-//        lnCategory.setBackground(gd);
-//        lnGenerakkey.setBackground(gd);
-//        lnSpecifickey.setBackground(gd);
     }
 
     @Override
