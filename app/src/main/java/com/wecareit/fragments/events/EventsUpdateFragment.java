@@ -27,6 +27,12 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.chinalwb.are.AREditText;
+import com.chinalwb.are.styles.toolbar.IARE_Toolbar;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Bold;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_Italic;
+import com.chinalwb.are.styles.toolitems.ARE_ToolItem_ListBullet;
+import com.chinalwb.are.styles.toolitems.IARE_ToolItem;
 import com.wecareit.LoginActivity;
 import com.wecareit.MultiSelectSpinner;
 import com.wecareit.MultiSpinner;
@@ -51,13 +57,16 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ru.noties.markwon.Markwon;
 
 public class EventsUpdateFragment extends TemplateFragment {
 
     private Spinner spTimeinterval;
     private MultiSpinner spVehicle, spEmployee, spClient;
-    private EditText etHeader, etDescription, etStartdate, etStarttime;
-    private LinearLayout lnUser, lnVehicle, lnTimeinterval,lnClient, lnHeader, lnDsec, lnDate, lnTime;
+    private EditText etHeader, etStartdate, etStarttime;
+    private AREditText etDescription;
+    private IARE_Toolbar mToolbar;
+    private LinearLayout lnUser, lnVehicle, lnTimeinterval,lnClient, lnHeader, lnDate, lnTime;
     private EventspostBody postBody;
     private TextView tvHeading, tvDesc;
     private Timeperiod timeperiod;
@@ -108,7 +117,7 @@ public class EventsUpdateFragment extends TemplateFragment {
         };
 
         etHeader = (EditText) view.findViewById(R.id.editHeader_eventsupdatefragment);
-        etDescription = (EditText) view.findViewById(R.id.editDescription_eventsupdatefragment);
+        etDescription = view.findViewById(R.id.arEditText);
         etStartdate = (EditText) view.findViewById(R.id.editDatePicker_eventsupdatefragment);
         etStarttime = (EditText) view.findViewById(R.id.editTimePicker_eventsupdatefragment);
 
@@ -123,6 +132,16 @@ public class EventsUpdateFragment extends TemplateFragment {
         Date mDate = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         etStartdate.setText(df.format(mDate));
+
+        mToolbar = view.findViewById(R.id.areToolbar);
+        IARE_ToolItem bold = new ARE_ToolItem_Bold();
+        IARE_ToolItem italic = new ARE_ToolItem_Italic();
+        IARE_ToolItem listBullet = new ARE_ToolItem_ListBullet();
+        mToolbar.addToolbarItem(bold);
+        mToolbar.addToolbarItem(italic);
+        mToolbar.addToolbarItem(listBullet);
+
+        etDescription.setToolbar(mToolbar);
 
         etStartdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,7 +183,8 @@ public class EventsUpdateFragment extends TemplateFragment {
 
         if (EventsFragment.flag_update == 1){
             etHeader.setText(EventsFragment.name_update);
-            etDescription.setText(EventsFragment.description_update);
+//            etDescription.setText(EventsFragment.description_update);
+            Markwon.setMarkdown(etDescription, EventsFragment.description_update.replace("\"", ""));
             etStartdate.setText(EventsFragment.startdate_update.substring(0,10));
             int hr1 = Integer.valueOf(EventsFragment.startdate_update.substring(11,13));
             int min1 = Integer.valueOf(EventsFragment.startdate_update.substring(14,16));
@@ -195,7 +215,6 @@ public class EventsUpdateFragment extends TemplateFragment {
         lnUser = (LinearLayout) view.findViewById(R.id.lnUser_eventupdate);
         lnClient = (LinearLayout) view.findViewById(R.id.lnClient_eventupdate);
         lnHeader = (LinearLayout) view.findViewById(R.id.lnHeader_eventsupdate);
-        lnDsec = (LinearLayout) view.findViewById(R.id.lnDesc_eventsupdate);
         lnDate = (LinearLayout) view.findViewById(R.id.lnDate_eventsupdate);
         lnTime = (LinearLayout) view.findViewById(R.id.lnTime_eventsupdate);
 
@@ -204,7 +223,6 @@ public class EventsUpdateFragment extends TemplateFragment {
         gd.setStroke(2,Color.LTGRAY);
         gd.setCornerRadius(3.0f);
         lnHeader.setBackground(gd);
-        lnDsec.setBackground(gd);
         lnDate.setBackground(gd);
         lnTime.setBackground(gd);
         lnTimeinterval.setBackground(gd);

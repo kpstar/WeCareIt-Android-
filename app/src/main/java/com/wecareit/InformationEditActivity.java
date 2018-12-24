@@ -67,7 +67,8 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
 
 
         setNumbers();
-        flag_relevant = getIntent().getIntExtra("EditFlag", 0);
+        SharedPreferences sharedPreferences = this.getSharedPreferences("Fragment", Context.MODE_PRIVATE);
+        flag_relevant = Integer.valueOf(sharedPreferences.getString("tabID", "1"));
         id_information = getIntent().getIntExtra("InfoId", 0);
 
 
@@ -133,6 +134,9 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
                 if (response.isSuccessful()) {
                     InfoRes infoRes = response.body();
                     InformationEditActivity.this.finish();
+                    SharedPreferences.Editor editor = InformationEditActivity.this.getSharedPreferences("Message", Context.MODE_PRIVATE).edit();
+                    editor.putString("infoFragment", "Informationen uppdaterad!");
+                    editor.apply();
                     Log.d("&&&&&",infoRes.getText());
                 }
             }

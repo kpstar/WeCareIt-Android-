@@ -51,17 +51,22 @@
                 android:layout_marginLeft="@dimen/padding_10dp"
                 />
             <LinearLayout
-                android:id="@+id/lnDesc_eventsupdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10dp"
-                android:orientation="vertical">
-                <EditText
-                    android:id="@+id/editDescription_eventsupdatefragment"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:prompt="@string/spinner_prompt"/>
+                android:orientation="vertical"
+                android:background="@drawable/layout_bg"
+                android:layout_margin="@dimen/padding_10dp">
+                <com.chinalwb.are.styles.toolbar.ARE_ToolbarDefault
+                    android:id="@+id/areToolbar"
+                    android:gravity="center_vertical"
+                    android:background="@color/colorLightGray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <com.chinalwb.are.AREditText
+                    android:id="@+id/arEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_100dp"
+                    />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout

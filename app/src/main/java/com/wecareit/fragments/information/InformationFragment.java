@@ -2,9 +2,11 @@ package com.wecareit.fragments.information;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,6 +23,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.wecareit.LoginActivity;
 import com.wecareit.R;
@@ -41,8 +44,10 @@ public class InformationFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ScrollView mScrollView;
     private LinearLayout mLinearLayout;
-    private Button mSavebtn, mCancelbtn;
+    private Button mSavebtn, mCancelbtn, btnMsgClose;
     private EditText mTitleEdit, mDescEdit;
+    private ConstraintLayout clMessage;
+    private TextView txtMsg;
     private static int flag_relevant = 1;
     public static int flagEdit_informationfragment = 0, id_information;
     public static String stTitle = "", stDesc = "";
@@ -87,6 +92,26 @@ public class InformationFragment extends Fragment {
         mCancelbtn = view.findViewById(R.id.btnCancel_informationfragment);
         mTitleEdit = view.findViewById(R.id.etTitle_informationfragment);
         mDescEdit = view.findViewById(R.id.etDesc_informationfragment);
+
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Message", Context.MODE_PRIVATE);
+        String messageStr = sharedPreferences.getString("infoFragment", "");
+
+        clMessage = view.findViewById(R.id.clMessage);
+        btnMsgClose = (Button) view.findViewById(R.id.closeMessageBtn);
+        btnMsgClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clMessage.setVisibility(View.GONE);
+            }
+        });
+        txtMsg = (TextView) view.findViewById(R.id.addMessage);
+        if (!messageStr.isEmpty()) {
+            txtMsg.setText(messageStr);
+            clMessage.setVisibility(View.VISIBLE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("noteFragment", "");
+            editor.apply();
+        }
 
         lnTab1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,6 +205,8 @@ public class InformationFragment extends Fragment {
 
     public void loadData() {
 
+        SharedPreferences.Editor editor = getContext().getSharedPreferences("Fragment", Context.MODE_PRIVATE).edit();
+        String tabId = "1";
         if(flagEdit_informationfragment == 0){
             setHasOptionsMenu(true);
             lnTab.setVisibility(View.VISIBLE);
@@ -193,9 +220,12 @@ public class InformationFragment extends Fragment {
             mScrollView.setVisibility(View.GONE);
             mLinearLayout.setVisibility(View.VISIBLE);
             mTitleEdit.setText(stTitle);
+            tabId = "2";
             mDescEdit.setText(stDesc);
             //Log.d("Flag",""+flag_relevant);
         }
+        editor.putString("tabID", tabId);
+        editor.apply();
 
         Call<ArrayList<InfoRes>> call = Global.getAPIService.readInfo("Token " + Global.token, flag_relevant);
 
