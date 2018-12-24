@@ -171,34 +171,30 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         params_category.setMargins(10,6,10,6);
         if (notes.getMain_category() != null) {
             tvCategory.setText(notes.getMain_category().getTitle());
-            tvCategory.setBackground(gd_category);
             tvCategory.setTextColor(Color.parseColor("#ffffff"));
             tvCategory.setPadding(20,6,20,6);
             tvCategory.setLayoutParams(params_category);
+            tvCategory.setBackground(gd_category);
             fbRow.addView(tvCategory);
         }
 
-        TextView tvMainkey = new TextView(context);
-        if (notes.getMajor_keyword() != null) {
-            tvMainkey.setText(notes.getMajor_keyword().getTitle());
-            tvMainkey.setBackground(gd_category);
-            tvMainkey.setTextColor(Color.parseColor("#ffffff"));
-            tvMainkey.setPadding(20,6,20,6);
-            //FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
-            //params.setMargins(10,6,10,6);
-            tvMainkey.setLayoutParams(params_category);
-            fbRow.addView(tvMainkey);
-        }
+//        TextView tvMainkey = new TextView(context);
+//        if (notes.getMajor_keyword() != null) {
+//            tvMainkey.setText(notes.getMajor_keyword().getTitle());
+//            tvMainkey.setTextColor(Color.parseColor("#ffffff"));
+//            tvMainkey.setPadding(20,6,20,6);
+//            tvMainkey.setLayoutParams(params_category);
+//            tvMainkey.setBackground(gd_category);
+//            fbRow.addView(tvMainkey);
+//        }
 
         TextView tvMinorkey = new TextView(context);
         if (notes.getMinor_keyword() != null) {
             tvMinorkey.setText(notes.getMinor_keyword().getTitle());
-            tvMinorkey.setBackground(gd_category);
             tvMinorkey.setTextColor(Color.parseColor("#ffffff"));
             tvMinorkey.setPadding(20,6,20,6);
-            //FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(FlexboxLayout.LayoutParams.WRAP_CONTENT, FlexboxLayout.LayoutParams.WRAP_CONTENT);
-            //params.setMargins(10,6,10,6);
             tvMinorkey.setLayoutParams(params_category);
+            tvMinorkey.setBackground(gd_category);
             fbRow.addView(tvMinorkey);
         }
 
@@ -212,10 +208,10 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         params_area.setMargins(10,6,10,6);
         if (notes.getArea() != null) {
             tvArea.setText(notes.getArea().getTitle());
-            tvArea.setBackground(gd_area);
             tvArea.setTextColor(Color.parseColor("#ffffff"));
             tvArea.setPadding(20,6,20,6);
             tvArea.setLayoutParams(params_area);
+            tvArea.setBackground(gd_area);
             fbRow.addView(tvArea);
         }
 

@@ -141,78 +141,7 @@ public class MonthlySummeryFragment extends TemplateFragment implements Spinner.
         gd.setShape(GradientDrawable.RECTANGLE);
         gd.setStroke(2,Color.LTGRAY);
         gd.setCornerRadius(5.0f);
-//        lnMonth.setBackground(gd);
-//        lnArea.setBackground(gd);
-//        lnCategory.setBackground(gd);
-//        lnKeyword.setBackground(gd);
-//        lnYear.setBackground(gd);
-//        lnUsers.setBackground(gd);
     }
-
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        inflater.inflate(R.menu.menu_save, menu);
-//        this.setHasOptionsMenu(true);
-//        if (menu == null) {
-//            System.out.println("menu is null");
-//            return;
-//        }
-//        super.onCreateOptionsMenu(menu, inflater);
-//        MenuItem item = menu.getItem(0);
-//        View view = item.getActionView();
-//        TextView tv_save = (TextView) view.findViewById(R.id.btnSave_eventsmenu);
-//        tv_save.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                saveData();
-//            }
-//        });
-//    }
-
-//    private void saveData() {
-//        Map<String, String> params = new HashMap<>();
-//        client_ids = new ArrayList<String>();
-//        for (int i=0; i<spAccomo.getItems().size(); i++) {
-//            if (spAccomo.getSelected()[i] == true) {
-//                client_ids.add(String.valueOf(i + 1));
-//            }
-//        }
-//
-//
-//        mSummary = edSummary.getText().toString();
-//        mDetail = edDetail.getText().toString();
-//        isBackDated = backDated.isChecked();
-//
-//        NotePost post = new NotePost(area_id, client_ids, category_id, general_id, specific_id, mSummary, mDetail, isBackDated);
-//
-//
-//        Call<NotesRes> apiCall = Global.getAPIService.writeNotes("Token " + Global.token, post);
-//        apiCall.enqueue(new Callback<NotesRes>() {
-//            @SuppressLint("RestrictedApi")
-//            @Override
-//            public void onResponse(Call<NotesRes> call, Response<NotesRes> response) {
-//                if(response.code() == 401){
-//                    Intent intent = new Intent(getActivity(), LoginActivity.class);
-//                    startActivity(intent);
-//                    getActivity().finish();
-//                }
-//                notesRes = response.body();
-//
-//                SharedPreferences.Editor editor = getContext().getSharedPreferences("Message", Context.MODE_PRIVATE).edit();
-//                editor.putString("noteFragment", "Ny anteckning sparad.");
-//                editor.apply();
-//
-//                FragmentTransaction tx = getFragmentManager().beginTransaction();
-//                tx.replace(R.id.fragment_container, Global.notesFragment).addToBackStack(null).commit();
-//                Global.floatingButton.setVisibility(View.VISIBLE);
-//            }
-//
-//            @Override
-//            public void onFailure(Call<NotesRes> call, Throwable t) {
-//                Log.d("$$$$$$#####","Failed");
-//            }
-//        });
-//    }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

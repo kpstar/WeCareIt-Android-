@@ -27,8 +27,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/MonthlySummeryFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/MonthlySummeryFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/NotesViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/NotesViewHolder.java" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,8 +66,18 @@
       <file leaf-file-name="NotesFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5854">
-              <caret line="382" column="38" lean-forward="false" selection-start-line="382" selection-start-column="37" selection-end-line="382" selection-end-column="38" />
+            <state relative-caret-position="3183">
+              <caret line="224" column="39" lean-forward="false" selection-start-line="224" selection-start-column="39" selection-end-line="224" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotesViewHolder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/NotesViewHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="186" column="43" lean-forward="false" selection-start-line="180" selection-start-column="10" selection-end-line="188" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -82,55 +93,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_tasks_add.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tasks_add.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="52" column="47" lean-forward="false" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
-              <folding>
-                <element signature="e#2482#2503#0" expanded="true" />
-                <element signature="e#2804#2824#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fragment_events_update.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_events_update.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="141" column="61" lean-forward="false" selection-start-line="141" selection-start-column="61" selection-end-line="141" selection-end-column="61" />
-              <folding>
-                <element signature="e#6096#6117#0" expanded="true" />
-                <element signature="e#6362#6382#0" expanded="true" />
-                <element signature="e#7323#7344#0" expanded="true" />
-                <element signature="e#7659#7679#0" expanded="true" />
-                <element signature="e#7722#7742#0" expanded="true" />
-                <element signature="e#8566#8587#0" expanded="true" />
-                <element signature="e#8952#8972#0" expanded="true" />
-                <element signature="e#9015#9035#0" expanded="true" />
-                <element signature="e#10130#10150#0" expanded="true" />
-                <element signature="e#10193#10213#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotesAddFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NotesAddFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="116" column="16" lean-forward="false" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="16" />
+            <state relative-caret-position="280">
+              <caret line="106" column="0" lean-forward="false" selection-start-line="105" selection-start-column="30" selection-end-line="106" selection-end-column="0" />
               <folding>
                 <element signature="e#7254#7255#0" expanded="true" />
                 <element signature="e#7296#7297#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MonthlySummeryFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/MonthlySummeryFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="137" column="22" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewsFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/news/NewsFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="67" column="38" lean-forward="false" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -157,16 +148,6 @@
           </provider>
           <provider editor-type-id="android-designer2">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DrivingLogFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/drivinglog/DrivingLogFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="449" column="68" lean-forward="false" selection-start-line="446" selection-start-column="20" selection-end-line="452" selection-end-column="21" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -223,8 +204,8 @@
       <find>isOpen</find>
       <find>spinner</find>
       <find>multi</find>
-      <find>edDetail</find>
       <find>init</find>
+      <find>edDetail</find>
     </findStrings>
     <replaceStrings>
       <replace>routeaddfragment</replace>
@@ -2545,11 +2526,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/tasks/TasksFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_bg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/layout_bg.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/NotesViewHolder.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_notes.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/MonthlySummeryFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_monthly_summery.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/adapter/SpinnerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/MultiSpinner.java" />
@@ -2564,6 +2542,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_notes_add.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_drivinglog.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/MonthlySummeryFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/NotesViewHolder.java" />
       </list>
     </option>
   </component>
@@ -2639,7 +2620,38 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="wecareit" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="fragments" type="462c0819:PsiDirectoryNode" />
+              <item name="news" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wecareit" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="wecareit" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
               <item name="notes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wecareit" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="wecareit" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+              <item name="tasks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wecareit" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="wecareit" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+              <item name="wesklyschedule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wecareit" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="wecareit" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="viewholder" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wecareit" type="1abcf292:AndroidViewProjectNode" />
@@ -2839,6 +2851,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2856,7 +2869,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24784946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23628692" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23628692" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2891,7 +2904,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tasks.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-476">
@@ -3079,20 +3091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/NotesViewHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/MonthlySummeryFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1940">
-          <caret line="143" column="35" lean-forward="false" selection-start-line="143" selection-start-column="35" selection-end-line="148" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/android/widget/Spinner.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -3258,16 +3256,16 @@
         <state relative-caret-position="249">
           <caret line="141" column="61" lean-forward="false" selection-start-line="141" selection-start-column="61" selection-end-line="141" selection-end-column="61" />
           <folding>
-            <element signature="e#6096#6117#0" expanded="true" />
-            <element signature="e#6362#6382#0" expanded="true" />
-            <element signature="e#7323#7344#0" expanded="true" />
-            <element signature="e#7659#7679#0" expanded="true" />
-            <element signature="e#7722#7742#0" expanded="true" />
-            <element signature="e#8566#8587#0" expanded="true" />
-            <element signature="e#8952#8972#0" expanded="true" />
-            <element signature="e#9015#9035#0" expanded="true" />
-            <element signature="e#10130#10150#0" expanded="true" />
-            <element signature="e#10193#10213#0" expanded="true" />
+            <element signature="e#6096#6117#0" expanded="false" />
+            <element signature="e#6362#6382#0" expanded="false" />
+            <element signature="e#7323#7344#0" expanded="false" />
+            <element signature="e#7659#7679#0" expanded="false" />
+            <element signature="e#7722#7742#0" expanded="false" />
+            <element signature="e#8566#8587#0" expanded="false" />
+            <element signature="e#8952#8972#0" expanded="false" />
+            <element signature="e#9015#9035#0" expanded="false" />
+            <element signature="e#10130#10150#0" expanded="false" />
+            <element signature="e#10193#10213#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3280,8 +3278,8 @@
         <state relative-caret-position="75">
           <caret line="52" column="47" lean-forward="false" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
           <folding>
-            <element signature="e#2482#2503#0" expanded="true" />
-            <element signature="e#2804#2824#0" expanded="true" />
+            <element signature="e#2482#2503#0" expanded="false" />
+            <element signature="e#2804#2824#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3351,14 +3349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5854">
-          <caret line="382" column="38" lean-forward="false" selection-start-line="382" selection-start-column="37" selection-end-line="382" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/information/InformationFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -3377,12 +3367,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesAddFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="116" column="16" lean-forward="false" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="16" />
+        <state relative-caret-position="280">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="105" selection-start-column="30" selection-end-line="106" selection-end-column="0" />
           <folding>
             <element signature="e#7254#7255#0" expanded="true" />
             <element signature="e#7296#7297#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/MonthlySummeryFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="137" column="22" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/news/NewsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="67" column="38" lean-forward="false" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/fragments/notes/NotesFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3183">
+          <caret line="224" column="39" lean-forward="false" selection-start-line="224" selection-start-column="39" selection-end-line="224" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wecareit/viewholder/NotesViewHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="186" column="43" lean-forward="false" selection-start-line="180" selection-start-column="10" selection-end-line="188" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
