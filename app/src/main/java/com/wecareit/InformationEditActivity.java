@@ -59,8 +59,9 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
         arEditText = (AREditText)findViewById(R.id.arEditText);
 //        arEditText.setText(getIntent().getStringExtra("Desc"));
         String desc = getIntent().getStringExtra("Desc");
-        desc = desc.replace("\"", "");
-        Markwon.setMarkdown(arEditText, desc);
+//        desc = desc.replace("\"", "");
+//        Markwon.setMarkdown(arEditText, desc);
+        arEditText.fromHtml(desc);
         initToolbar();
 
 
@@ -120,7 +121,7 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
 
     public void saveData(){
 
-        Call<InfoRes> call = Global.getAPIService.postInfo("Token " + Global.token, flag_relevant, id_information, arEditText.getText().toString().replace("\"", ""));
+        Call<InfoRes> call = Global.getAPIService.postInfo("Token " + Global.token, flag_relevant, id_information, arEditText.getHtml().replace("\n", "").replace("\"", ""));
         call.enqueue(new Callback<InfoRes>() {
             @Override
             public void onResponse(Call<InfoRes> call, Response<InfoRes> response) {
