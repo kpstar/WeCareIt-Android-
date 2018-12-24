@@ -43,7 +43,6 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
     private TextView mNumbers;
     int flag_relevant, id_information;
     SharedPreferences sharedPreferences;
-    RichEditor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +59,6 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
         arEditText = (AREditText)findViewById(R.id.arEditText);
 //        arEditText.setText(getIntent().getStringExtra("Desc"));
         String desc = getIntent().getStringExtra("Desc");
-//        arEditText.fromHtml(getIntent().getStringExtra("Desc"));
         desc = desc.replace("\"", "");
         Markwon.setMarkdown(arEditText, desc);
         initToolbar();
@@ -122,7 +120,7 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
 
     public void saveData(){
 
-        Call<InfoRes> call = Global.getAPIService.postInfo("Token " + Global.token, flag_relevant, id_information, arEditText.getText().toString());
+        Call<InfoRes> call = Global.getAPIService.postInfo("Token " + Global.token, flag_relevant, id_information, arEditText.getText().toString().replace("\"", ""));
         call.enqueue(new Callback<InfoRes>() {
             @Override
             public void onResponse(Call<InfoRes> call, Response<InfoRes> response) {

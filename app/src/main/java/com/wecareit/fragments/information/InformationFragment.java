@@ -109,7 +109,7 @@ public class InformationFragment extends Fragment {
             txtMsg.setText(messageStr);
             clMessage.setVisibility(View.VISIBLE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("noteFragment", "");
+            editor.putString("infoFragment", "");
             editor.apply();
         }
 
@@ -206,11 +206,13 @@ public class InformationFragment extends Fragment {
     public void loadData() {
 
         SharedPreferences.Editor editor = getContext().getSharedPreferences("Fragment", Context.MODE_PRIVATE).edit();
-        String tabId = "1";
+        String tabId;
         if(flagEdit_informationfragment == 0){
             setHasOptionsMenu(true);
             lnTab.setVisibility(View.VISIBLE);
             mScrollView.setVisibility(View.VISIBLE);
+            flagEdit_informationfragment = 1;
+            tabId = "1";
             mLinearLayout.setVisibility(View.GONE);
             //Log.d("Flag",""+flag_relevant);
         } else {
@@ -227,7 +229,7 @@ public class InformationFragment extends Fragment {
         editor.putString("tabID", tabId);
         editor.apply();
 
-        Call<ArrayList<InfoRes>> call = Global.getAPIService.readInfo("Token " + Global.token, flag_relevant);
+        Call<ArrayList<InfoRes>> call = Global.getAPIService.readInfo("Token " + Global.token, Integer.valueOf(tabId));
 
         call.enqueue(new Callback<ArrayList<InfoRes>>() {
             @Override
