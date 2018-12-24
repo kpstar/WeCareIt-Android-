@@ -33,6 +33,7 @@ import jp.wasabeef.richeditor.RichEditor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ru.noties.markwon.Markwon;
 
 public class InformationEditActivity extends AppCompatActivity implements RichEditText.RichEditTextListener {
 
@@ -58,7 +59,10 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
         mTitle.setText(getIntent().getStringExtra("Title"));
         arEditText = (AREditText)findViewById(R.id.arEditText);
 //        arEditText.setText(getIntent().getStringExtra("Desc"));
-        arEditText.fromHtml(getIntent().getStringExtra("Desc"));
+        String desc = getIntent().getStringExtra("Desc");
+//        arEditText.fromHtml(getIntent().getStringExtra("Desc"));
+        desc = desc.replace("\"", "");
+        Markwon.setMarkdown(arEditText, desc);
         initToolbar();
 
 

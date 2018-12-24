@@ -64,7 +64,7 @@ public class InformationViewHolder extends RecyclerView.ViewHolder {
         String time = info.getCreation_date().substring(0,10)+"  "+info.getCreation_date().substring(11,16);
 
         mTime.setText(time);
-        Markwon.setMarkdown(mMessage, info.getText());
+        Markwon.setMarkdown(mMessage, info.getText().replace("\"", ""));
         mUsername.setText(" "+info.getAuthor().getName());
         mTitle.setText(info.getName());
 

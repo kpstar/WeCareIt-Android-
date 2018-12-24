@@ -247,7 +247,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
                     if (news.getSeen_by().size() > 0) {
                         mSeenBy.setVisibility(View.VISIBLE);
                     }
-                    Markwon.setMarkdown(mMessage, etUpdateTitle.getText().toString());
+                    Markwon.setMarkdown(mMessage, etUpdateTitle.getText().toString().replace("\"", ""));
                 }
             }
 
@@ -279,16 +279,16 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
             mUsername.setText(news.getAuthor().getName() +", " +  news.getAuthor().getTitle());
             new DownloadImage(mUserImg).execute(news.getAuthor().getAvatar());
             mTime.setText(stringTime);
-            Markwon.setMarkdown(mMessage, news.getMessage());
-            Markwon.setMarkdown(mSeenBy, sRead_by);
+            Markwon.setMarkdown(mMessage, news.getMessage().replace("\"", ""));
+            Markwon.setMarkdown(mSeenBy, sRead_by.replace("\"", ""));
             mReplycounts.setText("" + news.getReply_count());
         } else{
             if(news.isMe_mentioned()){
                 mUsername.setText(news.getAuthor().getName() +", " +  news.getAuthor().getTitle());
                 new DownloadImage(mUserImg).execute(news.getAuthor().getAvatar());
                 mTime.setText(stringTime);
-                Markwon.setMarkdown(mMessage, news.getMessage());
-                Markwon.setMarkdown(mSeenBy, sRead_by);
+                Markwon.setMarkdown(mMessage, news.getMessage().replace("\"", ""));
+                Markwon.setMarkdown(mSeenBy, sRead_by.replace("\"", ""));
                 mReplycounts.setText("" + news.getReply_count());
             } else{
                 newsrow.setVisibility(View.GONE);

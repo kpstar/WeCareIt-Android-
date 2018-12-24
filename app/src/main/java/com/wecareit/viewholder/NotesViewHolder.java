@@ -178,15 +178,15 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
             fbRow.addView(tvCategory);
         }
 
-//        TextView tvMainkey = new TextView(context);
-//        if (notes.getMajor_keyword() != null) {
-//            tvMainkey.setText(notes.getMajor_keyword().getTitle());
-//            tvMainkey.setTextColor(Color.parseColor("#ffffff"));
-//            tvMainkey.setPadding(20,6,20,6);
-//            tvMainkey.setLayoutParams(params_category);
-//            tvMainkey.setBackground(gd_category);
-//            fbRow.addView(tvMainkey);
-//        }
+        TextView tvMainkey = new TextView(context);
+        if (notes.getMajor_keyword() != null) {
+            tvMainkey.setText(notes.getMajor_keyword().getTitle());
+            tvMainkey.setTextColor(Color.parseColor("#ffffff"));
+            tvMainkey.setPadding(20,6,20,6);
+            tvMainkey.setLayoutParams(params_category);
+            tvMainkey.setBackground(gd_category);
+            fbRow.addView(tvMainkey);
+        }
 
         TextView tvMinorkey = new TextView(context);
         if (notes.getMinor_keyword() != null) {
