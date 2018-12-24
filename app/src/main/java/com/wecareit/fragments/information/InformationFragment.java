@@ -51,6 +51,7 @@ public class InformationFragment extends Fragment {
     private static int flag_relevant = 1;
     public static int flagEdit_informationfragment = 0, id_information;
     public static String stTitle = "", stDesc = "";
+    SharedPreferences sharedPreferences;
 
     private boolean isBold, isItalic;
 
@@ -92,6 +93,7 @@ public class InformationFragment extends Fragment {
         mCancelbtn = view.findViewById(R.id.btnCancel_informationfragment);
         mTitleEdit = view.findViewById(R.id.etTitle_informationfragment);
         mDescEdit = view.findViewById(R.id.etDesc_informationfragment);
+        flag_relevant = 1;
 
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("Message", Context.MODE_PRIVATE);
         String messageStr = sharedPreferences.getString("infoFragment", "");
@@ -113,10 +115,17 @@ public class InformationFragment extends Fragment {
             editor.apply();
         }
 
+        SharedPreferences sh = getContext().getSharedPreferences("Fragment", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sh.edit();
+        editor.putInt("tabID", 1);
+        editor.apply();
+
         lnTab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 flag_relevant =1;
+                editor.putInt("tabID", flag_relevant);
+                editor.apply();
                 lnTab1.setBackgroundColor( getResources().getColor(R.color.colorCardView));
                 lnTab1line.setVisibility(View.VISIBLE);
                 lnTab2.setBackgroundColor( getResources().getColor(R.color.colorWhite));
@@ -129,6 +138,8 @@ public class InformationFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 flag_relevant =2;
+                editor.putInt("tabID", flag_relevant);
+                editor.apply();
                 lnTab1.setBackgroundColor( getResources().getColor(R.color.colorWhite));
                 lnTab1line.setVisibility(View.GONE);
                 lnTab2.setBackgroundColor( getResources().getColor(R.color.colorCardView));
@@ -205,14 +216,12 @@ public class InformationFragment extends Fragment {
 
     public void loadData() {
 
-        SharedPreferences.Editor editor = getContext().getSharedPreferences("Fragment", Context.MODE_PRIVATE).edit();
-        String tabId;
+//        SharedPreferences.Editor editor = getContext().getSharedPreferences("Fragment", Context.MODE_PRIVATE).edit();
+//        String tabId;
         if(flagEdit_informationfragment == 0){
             setHasOptionsMenu(true);
             lnTab.setVisibility(View.VISIBLE);
             mScrollView.setVisibility(View.VISIBLE);
-            flagEdit_informationfragment = 1;
-            tabId = "1";
             mLinearLayout.setVisibility(View.GONE);
             //Log.d("Flag",""+flag_relevant);
         } else {
@@ -222,14 +231,13 @@ public class InformationFragment extends Fragment {
             mScrollView.setVisibility(View.GONE);
             mLinearLayout.setVisibility(View.VISIBLE);
             mTitleEdit.setText(stTitle);
-            tabId = "2";
             mDescEdit.setText(stDesc);
             //Log.d("Flag",""+flag_relevant);
         }
-        editor.putString("tabID", tabId);
-        editor.apply();
+//        editor.putString("tabID", tabId);
+//        editor.apply();
 
-        Call<ArrayList<InfoRes>> call = Global.getAPIService.readInfo("Token " + Global.token, Integer.valueOf(tabId));
+        Call<ArrayList<InfoRes>> call = Global.getAPIService.readInfo("Token " + Global.token, flag_relevant);
 
         call.enqueue(new Callback<ArrayList<InfoRes>>() {
             @Override

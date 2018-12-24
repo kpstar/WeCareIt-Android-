@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.net.ParseException;
@@ -329,9 +330,9 @@ public class EventsUpdateFragment extends TemplateFragment {
                 }
                 //Log.d(time_start,time_end+name+description);
                 if (EventsFragment.flag_update == 0){
-                    postEvent();
-                } else {
                     updateEvent();
+                } else {
+                    postEvent();
                 }
             }
         });
@@ -365,46 +366,6 @@ public class EventsUpdateFragment extends TemplateFragment {
                 user_id.add(i + 1);
             }
         }
-
-//        if(users.equals("Alla")){
-//            for (AuthorRes authoRres : Global.users) {
-//                user_id.add(authoRres.getId());
-//            }
-//        } else {
-//            for (AuthorRes authoRres : Global.users) {
-//                for (int i = 0; i < splited_user.length; i++) {
-//                    //Log.d(splited_user[i], "" + authoRres.getName());
-//                    if (splited_user[i].equals(authoRres.getName())) {
-//                        user_id.add(authoRres.getId());
-//                    }
-//                }
-//            }
-//        }
-//        if(clients.equals("Alla")){
-//            for (Client client : Global.clients) {
-//                client_id.add(client.getId());
-//            }
-//        } else {
-//            for (int i = 0; i < splited_client.length; i++) {
-//                for (Client client : Global.clients) {
-//                    if (splited_client[i].equals(client.getName()))
-//                        client_id.add(client.getId());
-//                }
-//            }
-//        }
-//        if(vehicles.equals("Alla")){
-//            for (Vehicle vehicle : Global.vehicles) {
-//                vehicle_id.add(vehicle.getId());
-//            }
-//        } else {
-//            for (int i = 0; i < splited_vehicle.length; i++) {
-//                for (Vehicle vehicle : Global.vehicles) {
-//                    if (splited_vehicle[i].equals(vehicle.getName()))
-//                        vehicle_id.add(vehicle.getId());
-//                }
-//            }
-//        }
-
     }
 
     private void updateLabel() {
@@ -435,6 +396,12 @@ public class EventsUpdateFragment extends TemplateFragment {
                             .replace(R.id.fragment_container, Global.eventsFragment)
                             .addToBackStack(null)
                             .commit();
+                    SharedPreferences.Editor editor= getContext().getSharedPreferences("Message", Context.MODE_PRIVATE).edit();
+                    String message = "Aktivitet ";
+                    EventsRes eventsRes = response.body();
+                    message += eventsRes.getName() + ", " + eventsRes.getCreation_date() + getEventTime(eventsRes.getTime().getUpper(), eventsRes.getTime().getLower()) + " uppdaterad";
+                    editor.putString("eventFragment", message);
+                    editor.apply();
                 }
             }
             @Override
@@ -464,12 +431,37 @@ public class EventsUpdateFragment extends TemplateFragment {
                             .replace(R.id.fragment_container, Global.eventsFragment)
                             .addToBackStack(null)
                             .commit();
+                    SharedPreferences.Editor editor= getContext().getSharedPreferences("Message", Context.MODE_PRIVATE).edit();
+                    String message = "Aktivitet ";
+                    EventsRes eventsRes = response.body();
+                    message += "\"" + eventsRes.getName() + ", " + getEventTime(eventsRes.getTime().getUpper(), eventsRes.getTime().getLower()) + " uppdaterad";
+                    editor.putString("eventFragment", message);
+                    editor.apply();
                 }
             }
             @Override
             public void onFailure(Call<EventsRes> call, Throwable t) {
             }
         });
+    }
+
+    public String getEventTime(String upper, String lower) {
+        String mTime = "";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        boolean isFlag = false;
+        String uDate = upper.substring(0, 10);
+        String lDate = lower.substring(0, 10);
+        if (uDate.equals(lDate)) {
+            isFlag = true;
+        }
+        String uTime = upper.substring(11, 16);
+        String lTime = lower.substring(11, 16);
+        if (isFlag) {
+            mTime = lDate + " " + lTime + " - " + uTime + "\" ";
+        } else {
+            mTime = lDate + " " + lTime + " - " + uDate + " " + uTime + "\" ";
+        }
+        return mTime;
     }
 
 }

@@ -54,8 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/layout_bg"
-                android:layout_margin="@dimen/padding_10dp">
+                android:background="@drawable/layout_bg">
                 <com.chinalwb.are.styles.toolbar.ARE_ToolbarDefault
                     android:id="@+id/areToolbar"
                     android:gravity="center_vertical"

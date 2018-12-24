@@ -3,11 +3,14 @@ package com.wecareit.fragments.events;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -71,6 +74,9 @@ public class EventsFragment extends TemplateFragment {
     private LinearLayout lnEmpty, lnVehicles, lnAccom, lnActivity, lnEmployee, lnExpand;
     private Button btnClear, btnUsed;
     private int flag_expand = 0;
+    private ConstraintLayout clMessage;
+    private TextView txtMsg;
+    private Button btnMsgClose;
     private String day1, day2, day_start, stringofyear;
     private TextView tvEmpty;
     private ScrollView main_scroll;
@@ -102,6 +108,8 @@ public class EventsFragment extends TemplateFragment {
 
         Global.toolbar.setNavigationIcon(R.drawable.ic_side_menu);
         Global.toolbar.setTitle("VECKOSCHEMA");
+
+        Global.floatingButton.setVisibility(View.VISIBLE);
 
         Global.floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,6 +170,26 @@ public class EventsFragment extends TemplateFragment {
         lnAccom.setBackground(gd_spinner);
         lnActivity.setBackground(gd_spinner);
         lnEmployee.setBackground(gd_spinner);
+
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Message", Context.MODE_PRIVATE);
+        String messageStr = sharedPreferences.getString("eventFragment", "");
+
+        clMessage = view.findViewById(R.id.clMessage);
+        btnMsgClose = (Button) view.findViewById(R.id.closeMessageBtn);
+        btnMsgClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clMessage.setVisibility(View.GONE);
+            }
+        });
+        txtMsg = (TextView) view.findViewById(R.id.addMessage);
+        if (!messageStr.isEmpty()) {
+            txtMsg.setText(messageStr);
+            clMessage.setVisibility(View.VISIBLE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("eventFragment", "");
+            editor.apply();
+        }
 
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override

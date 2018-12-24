@@ -66,7 +66,7 @@ public class InformationEditActivity extends AppCompatActivity implements RichEd
 
         setNumbers();
         SharedPreferences sharedPreferences = this.getSharedPreferences("Fragment", Context.MODE_PRIVATE);
-        flag_relevant = Integer.valueOf(sharedPreferences.getString("tabID", "1"));
+        flag_relevant = sharedPreferences.getInt("tabID", 1);
         id_information = getIntent().getIntExtra("InfoId", 0);
 
 
