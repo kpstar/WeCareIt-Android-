@@ -1,9 +1,12 @@
 package com.wecareit.fragments.attendance;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -52,6 +55,9 @@ public class AttendanceFragment extends TemplateFragment {
     private Button mSave;
     private ImageView mPrevDate;
     private ImageView mCalendar;
+    private ConstraintLayout clMessage;
+    private TextView txtMsg;
+    private Button btnMsgClose;
     private ImageView mNextDate;
     private RelativeLayout rlTime;
 
@@ -91,6 +97,15 @@ public class AttendanceFragment extends TemplateFragment {
         mSubmitStatusView = (TextView) getView().findViewById(R.id.fragment_attendance_submit_status);
         String day = Global.dateString(nowdate);
         mSelectedDateView.setText(day);
+
+        clMessage = view.findViewById(R.id.clMessage);
+        btnMsgClose = (Button) view.findViewById(R.id.closeMessageBtn);
+        btnMsgClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clMessage.setVisibility(View.GONE);
+            }
+        });
         //mSubmitStatusView.setText(" - ej inskickad");
 
         mRecyclerView = (RecyclerView) getView().findViewById(R.id.fragment_attendance_recyclerview);
@@ -115,6 +130,9 @@ public class AttendanceFragment extends TemplateFragment {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         Message.showObject(response.message());
+                        txtMsg = (TextView) view.findViewById(R.id.addMessage);
+                        txtMsg.setText("Närvarolistan inskickad.");
+                        clMessage.setVisibility(View.VISIBLE);
                     }
 
                     @Override
@@ -138,6 +156,10 @@ public class AttendanceFragment extends TemplateFragment {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         Message.showObject(response.message());
+
+                        txtMsg = (TextView) view.findViewById(R.id.addMessage);
+                        txtMsg.setText("Närvarolistan sparad.");
+                        clMessage.setVisibility(View.VISIBLE);
                         Log.d("response_code",""+response.code());
                     }
 

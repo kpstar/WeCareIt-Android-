@@ -3,13 +3,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding_10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/clMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"
+        android:layout_margin="@dimen/padding_10dp"
+        android:background="@color/colorGreen">
 
+        <TextView
+            android:id="@+id/addMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_6dp"
+            android:maxLines="2"
+            android:padding="@dimen/padding_10dp"
+            android:text="aaa"
+            android:layout_marginLeft="@dimen/width_40dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font_20sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/closeMessageBtn"
+            android:layout_width="@dimen/font_20sp"
+            android:layout_height="@dimen/font_20sp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text=""
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/ic_close" />
+
+    </android.support.constraint.ConstraintLayout>
     <LinearLayout
         android:id="@+id/lnTab_drivingfragment"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_60dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/clMessage"
+        android:layout_marginTop="@dimen/padding_10dp"
         android:orientation="horizontal">
         <RelativeLayout
             android:layout_width="match_parent"
